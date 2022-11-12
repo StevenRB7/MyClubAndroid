@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Actvity.Registro">
 
     <ScrollView
@@ -49,11 +50,10 @@
 
 
             <TextView
-                android:layout_width="262dp"
-                android:layout_height="43dp"
+                android:layout_width="229dp"
+                android:layout_height="45dp"
                 android:gravity="center"
                 android:text="@string/registro"
-                android:layout_marginStart="1dp"
                 android:textColor="@color/gris"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -87,7 +87,9 @@
                 android:id="@+id/idTxtNombre"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@null"
+                android:background="@color/white"
+                android:textColorHint="@color/gris"
+                android:textColor="@color/gris"
                 android:gravity="center"
                 android:hint="@string/nombre"
                 android:importantForAutofill="no"
@@ -112,7 +114,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autofillHints=""
-                android:background="@null"
+                android:background="@color/white"
+                android:textColorHint="@color/gris"
+                android:textColor="@color/gris"
                 android:gravity="center"
                 android:hint="@string/n_mero_de_tel_fono"
                 android:inputType="phone"
@@ -134,9 +138,11 @@
                 android:id="@+id/idTxtCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@null"
                 android:gravity="center"
                 android:hint="@string/correo_electr_nico"
+                android:background="@color/white"
+                android:textColorHint="@color/gris"
+                android:textColor="@color/gris"
                 android:importantForAutofill="no"
                 android:inputType="textEmailAddress"
                 android:outlineProvider="background"
@@ -158,8 +164,9 @@
                 android:id="@+id/idTxtNumberIdentification"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@null"
-                android:gravity="center"
+                android:background="@color/white"
+                android:textColorHint="@color/gris"
+                android:textColor="@color/gris"                android:gravity="center"
                 android:hint="@string/identificacion"
                 android:importantForAutofill="no"
                 android:inputType="text"

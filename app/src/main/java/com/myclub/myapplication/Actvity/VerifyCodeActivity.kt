@@ -3,7 +3,6 @@ package com.myclub.myapplication.Actvity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
 
 import com.myclub.myapplication.dataDto.request.ConsultarCuentaRequestDto
 import com.myclub.myapplication.dataDto.request.VerifyCoeRequestDto
@@ -33,11 +32,11 @@ class VerifyCodeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getDataIntentExtras()
-        botones()
+        //botones()
 
         binding.idBtnVerifyCode.setOnClickListener {
             if (validateTextFieldForm()) {
-                var codeVerify = binding.idTxtUno.text.toString() +
+                val codeVerify = binding.idTxtUno.text.toString() +
                         binding.idTxtDos.text.toString() +
                         binding.idTxtTres.text.toString() +
                         binding.idTxtCuatro.text.toString()
@@ -48,11 +47,11 @@ class VerifyCodeActivity : AppCompatActivity() {
         }
     }
 
-    private fun botones() {
-        binding.idBtnVerifyCode.setOnClickListener {
-            val i = Intent (this, Registro::class.java)
-            startActivity(i)
-        }    }
+   // private fun botones() {
+     //   binding.idBtnVerifyCode.setOnClickListener {
+       //     val i = Intent (this, Registro::class.java)
+         //   startActivity(i)
+        //}    }
 
     private fun callCodeVerifyService(codeVerify: String, login: String) {
         try {
@@ -92,28 +91,28 @@ class VerifyCodeActivity : AppCompatActivity() {
     private fun validateTextFieldForm(): Boolean {
         var isValidForm = true
         try {
-            if (binding.idTxtUno.text.toString().isNullOrEmpty()) {
+            if (binding.idTxtUno.text.toString().isEmpty()) {
                 binding.idTxtUno.error = ERROR_FORMULARIO_VACIO
                 isValidForm = false
             } else {
                 binding.idTxtUno.error = null
                 isValidForm = true
             }
-            if (binding.idTxtDos.text.toString().isNullOrEmpty()) {
+            if (binding.idTxtDos.text.toString().isEmpty()) {
                 binding.idTxtDos.error = ERROR_FORMULARIO_VACIO
                 isValidForm = false
             } else {
                 binding.idTxtDos.error = null
                 isValidForm = true
             }
-            if (binding.idTxtTres.text.toString().isNullOrEmpty()) {
+            if (binding.idTxtTres.text.toString().isEmpty()) {
                 binding.idTxtTres.error = ERROR_FORMULARIO_VACIO
                 isValidForm = false
             } else {
                 binding.idTxtTres.error = null
                 isValidForm = true
             }
-            if (binding.idTxtCuatro.text.toString().isNullOrEmpty()) {
+            if (binding.idTxtCuatro.text.toString().isEmpty()) {
                 binding.idTxtCuatro.error = ERROR_FORMULARIO_VACIO
                 isValidForm = false
             } else {

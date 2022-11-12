@@ -13,7 +13,6 @@ import com.myclub.myapplication.dataDto.response.IniciarSesionResponseDto
 import com.myclub.myapplication.databinding.ActivityIniciarSesionBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
-import com.myclub.myapplication.ui.home.HomeFragment
 import com.myclub.myapplication.utils.Constantes.BASE_URL_PERSONAS
 import com.myclub.myapplication.utils.Constantes.ID_PROYECTO
 import com.myclub.myapplication.utils.dataStore.MySharedPreferences
@@ -56,7 +55,7 @@ class IniciarSesion : Activity() {
 
        //}
 
-        botones();
+        botones()
 
     }
 
@@ -105,7 +104,7 @@ class IniciarSesion : Activity() {
 
                 override fun onFailure(call: Call<IniciarSesionResponseDto?>, t: Throwable) {
                     Toast.makeText(this@IniciarSesion, t.message, Toast.LENGTH_SHORT).show()
-                    binding.idProgresBarLogin.visibility = View.GONE
+                    //binding.idProgresBarLogin.visibility = View.GONE
 
                     //AlertLoading.alertDialogLoading.dismiss()
                 }
