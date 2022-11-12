@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/m_10dp"
+        android:layout_marginTop="@dimen/m_32dp"
+        android:layout_marginEnd="@dimen/m_10dp"
+        android:layout_marginBottom="@dimen/m_32dp"
+        android:background="@color/transparente"
+        android:backgroundTint="@color/transparente"
+        android:elevation="@dimen/m_15dp"
+        app:cardCornerRadius="@dimen/m_15dp"
+        app:cardElevation="@dimen/m_15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_cuadrado"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/t_32sp"
+                android:layout_marginTop="@dimen/m_15dp"
+                android:layout_marginEnd="@dimen/t_32sp"
+                android:layout_marginBottom="@dimen/m_10dp"
+                android:background="@color/transparente"
+                android:backgroundTint="@color/transparente"
+                android:text="@string/prueba"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:tint="@color/vino"
+                app:tint="@color/vino"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:background="@color/transparente"
+                android:backgroundTint="@color/transparente"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="false"
+                app:lottie_rawRes="@raw/error" />
+
+            <TextView
+                android:id="@+id/idTxtxMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/t_32sp"
+                android:layout_marginEnd="@dimen/t_32sp"
+                android:layout_marginBottom="@dimen/m_10dp"
+                android:background="@color/transparente"
+                android:backgroundTint="@color/transparente"
+                android:text="@string/ok"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                 />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/idBtnTryAgain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m_32dp"
+                android:layout_marginEnd="@dimen/m_32dp"
+                android:textColor="@color/white"
+                android:background="@drawable/botones_fondo"
+                android:text="intenta otra vez"
+                app:cornerRadius="@dimen/m_10dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

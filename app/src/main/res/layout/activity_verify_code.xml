@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondobtn"
+    tools:context=".Actvity.VerifyCodeActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ingrese el codigo de verificación"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.099" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m_32dp"
+                android:layout_marginTop="@dimen/m_32dp"
+                android:layout_marginEnd="@dimen/m_32dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/idTxtUno"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/border_txt_imput"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <View
+                    android:layout_width="@dimen/m_10dp"
+                    android:layout_height="5dp" />
+
+                <EditText
+                    android:id="@+id/idTxtDos"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/border_txt_imput"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <View
+                    android:layout_width="@dimen/m_10dp"
+                    android:layout_height="5dp" />
+
+                <EditText
+                    android:id="@+id/idTxtTres"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/border_txt_imput"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <View
+                    android:layout_width="@dimen/m_10dp"
+                    android:layout_height="5dp" />
+
+                <EditText
+                    android:id="@+id/idTxtCuatro"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/border_txt_imput"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/idBtnVerifyCode"
+                android:backgroundTint="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m_32dp"
+                android:layout_marginTop="@dimen/m_32dp"
+                android:layout_marginEnd="@dimen/m_32dp"
+                android:layout_marginBottom="@dimen/m_32dp"
+                android:text="@string/verify"
+                android:textColor="@color/gris"
+                />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

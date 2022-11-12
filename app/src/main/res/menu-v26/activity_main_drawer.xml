@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+
+    >
+
+    <group android:checkableBehavior="single"
+        >
+        <item
+            android:iconTint="@color/transparente"
+            android:id="@+id/nav_home"
+            android:icon="@drawable/perfil"
+            android:title="@string/Perfil" />
+        <item
+            android:id="@+id/nav_promociones"
+            android:icon="@drawable/promo"
+            android:title="@string/Promociones" />
+        <item
+            android:id="@+id/nav_membresia"
+            android:icon="@drawable/membresia"
+            android:title="@string/Membresias" />
+        <item
+            android:id="@+id/nav_Metodos"
+            android:icon="@drawable/metodo"
+            android:title="@string/Metodos" />
+        <item
+            android:id="@+id/nav_Vauchers"
+            android:icon="@drawable/vaucher"
+            android:title="@string/Vauchers" />
+        <item
+            android:id="@+id/nav_Redimir"
+            android:icon="@drawable/redimir"
+            android:title="@string/Redimir" />
+        <item
+            android:id="@+id/nav_Codigo"
+            android:icon="@drawable/referir"
+            android:title="@string/Codigo" />
+        <item
+            android:id="@+id/nav_Soporte"
+            android:icon="@drawable/soporte"
+            android:title="@string/Soporte" />
+
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/cerrardrawer"
+                android:icon="@drawable/cerrarsesion"
+                android:title="@string/cerra" />
+        </menu>
+    </item>
+</menu>
+
+

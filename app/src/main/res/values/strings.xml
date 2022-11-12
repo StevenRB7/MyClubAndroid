@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">My_Club</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="recuperar_contrasenia">Recuperar Contraseña</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="str_imagenesdescription">str_imagenesDescription</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="crear_usuario">Crear usuario</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="title_activity_home_usuario">HomeUsuarioActivity</string>
+
+    <string name="ciudad">Ciudad</string>
+    <string name="historial_de_viajes">Historial de viajes</string>
+    <string name="servicios">Servicios</string>
+    <string name="interurbano">Interurbano</string>
+    <string name="configuraci_n">Configuración</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="soporte">Soporte</string>
+    <string name="seguridad_y_protecci_n">Seguridad y Protección</string>
+    <string name="viaje">Viaje</string>
+    <string name="servicio">Servicio</string>
+    <string name="lugar_de_recogida">Lugar de recogida</string>
+    <string name="lugar_de_destino">Lugar de destino</string>
+    <string name="cop">COP</string>
+    <string name="ofresca_su_tarifa">Ofresca su tarifa</string>
+    <string name="comentarios_y_deseos">Comentarios y deseos</string>
+    <string name="pedir_auto">Pedir auto</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="comentarios_equipaje">Comentarios, equipaje</string>
+    <string name="cabina_completa">Cabina completa</string>
+    <string name="cabina_compartida">Cabina compartida</string>
+    <string name="n_mero_de_pasajeros">Número de pasajeros</string>
+    <string name="fecha_de_partida">Fecha de partida</string>
+    <string name="mis_solicitudes">Mis solicitudes</string>
+    <string name="nueva_solicitud">Nueva Solicitud</string>
+    <string name="solicitados">Solicitados</string>
+    <string name="programados">Programados</string>
+    <string name="cancelados">Cancelados</string>
+    <string name="_3145875809">3145875809</string>
+    <string name="registro">Registro</string>
+    <string name="completa_tu_informaci_n">Completa tu información</string>
+    <string name="n_mero_de_tel_fono">Teléfono</string>
+    <string name="nombre">Nombre</string>
+    <string name="segundo_apellido">Segundo apellido</string>
+    <string name="correo_electr_nico">Correo</string>
+    <string name="registrarme_con_correo">Registrarme con correo</string>
+    <string name="registrarme_con_n_mero">Registrarme con número</string>
+    <string name="title_activity_main_menu">Main_menu</string>
+    <string name="Perfil">Perfil</string>
+    <string name="Promociones">Promociones</string>
+    <string name="Membresias">Membresias</string>
+    <string name="Metodos">Metodos de pago</string>
+    <string name="Vauchers">Vauchers</string>
+    <string name="Redimir">Redimir puntos</string>
+    <string name="Codigo">Codigo de referidos</string>
+    <string name="Soporte">Soporte</string>
+    <string name="cerra">Cerrar Sesion</string>
+    <string name="Restaurante"><![CDATA[Restaurantes & Bar]]></string>
+    <string name="Hoteles"><![CDATA[Hoteles & Resorts]]></string>
+    <string name="superpromo">Super Promos</string>
+    <string name="belleza"><![CDATA[Belleza & Deporte]]></string>
+    <string name="veterinaria">Veterinaria</string>
+    <string name="mispuntos">Mis Puntos</string>
+    <string name="ahorros">$500.000</string>
+    <string name="puntos">500 puntos</string>
+    <string name="misahorros">Mis Ahorros</string>
+    <string name="prueba">Correo verificado</string>
+    <string name="ok">Listo</string>
+    <string name="identificacion">Identificación</string>
+    <string name="cargando">Cargando</string>
+    <string name="verify">Verificar</string>
+
+</resources>

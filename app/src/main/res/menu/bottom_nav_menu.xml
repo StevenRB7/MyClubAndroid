@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/idpefil"
+        android:icon="@drawable/pefil"
+        android:title="" />
+
+    <item
+        android:id="@+id/idhistorial"
+        android:icon="@drawable/historial"
+        android:title="" />
+
+    <item
+        android:id="@+id/iddescuento"
+        android:icon="@drawable/discount"
+        android:title="" />
+    <item
+        android:id="@+id/idbonos"
+        android:icon="@drawable/bonos"
+        android:title="" />
+    <item
+        android:id="@+id/idconfi"
+        android:icon="@drawable/configuracion"
+        android:title="" />
+
+</menu>

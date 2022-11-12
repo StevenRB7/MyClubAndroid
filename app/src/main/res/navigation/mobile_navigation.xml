@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.myclub.myapplication.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_promociones"
+        android:name="com.myclub.myapplication.ui.promociones.PromocionesFragment"
+        tools:layout="@layout/fragment_promociones" />
+
+
+    <fragment
+        android:id="@+id/nav_Metodos"
+        android:name="com.myclub.myapplication.ui.metodos.MetodoFragment"
+        tools:layout="@layout/fragment_metodo" />
+
+    <fragment
+        android:id="@+id/nav_Vauchers"
+        android:name="com.myclub.myapplication.ui.vaucher.VaucherFragment"
+        tools:layout="@layout/fragment_vaucher" />
+    <fragment
+        android:id="@+id/nav_membresia"
+        android:name="com.myclub.myapplication.ui.membresias.MembresiasFragment"
+        tools:layout="@layout/fragment_membresias" />
+
+    <fragment
+        android:id="@+id/nav_Redimir"
+        android:name="com.myclub.myapplication.ui.redimir.RedimirFragment"
+        tools:layout="@layout/fragment_redimir" />
+    <fragment
+        android:id="@+id/nav_Codigo"
+        android:name="com.myclub.myapplication.ui.codigo.CodigoDeReferidosFragment"
+        tools:layout="@layout/fragment_codigo_de_referidos" />
+    <fragment
+        android:id="@+id/nav_Soporte"
+        android:name="com.myclub.myapplication.ui.soporte.SoporteFragment"
+        tools:layout="@layout/fragment_soporte" />
+
+</navigation>
