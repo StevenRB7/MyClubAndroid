@@ -7,17 +7,8 @@
         android:title="" />
 
     <item
-        android:id="@+id/idhistorial"
-        android:icon="@drawable/historial"
-        android:title="" />
-
-    <item
         android:id="@+id/iddescuento"
         android:icon="@drawable/discount"
-        android:title="" />
-    <item
-        android:id="@+id/idbonos"
-        android:icon="@drawable/bonos"
         android:title="" />
     <item
         android:id="@+id/idconfi"

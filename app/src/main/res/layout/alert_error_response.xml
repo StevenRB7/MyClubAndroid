@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -37,7 +38,7 @@
                 android:layout_marginBottom="@dimen/m_10dp"
                 android:background="@color/transparente"
                 android:backgroundTint="@color/transparente"
-                android:text="@string/prueba"
+                android:text="@string/alerterror"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="22sp"
@@ -51,8 +52,8 @@
                 android:background="@color/transparente"
                 android:backgroundTint="@color/transparente"
                 app:lottie_autoPlay="true"
-                app:lottie_loop="false"
-                app:lottie_rawRes="@raw/error" />
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/errorrr" />
 
             <TextView
                 android:id="@+id/idTxtxMessage"

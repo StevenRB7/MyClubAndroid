@@ -76,10 +76,13 @@
     <string name="ahorros">$500.000</string>
     <string name="puntos">500 puntos</string>
     <string name="misahorros">Mis Ahorros</string>
-    <string name="prueba">Correo verificado</string>
+    <string name="informacion">Te hemos enviado un correo electrónico con instrucciones para iniciar sesion</string>
     <string name="ok">Listo</string>
     <string name="identificacion">Identificación</string>
     <string name="cargando">Cargando</string>
     <string name="verify">Verificar</string>
+    <string name="verificado">Usuario creado correctamente</string>
+    <string name="alerterror">Usuario no encontrado</string>
+    <string name="Inicio">Inicio</string>
 
 </resources>

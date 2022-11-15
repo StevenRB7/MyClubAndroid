@@ -46,10 +46,10 @@
                 android:layout_gravity="center"
                 android:background="@color/transparente"
                 android:backgroundTint="@color/transparente"
-                android:text="@string/prueba"
+                android:text="@string/verificado"
                 android:textAlignment="center"
-                android:textColor="@color/vino"
-                android:textSize="22sp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -60,7 +60,7 @@
                 android:layout_marginBottom="@dimen/m_10dp"
                 android:background="@color/transparente"
                 android:backgroundTint="@color/transparente"
-                android:text="@string/prueba"
+                android:text="@string/informacion"
                 android:textAlignment="center"
                 android:textColor="@color/color_hint"
                 android:textSize="22sp" />

@@ -3,8 +3,9 @@ package com.myclub.myapplication.Actvity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
+import com.myclub.myapplication.Actvity.AlertErrorResponse.Companion.alertDialogErrorResponse
+import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
 import com.myclub.myapplication.MainActivity
 
 import com.myclub.myapplication.dataDto.request.SignInRequestDto
@@ -36,24 +37,22 @@ class IniciarSesion : Activity() {
         binding = ActivityIniciarSesionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        queryPersonByIdResponseDto =ConsutarCuentaResponseDto()
-
-
-
+        queryPersonByIdResponseDto = ConsutarCuentaResponseDto()
+        AlertLoading().alertLoadingDialog(this, "Validando")
 
         //var crear : Button = findViewById(R.id.idBtnRegistro)
         //crear.setOnClickListener {
-            //val intent = Intent(this, Registro::class.java)
+        //val intent = Intent(this, Registro::class.java)
         //startActivity(intent)
         //}
 
         //var iniciar : Button = findViewById(R.id.idBtnIngresar)
-       //iniciar.setOnClickListener {
-            //val intent = Intent(this, MainActivity::class.java)
-            //startActivity(intent)
-          // AlertLoading.alertDialogLoading.dismiss()
+        //iniciar.setOnClickListener {
+        //val intent = Intent(this, MainActivity::class.java)
+        //startActivity(intent)
+        // AlertLoading.alertDialogLoading.dismiss()
 
-       //}
+        //}
 
         botones()
 
@@ -64,15 +63,20 @@ class IniciarSesion : Activity() {
             iniciarsesion(binding.idusuario.text.toString(), binding.idpwd.text.toString())
         }
 
-    binding.idBtnRegistro.setOnClickListener {
-    val i = Intent (this, Registro::class.java)
-    startActivity(i)
+        binding.idBtnRegistro.setOnClickListener {
+            val i = Intent(this, Registro::class.java)
+            startActivity(i)
         }
+        binding.idrecuperarContrasena.setOnClickListener {
+            val inte = Intent(this, RecuperarContra::class.java)
+            startActivity(inte)
+        }
+
     }
 
     private fun iniciarsesion(login: String, password: String) {
 
-        //AlertLoading.alertDialogLoading.show()
+        alertDialogLoading.show()
         signInRequestdDto = SignInRequestDto()
         signInRequestdDto!!.Login = login
         signInRequestdDto!!.Password = password
@@ -90,8 +94,12 @@ class IniciarSesion : Activity() {
                     sharedPreferences = MySharedPreferences(this@IniciarSesion)
 
                     if (signInResponseDto?.CodigoRespuesta == 500) {
-                       // alertDialogErrorResponse.show()
-                        //AlertLoading.alertDialogLoading.dismiss()
+                        AlertErrorResponse().alertErrorResponseDialog(
+                            this@IniciarSesion,
+                            "${signInResponseDto?.MensajeRespuesta}"
+                        )
+                        alertDialogErrorResponse.show()
+                        AlertLoading.alertDialogLoading.dismiss()
 
                     } else {
                         sharedPreferences.storeIdUser(signInResponseDto?.Id.toString())
@@ -106,7 +114,7 @@ class IniciarSesion : Activity() {
                     Toast.makeText(this@IniciarSesion, t.message, Toast.LENGTH_SHORT).show()
                     //binding.idProgresBarLogin.visibility = View.GONE
 
-                    //AlertLoading.alertDialogLoading.dismiss()
+                    AlertLoading.alertDialogLoading.dismiss()
                 }
             })
 

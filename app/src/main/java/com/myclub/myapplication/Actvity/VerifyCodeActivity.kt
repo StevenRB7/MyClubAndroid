@@ -3,6 +3,7 @@ package com.myclub.myapplication.Actvity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
 
 import com.myclub.myapplication.dataDto.request.ConsultarCuentaRequestDto
 import com.myclub.myapplication.dataDto.request.VerifyCoeRequestDto
@@ -42,8 +43,8 @@ class VerifyCodeActivity : AppCompatActivity() {
                         binding.idTxtCuatro.text.toString()
                 callCodeVerifyService(codeVerify, userPerson)
             }
-            val i = Intent (this, IniciarSesion::class.java)
-            startActivity(i)
+            //val i = Intent (this, ::class.java)
+           // startActivity(i)
         }
     }
 
@@ -67,7 +68,7 @@ class VerifyCodeActivity : AppCompatActivity() {
                     .create(ApiService::class.java)
             apiService.verifyCode(verifyCoeRequestDto)?.enqueue(object : Callback<Boolean?> {
                 override fun onResponse(call: Call<Boolean?>, response: Response<Boolean?>) {
-                    //alertDialogLoading.dismiss()
+                    alertDialogLoading.dismiss()
                     if (response.body() == true) {
                         AlertCheckEmail().alertCheckEmail(this@VerifyCodeActivity, "iniciar")
                     } else {

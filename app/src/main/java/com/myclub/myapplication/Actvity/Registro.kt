@@ -4,8 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import com.myclub.myapplication.Actvity.AlertErrorResponse.Companion.alertDialogErrorResponse
+import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
 import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.PersonalModelDto
 import com.myclub.myapplication.dataDto.response.ResponseDto
@@ -39,7 +42,7 @@ class Registro : AppCompatActivity() {
         try {
             setData()
             responseDto = ResponseDto()
-            //alertDialogLoading.show()
+            alertDialogLoading.show()
             val apiService: ApiService =
                 ApiClient.RetrofitHelper(BASE_URL_PERSONAS)
                     .create(ApiService::class.java)
@@ -50,30 +53,33 @@ class Registro : AppCompatActivity() {
                 ) {
                     responseDto = response.body()!!
                     Toast.makeText(this@Registro, "${responseDto.Codigo}", Toast.LENGTH_SHORT).show()
-                    //alertDialogLoading.dismiss()
+                    alertDialogLoading.dismiss()
 
                     if (responseDto.Codigo == CODIGO_ERROR) {
-                        //alertDialogErrorResponse.show()
 
                         AlertErrorResponse().alertErrorResponseDialog(
                             this@Registro,
                             responseDto.Mensaje.toString() + " ${personaRequest.Telefono}"
                         )
+                        alertDialogErrorResponse.show()
+
                     } else {
                         val i = Intent(this@Registro, VerifyCodeActivity::class.java)
                         i.putExtra("IdPersona", responseDto.IdPersona)
                         i.putExtra("PhonePerson", binding.idTxtTelefono.text.toString())
                         i.putExtra("EmailUser", binding.idTxtCorreo.text.toString())
                         startActivity(i)
+                        alertDialogLoading.show()
+
                     }
                 }
 
                 override fun onFailure(call: Call<ResponseDto?>, t: Throwable) {
-                    //alertDialogLoading.dismiss()
+                    alertDialogLoading.dismiss()
                 }
             })
         } catch (e: Exception) {
-            //alertDialogLoading.dismiss()
+            alertDialogLoading.dismiss()
         }
     }
     private fun buttonActions() {
@@ -90,6 +96,11 @@ class Registro : AppCompatActivity() {
         btn.setOnClickListener {
             val intent = Intent(this, IniciarSesion::class.java)
             startActivity(intent)
+        }
+        var iniciar : Button = findViewById(R.id.btnIniciarSesion2)
+        iniciar.setOnClickListener {
+            val i = Intent(this, IniciarSesion::class.java)
+            startActivity(i)
         }
     }
     private fun setData() {

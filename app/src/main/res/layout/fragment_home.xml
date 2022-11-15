@@ -271,13 +271,13 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:contentDescription="@string/str_imagenesdescription"
-                android:src="@drawable/superpromos" />
+                android:src="@drawable/bonos" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/m_5dp"
-                android:text="@string/superpromo"
+                android:text="@string/Membresias"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="16sp" />

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,9 +16,26 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="89dp"
-            android:background="@drawable/background"
+            android:background="@drawable/fondobtn">
+
+            <ImageView
+                android:layout_width="170dp"
+                android:layout_height="60dp"
+                android:src="@drawable/logoregistro"
+                android:layout_gravity="center"
+                />
+
+            <ImageView
+                android:id="@+id/idperfilmenu"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:src="@drawable/notificacion"
+            android:layout_gravity="right"
             />
 
+
+
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <include

@@ -20,13 +20,13 @@ class AlertCheckEmail {
         }.create()
 
         viewAlert.idBtnOkAlertEmail.setOnClickListener {
-            //alertDialogCheckEmail.dismiss()
+            alertDialogCheckEmail.dismiss()
             if (dataExtra == "iniciar") {
                 val i = Intent(context, IniciarSesion::class.java)
                 context.startActivity(i)
             }
         }
         alertDialogCheckEmail.window?.setBackgroundDrawableResource(R.color.transparente)
-        //alertDialogCheckEmail.show()
+        alertDialogCheckEmail.show()
     }
 }

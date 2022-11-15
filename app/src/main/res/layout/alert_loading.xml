@@ -24,8 +24,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#CE63318A"
-            android:backgroundTint="#CE63318A"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -36,7 +34,7 @@
                 android:backgroundTint="@color/transparente"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                app:lottie_rawRes="@raw/cargando_animacion" />
+                app:lottie_rawRes="@raw/cargandoo" />
 
             <TextView
                 android:id="@+id/idTxtxMessage"
