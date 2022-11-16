@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemcupon"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/idbtntarjetacupon"
+        android:layout_width="412dp"
+        android:layout_height="201dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="@dimen/m_15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="388dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            android:background="@drawable/myqcupon"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/txtDscripcionCupon"
+                android:layout_width="318dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="39dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="97dp"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="1"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtIdCupon" />
+
+            <TextView
+                android:id="@+id/txtIdCupon"
+                android:layout_width="202dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="52dp"
+                android:layout_marginEnd="36dp"
+
+                android:layout_marginBottom="1dp"
+                android:layout_weight="1"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/txtDscripcionCupon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.33"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/appCompatButton"
+                android:layout_width="125dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="136dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="135dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/activarm"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtDscripcionCupon">
+
+
+            </androidx.appcompat.widget.AppCompatButton>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

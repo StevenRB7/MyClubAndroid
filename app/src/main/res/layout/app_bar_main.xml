@@ -4,22 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.MyClub.AppBarOverlay">
+        android:theme="@style/Theme.MyClub.AppBarOverlay"
+        >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="89dp"
+            android:layout_height="90dp"
+            app:titleTextColor="@color/transparente"
             android:background="@drawable/fondobtn">
 
             <ImageView
-                android:layout_width="170dp"
+                android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:src="@drawable/logoregistro"
                 android:layout_gravity="center"

@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/idpefil"
+        android:id="@+id/nav_perfil"
         android:icon="@drawable/pefil"
         android:title="" />
 
     <item
-        android:id="@+id/iddescuento"
+        android:id="@+id/nav_superpromos"
         android:icon="@drawable/discount"
         android:title="" />
     <item
-        android:id="@+id/idconfi"
+        android:id="@+id/nav_configuracion"
         android:icon="@drawable/configuracion"
         android:title="" />
 

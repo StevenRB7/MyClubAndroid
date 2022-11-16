@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.myclub.myapplication.Actvity.IniciarSesion
 import com.myclub.myapplication.Actvity.Notificaciones
 import com.myclub.myapplication.databinding.ActivityMainBinding
+import com.myclub.myapplication.ui.codigo.CodigoDeReferidosFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,11 +39,11 @@ class MainActivity : AppCompatActivity() {
 
 ////////
         binding.appBarMain.toolbar.setOnClickListener { view ->
-            //val  notificacion : ImageView = findViewById(R.id.idperfilmenu)
-            //notificacion.setOnClickListener {
-                //val i = Intent(this, Notificaciones::class.java)
-                //startActivity(i)
-            //}
+            val  notificacion : ImageView = findViewById(R.id.idperfilmenu)
+            notificacion.setOnClickListener {
+                val i = Intent(this, Notificaciones::class.java)
+                startActivity(i)
+            }
         }
 
         val drawerLayout: DrawerLayout = binding.drawerLayout

@@ -43,4 +43,25 @@
         android:name="com.myclub.myapplication.ui.soporte.SoporteFragment"
         tools:layout="@layout/fragment_soporte" />
 
+
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.myclub.myapplication.uiNav.perfil.PerfilFragment"
+        android:label="@string/Perfil"
+        tools:layout="@layout/fragment_perfil" />
+
+    <fragment
+        android:id="@+id/nav_superpromos"
+        android:name="com.myclub.myapplication.uiNav.superpromos.SuperPromosFragment"
+        android:label="@string/superpromo"
+        tools:layout="@layout/fragment_super_promos" />
+
+    <fragment
+        android:id="@+id/nav_configuracion"
+        android:name="com.myclub.myapplication.uiNav.configuracion.ConfiguracionFragment"
+        android:label="@string/configuraci_n"
+        tools:layout="@layout/fragment_configuracion" />
+
+
+
 </navigation>

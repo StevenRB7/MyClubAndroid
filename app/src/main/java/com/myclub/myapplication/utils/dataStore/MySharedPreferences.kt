@@ -1,9 +1,11 @@
 package com.myclub.myapplication.utils.dataStore
 
 import android.content.Context
+import android.provider.Settings.Global.putString
 import com.myclub.myapplication.utils.Constantes.*
 
 class MySharedPreferences(private val context: Context) {
+
 
     val myStorePreference = context.getSharedPreferences(PREF_NAME, 0)
 
@@ -14,4 +16,5 @@ class MySharedPreferences(private val context: Context) {
     fun storeActiveSessionUser(active: String) {
         myStorePreference.edit().putString(PREF_ACTIVE_SESSION, active).apply()
     }
+
 }
