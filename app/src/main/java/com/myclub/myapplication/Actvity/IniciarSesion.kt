@@ -90,8 +90,6 @@ class IniciarSesion : Activity() {
                     call: Call<IniciarSesionResponseDto?>,
                     response: Response<IniciarSesionResponseDto?>
                 ) {
-                    signInResponseDto = response.body()
-                    sharedPreferences = MySharedPreferences(this@IniciarSesion)
 
                     if (signInResponseDto?.CodigoRespuesta == 500) {
                         AlertErrorResponse().alertErrorResponseDialog(
@@ -102,6 +100,8 @@ class IniciarSesion : Activity() {
                         AlertLoading.alertDialogLoading.dismiss()
 
                     } else {
+                        sharedPreferences = MySharedPreferences(this@IniciarSesion)
+
                         sharedPreferences.storeIdUser(signInResponseDto?.Id.toString())
                         sharedPreferences.storeActiveSessionUser("ActiveSession")
                         //AlertLoading.alertDialogLoading.dismiss()

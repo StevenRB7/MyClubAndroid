@@ -10,6 +10,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/logosquare"
         android:label="@string/app_name"
+        android:name=".utils.dataStore.MyClub"
         android:roundIcon="@drawable/logosquare"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyClub.NoActionBar"
@@ -80,7 +81,9 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            >
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -103,16 +106,7 @@
         </activity>
         <activity
             android:name=".SplashScreen"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Splash"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

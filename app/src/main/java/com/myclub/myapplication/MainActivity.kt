@@ -1,13 +1,10 @@
 package com.myclub.myapplication
 
-import android.content.ClipData.Item
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.view.View
-import android.widget.Button
+
 import android.widget.ImageView
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -16,10 +13,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.myclub.myapplication.Actvity.IniciarSesion
 import com.myclub.myapplication.Actvity.Notificaciones
 import com.myclub.myapplication.databinding.ActivityMainBinding
-import com.myclub.myapplication.ui.codigo.CodigoDeReferidosFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -53,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_promociones, R.id.nav_membresia, R.id.nav_Metodos,R.id.nav_Vauchers,R.id.nav_Redimir,R.id.nav_Codigo,R.id.nav_Soporte
+                R.id.nav_home, R.id.nav_promociones, R.id.nav_membresia, R.id.nav_Metodos,R.id.nav_Vauchers,R.id.nav_Redimir,R.id.nav_Codigo
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

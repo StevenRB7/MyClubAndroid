@@ -1,20 +1,17 @@
 package com.myclub.myapplication.Actvity
 
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.myclub.myapplication.MainActivity
 import com.myclub.myapplication.adapter.ShopsAdapter
 import com.myclub.myapplication.dataDto.request.ConsultarShopsRequestDto
 import com.myclub.myapplication.dataDto.response.ConsultarShopsResponseDto
 import com.myclub.myapplication.databinding.ActivityListadoShopsBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
-import com.myclub.myapplication.ui.membresias.MembresiasFragment
 import com.myclub.myapplication.utils.Constantes
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,8 +37,7 @@ class ListadoShopsActivity : AppCompatActivity() {
 
     private fun botones() {
         binding?.idbtnregresarshop?.setOnClickListener {
-            var i = Intent(this, MembresiasFragment::class.java)
-            startActivity(i)
+            onBackPressed()
         }
     }
 

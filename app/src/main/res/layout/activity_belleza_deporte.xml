@@ -6,4 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".Actvity.Belleza_Deporte">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondobtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/m_15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btnregresarnoti"
+                android:layout_width="@dimen/m_32dp"
+                android:layout_height="@dimen/m_32dp"
+                android:padding="@dimen/m_5dp"
+                android:src="@drawable/atras_blanca"
+                app:tint="@color/white" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/m_32dp"
+                    android:layout_height="@dimen/m_32dp"
+                    android:layout_marginEnd="@dimen/m_10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/notificacion"
+                    android:visibility="invisible"
+                    app:tint="@color/white" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

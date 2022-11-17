@@ -1,13 +1,11 @@
 package com.myclub.myapplication.ui.membresias
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.myclub.myapplication.Actvity.Registro
 import com.myclub.myapplication.R
 import com.myclub.myapplication.adapter.CuponAdapter
 import com.myclub.myapplication.dataDto.request.ConsultaCuponRequestDto
@@ -17,7 +15,6 @@ import com.myclub.myapplication.databinding.FragmentMembresiasBinding
 import com.myclub.myapplication.network.ApiClient.Companion.RetrofitHelper
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
-import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

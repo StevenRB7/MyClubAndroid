@@ -61,7 +61,11 @@
         android:name="com.myclub.myapplication.uiNav.configuracion.ConfiguracionFragment"
         android:label="@string/configuraci_n"
         tools:layout="@layout/fragment_configuracion" />
-
+    <activity
+        android:id="@+id/listadoShopsActivity"
+        android:name="com.myclub.myapplication.Actvity.ListadoShopsActivity"
+        android:label="activity_listado_shops"
+        tools:layout="@layout/activity_listado_shops" />
 
 
 </navigation>
