@@ -50,6 +50,10 @@ class CuponAdapter(
                 val i = Intent(context, ListadoShopsActivity::class.java)
                 context.startActivity(i)
             }
+            binding.idbtnverdetalle.setOnClickListener {
+                val i = Intent(context, ListadoShopsActivity::class.java)
+                context.startActivity(i)
+            }
         }
 
     }

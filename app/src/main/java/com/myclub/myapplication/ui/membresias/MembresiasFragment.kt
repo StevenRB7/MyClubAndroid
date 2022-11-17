@@ -38,17 +38,11 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMembresiasBinding.bind(view)
-        callListMembershipTypesService()
-
-        clictarjeta()
-    }
-
-    private fun clictarjeta() {
-
+        callListService()
 
     }
 
-    private fun callListMembershipTypesService() {
+    private fun callListService() {
 
         try {
             consultaCuponDto = ConsultaCuponRequestDto()
@@ -83,13 +77,13 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
         }
     }
 
-    private fun initRecyclerView(listMembershipTypesFunction: MutableList<ConsultarCuponResponseDto>) {
+    private fun initRecyclerView(listFunction: MutableList<ConsultarCuponResponseDto>) {
         try {
             recyclerView = binding!!.idRecyclerViewCupon
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.setHasFixedSize(true)
 
-            myAdapter = CuponAdapter(listMembershipTypesFunction, requireContext())
+            myAdapter = CuponAdapter(listFunction, requireContext())
             recyclerView.adapter = myAdapter
         } catch (e: Exception) {
             //

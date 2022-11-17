@@ -7,38 +7,48 @@
     tools:context=".Actvity.Notificaciones">
 
 
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="641dp"
-        android:theme="@style/Theme.MyClub.AppBarOverlay"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/fondobtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:background="@drawable/fondobtn"
-            app:titleTextColor="@color/transparente">
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/m_15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="200dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:src="@drawable/logoregistro" />
+                android:id="@+id/botonregresar"
+                android:layout_width="@dimen/m_32dp"
+                android:layout_height="@dimen/m_32dp"
+                android:padding="@dimen/m_5dp"
+                android:src="@drawable/atras_blanca"
+                app:tint="@color/white" />
 
-            <ImageView
-                android:id="@+id/idperfilmenu"
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                android:layout_gravity="right"
-                android:src="@drawable/notificacion" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:orientation="horizontal">
 
+                <ImageView
+                    android:layout_width="@dimen/m_32dp"
+                    android:layout_height="@dimen/m_32dp"
+                    android:layout_marginEnd="@dimen/m_10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/notificacion"
+                    android:visibility="invisible"
+                    app:tint="@color/white" />
 
-        </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

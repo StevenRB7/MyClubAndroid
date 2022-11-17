@@ -9,6 +9,7 @@ import com.myclub.myapplication.Actvity.*
 
 import com.myclub.myapplication.R
 import com.myclub.myapplication.databinding.FragmentHomeBinding
+import com.myclub.myapplication.ui.membresias.MembresiasFragment
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -24,10 +25,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
         binding?.idBtnhoteles?.setOnClickListener {
             val i = Intent(requireContext(), Hoteles_Resorts::class.java)
-            startActivity(i)
-        }
-        binding?.idbtnsuperpromos?.setOnClickListener {
-            val i = Intent(requireContext(), Super_Promos::class.java)
             startActivity(i)
         }
         binding?.idBtnbellezaydeporte?.setOnClickListener {

@@ -53,7 +53,8 @@
                 android:backgroundTint="@color/transparente"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                app:lottie_rawRes="@raw/errorrr" />
+                app:lottie_rawRes="@raw/errorrr"
+                />
 
             <TextView
                 android:id="@+id/idTxtxMessage"

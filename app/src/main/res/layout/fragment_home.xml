@@ -25,6 +25,7 @@
                 android:layout_height="60dp"
                 android:elevation="@dimen/m_15dp"
                 app:cardElevation="@dimen/m_5dp"
+                android:background="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -52,7 +53,7 @@
                         android:src="@drawable/puntos"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.119"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0" />
@@ -96,6 +97,7 @@
                 android:id="@+id/idBtnmisahorros"
                 android:layout_width="193dp"
                 android:layout_height="60dp"
+                android:background="@color/white"
                 android:elevation="@dimen/m_15dp"
                 app:cardElevation="@dimen/m_5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -165,56 +167,90 @@
 
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="240dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="39dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="97dp"
+                android:text="@string/bienvenida"
+                android:textColor="#8F8E8E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/txtDscripcionCupon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idBtnmispuntos" />
+
+            <TextView
+                android:id="@+id/txtDscripcionCupon"
+                android:layout_width="241dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="39dp"
+                android:layout_marginEnd="97dp"
+                android:layout_weight="1"
+                android:text="Pedro Andrade"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/idmembresiaactiva"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idbtnrestaurantes"
-                android:layout_width="170dp"
-                android:layout_height="225dp"
-                android:layout_marginTop="90dp"
-                android:layout_marginEnd="200dp"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="190dp"
+                android:layout_marginEnd="100dp"
                 android:layout_marginBottom="400dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.61"
+                app:layout_constraintHorizontal_bias="0.08"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0">
+                app:layout_constraintVertical_bias="0.36">
 
                 <LinearLayout
-                    android:layout_width="170dp"
-                    android:layout_height="225dp"
-                    android:background="@drawable/border_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cardbelleza"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
 
 
                     <ImageView
-
                         android:layout_width="wrap_content"
-                        android:layout_height="100dp"
+                        android:layout_height="70dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/restaurantes" />
+                        android:src="@drawable/hotelesresorts" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/m_5dp"
-                        android:text="@string/Restaurante"
+                        android:text="@string/Hoteles"
                         android:textAlignment="center"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idBtnhoteles"
-                android:layout_width="169dp"
-                android:layout_height="141dp"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
                 android:elevation="@dimen/m_15dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
@@ -223,12 +259,12 @@
                 app:layout_constraintHorizontal_bias="0.916"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.16000003">
+                app:layout_constraintVertical_bias="0.35000002">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/border_color"
+                    android:background="@drawable/cardbelleza"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -236,26 +272,27 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="120dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/hoteles" />
+                        android:src="@drawable/restaurantelicor" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/m_5dp"
-                        android:text="@string/Hoteles"
+                        android:text="@string/Restaurante"
                         android:textAlignment="center"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/idbtnsuperpromos"
-                android:layout_width="160dp"
-                android:layout_height="275dp"
+                android:id="@+id/idcardmembresia"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
                 android:layout_marginEnd="00dp"
                 android:layout_marginBottom="10dp"
                 android:elevation="@dimen/m_15dp"
@@ -266,12 +303,12 @@
                 app:layout_constraintHorizontal_bias="0.9"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.58000004">
+                app:layout_constraintVertical_bias="0.7">
 
                 <LinearLayout
-                    android:layout_width="160dp"
-                    android:layout_height="275dp"
-                    android:background="@drawable/border_color"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:background="@drawable/cardbelleza"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -279,11 +316,11 @@
 
                     <ImageView
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="145dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/bonos" />
+                        android:src="@drawable/membresia" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -291,15 +328,16 @@
                         android:layout_marginBottom="@dimen/m_5dp"
                         android:text="@string/Membresias"
                         android:textAlignment="center"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:textSize="15sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idBtnbellezaydeporte"
-                android:layout_width="169dp"
-                android:layout_height="141dp"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
                 android:elevation="@dimen/m_15dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
@@ -308,12 +346,12 @@
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.58000004">
+                app:layout_constraintVertical_bias="0.55">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/border_color"
+                    android:background="@drawable/cardbelleza"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -321,10 +359,10 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="70dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/salud" />
+                        android:src="@drawable/bellezasalud" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -332,16 +370,17 @@
                         android:layout_marginBottom="@dimen/m_5dp"
                         android:text="@string/belleza"
                         android:textAlignment="center"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idBtnveterinaria"
-                android:layout_width="169dp"
-                android:layout_height="141dp"
-                android:layout_marginTop="0dp"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:background="@drawable/cardbelleza"
                 android:elevation="@dimen/m_15dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
@@ -350,12 +389,12 @@
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/idBtnbellezaydeporte"
-                app:layout_constraintVertical_bias="0.120000005">
+                app:layout_constraintVertical_bias="0.100000024">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/border_color"
+                    android:background="@drawable/cardbelleza"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -363,7 +402,7 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="70dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
                         android:src="@drawable/veterinarios" />
@@ -374,28 +413,29 @@
                         android:layout_marginBottom="@dimen/m_5dp"
                         android:text="@string/veterinaria"
                         android:textAlignment="center"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:id="@+id/idBtnmensajes"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@drawable/border_redondo"
                 android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.643"
+                app:layout_constraintHorizontal_bias="0.072"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.85">
+                app:layout_constraintVertical_bias="0.881">
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:contentDescription="@string/str_imagenesdescription"
                     android:src="@drawable/mesajes" />
@@ -404,26 +444,118 @@
 
             <LinearLayout
                 android:id="@+id/idBtnubicacion"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="79dp"
                 android:background="@drawable/border_redondo"
                 android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.928"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.85">
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/idBtnmensajes"
+                app:layout_constraintTop_toBottomOf="@+id/idBtnveterinaria"
+                app:layout_constraintVertical_bias="1.0"
+                >
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:contentDescription="@string/str_imagenesdescription"
                     android:src="@drawable/ubicacion" />
-
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="183dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="89dp"
+                android:background="@drawable/publicidadbanner"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/idBtnubicacion"
+                app:layout_constraintTop_toBottomOf="@+id/idcardmembresia"
+                tools:ignore="UseCompoundDrawables"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/idmembresiaactiva"
+                android:layout_width="321dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="39dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="51dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="@dimen/m_15dp"
+                app:cardCornerRadius="@dimen/m_10dp"
+                app:cardElevation="@dimen/m_5dp"
+                app:layout_constraintBottom_toTopOf="@+id/idBtnhoteles"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtDscripcionCupon">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/botones_fondo">
+
+
+                    <TextView
+                        android:id="@+id/idtxtfechamembresia"
+                        android:layout_width="155dp"
+                        android:layout_height="13dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="78dp"
+                        android:layout_marginBottom="6dp"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView14"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/idtxtestadomembresia" />
+
+                    <TextView
+                        android:id="@+id/idtxtestadomembresia"
+                        android:layout_width="230dp"
+                        android:layout_height="28dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginBottom="4dp"
+                        android:text=""
+                        android:textColor="@color/gris"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/idtxtfechamembresia"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView14"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView14"
+                        android:layout_width="87dp"
+                        android:layout_height="49dp"
+                        android:layout_marginBottom="2dp"
+                        android:src="@drawable/memberactive"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/idtxtestadomembresia"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </ImageView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

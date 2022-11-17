@@ -84,5 +84,6 @@
     <string name="verificado">Usuario creado correctamente</string>
     <string name="alerterror">Usuario no encontrado</string>
     <string name="Inicio">Inicio</string>
+    <string name="bienvenida">Bienvenido | Que bueno verte</string>
 
 </resources>
