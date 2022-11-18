@@ -12,6 +12,7 @@
         android:title="" />
     <item
         android:id="@+id/nav_configuracion"
+        android:iconTint="@color/vino"
         android:icon="@drawable/configuracion"
         android:title="" />
 

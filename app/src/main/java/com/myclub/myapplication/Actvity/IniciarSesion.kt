@@ -9,7 +9,7 @@ import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoadin
 import com.myclub.myapplication.MainActivity
 
 import com.myclub.myapplication.dataDto.request.SignInRequestDto
-import com.myclub.myapplication.dataDto.response.ConsutarCuentaResponseDto
+import com.myclub.myapplication.dataDto.response.ConsultarCuentaResponseDto
 import com.myclub.myapplication.dataDto.response.IniciarSesionResponseDto
 import com.myclub.myapplication.databinding.ActivityIniciarSesionBinding
 import com.myclub.myapplication.network.ApiClient
@@ -27,7 +27,7 @@ class IniciarSesion : Activity() {
     private lateinit var binding: ActivityIniciarSesionBinding
     private lateinit var login: String
     private lateinit var password: String
-    private lateinit var queryPersonByIdResponseDto: ConsutarCuentaResponseDto
+    private lateinit var queryPersonByIdResponseDto: ConsultarCuentaResponseDto
     private lateinit var sharedPreferences: MySharedPreferences
 
 
@@ -37,7 +37,7 @@ class IniciarSesion : Activity() {
         binding = ActivityIniciarSesionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        queryPersonByIdResponseDto = ConsutarCuentaResponseDto()
+        queryPersonByIdResponseDto = ConsultarCuentaResponseDto()
         AlertLoading().alertLoadingDialog(this, "Validando")
 
         //var crear : Button = findViewById(R.id.idBtnRegistro)

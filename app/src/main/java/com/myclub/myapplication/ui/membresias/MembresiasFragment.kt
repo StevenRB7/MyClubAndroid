@@ -54,7 +54,6 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
                         response: Response<List<ConsultarCuponResponseDto?>?>
                     ) {
                         listacupones = response.body() as MutableList<ConsultarCuponResponseDto>
-                        Toast.makeText(requireContext(), ""+ listacupones[0].DescripcionCupon, Toast.LENGTH_SHORT).show()
                         initRecyclerView(listacupones)
                     }
 
@@ -62,14 +61,12 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
                         call: Call<List<ConsultarCuponResponseDto?>?>,
                         t: Throwable
                     ) {
-                        Toast.makeText(requireContext(), "${t.message}", Toast.LENGTH_SHORT).show()
                     }
 
 
                 })
         } catch (e: Exception) {
             //
-            Toast.makeText(requireContext(), "${e.message}", Toast.LENGTH_LONG).show()
 
         }
     }

@@ -3,16 +3,15 @@ package com.myclub.myapplication.network
 
 import com.myclub.myapplication.dataDto.PersonalModelDto
 import com.myclub.myapplication.dataDto.request.*
-import com.myclub.myapplication.dataDto.response.ConsultarCuponResponseDto
-import com.myclub.myapplication.dataDto.response.ConsultarShopsResponseDto
-import com.myclub.myapplication.dataDto.response.IniciarSesionResponseDto
-import com.myclub.myapplication.dataDto.response.ResponseDto
+import com.myclub.myapplication.dataDto.response.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface ApiService {
 
+    @POST("/api/CuponesUsuario/GetListMyCoupons")
+    fun ConsultarVaucher(@Body consultaVaucherDto: ConsultarVaucherRequestDto?): Call<List<ConsultarVaucherResponseDto?>>
 
     @POST("/api/CuponComercio/AllShopsOfCoupon")
     fun ConsultarShops(@Body consultaShopDto: ConsultarShopsRequestDto?): Call<List<ConsultarShopsResponseDto?>>
@@ -28,7 +27,7 @@ interface ApiService {
     fun signInUser(@Body signInRequestDto: SignInRequestDto?): Call<IniciarSesionResponseDto?>?
 
     @POST("/api/Persona/BuscarPersonaPorIdPersona")
-    fun queryPersonByIdRequestDto(@Body queryPersonById: ConsultarCuentaRequestDto?): Call<ConsultarCuentaRequestDto?>?
+    fun ConsultarCuenta(@Body queryPersonById: ConsultarCuentaRequestDto?): Call<ConsultarCuentaResponseDto?>?
 
     @POST("/api/persona/VerificarCodigo")
     fun verifyCode(@Body verifyCoeRequestDto: VerifyCoeRequestDto?): Call<Boolean?>?

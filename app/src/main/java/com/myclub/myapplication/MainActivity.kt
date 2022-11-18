@@ -3,6 +3,7 @@ package com.myclub.myapplication
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
 
 import android.widget.ImageView
 import com.google.android.material.navigation.NavigationView
@@ -13,6 +14,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.myclub.myapplication.Actvity.Notificaciones
 import com.myclub.myapplication.databinding.ActivityMainBinding
 
@@ -20,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
 
 
@@ -28,8 +33,8 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        cerrar()
         setSupportActionBar(binding.appBarMain.toolbar)
+        setBottom()
 
 
 ////////
@@ -40,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(i)
             }
         }
-
+///////
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
 
@@ -48,16 +53,56 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_promociones, R.id.nav_membresia, R.id.nav_Metodos,R.id.nav_Vauchers,R.id.nav_Redimir,R.id.nav_Codigo
+                R.id.nav_home,
+                R.id.nav_promociones,
+                R.id.nav_membresia,
+                R.id.nav_Metodos,
+                R.id.nav_Vauchers,
+                R.id.nav_Redimir,
+                R.id.nav_Codigo,
+
+                ///NAV BUTTON
+                R.id.nav_perfil,
+                R.id.nav_configuracion,
+                R.id.nav_superpromos
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        observeDestination()
+
+    }
+    private fun setBottom() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
+        navController = navHostFragment.navController
+
+        val bottom = findViewById<BottomNavigationView>(R.id.nav_viewbutton)
+        bottom.setupWithNavController(navController)
     }
 
-    private fun cerrar() {
+    private fun observeDestination() {
+        navController.addOnDestinationChangedListener { n, d, a ->
+            when (d.id) {
+                R.id.nav_home -> {
+                    (findViewById<BottomNavigationView>(R.id.nav_viewbutton)).visibility =
+                        View.VISIBLE
+                }
+                R.id.nav_perfil -> {
+                    (findViewById<BottomNavigationView>(R.id.nav_viewbutton)).visibility =
+                        View.VISIBLE
+                }
+                R.id.nav_superpromos -> {
+                    (findViewById<BottomNavigationView>(R.id.nav_viewbutton)).visibility =
+                        View.VISIBLE
+                }
+                R.id.nav_configuracion -> {
+                    (findViewById<BottomNavigationView>(R.id.nav_viewbutton)).visibility =
+                        View.VISIBLE
+                }
 
-
+            }
+        }
     }
 
 

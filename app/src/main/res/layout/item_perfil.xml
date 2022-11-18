@@ -2,12 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemcupon"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/idcarperfil"
+        android:id="@+id/idshop"
         android:layout_width="340dp"
         android:layout_height="318dp"
         android:clickable="true"
@@ -22,8 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
 
             <ImageView

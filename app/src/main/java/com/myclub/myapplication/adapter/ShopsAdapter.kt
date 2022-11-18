@@ -46,7 +46,7 @@ class ShopsAdapter(
             binding.txtshopdireccion.text = consultarshop.Direction
             binding.txtshopciudad.text = consultarshop.IdCity.toString()
 
-            Toast.makeText(context, "${consultarshop.Direction}", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, "${consultarshop.Direction}", Toast.LENGTH_SHORT).show()
 
 
         }

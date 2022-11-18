@@ -1,6 +1,6 @@
 package com.myclub.myapplication.dataDto.response
 
-data class ConsutarCuentaResponseDto(
+data class ConsultarCuentaResponseDto(
     val ID: Double? = null,
     val PRIMER_NOMBRE: String? = null,
     val SEGUNDO_NOMBRE: String? = null,

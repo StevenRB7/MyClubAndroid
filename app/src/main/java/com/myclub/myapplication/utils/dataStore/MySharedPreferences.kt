@@ -4,7 +4,7 @@ import android.content.Context
 import com.myclub.myapplication.utils.Constantes.*
 
 class MySharedPreferences(private val context: Context) {
-
+        //MANTENDER LA SESION ACTIVA PASANDOLE EL PARAMETRO A SPLASH
     val myStorePreference = context.getSharedPreferences(PREF_NAME, 0)
 
     /**
