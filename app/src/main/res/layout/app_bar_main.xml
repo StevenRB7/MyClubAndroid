@@ -11,31 +11,29 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
         android:theme="@style/Theme.MyClub.AppBarOverlay"
         >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            app:titleTextColor="@color/transparente"
-            android:background="@drawable/fondobtn">
+            android:layout_height="match_parent"
+            android:background="@drawable/fondobtn"
+            app:titleTextColor="@color/transparente">
 
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="60dp"
-                android:src="@drawable/logoregistro"
                 android:layout_gravity="center"
-                />
+                android:src="@drawable/logoregistro" />
 
             <ImageView
                 android:id="@+id/idperfilmenu"
-            android:layout_width="70dp"
-            android:layout_height="40dp"
-            android:src="@drawable/notificacion"
-            android:layout_gravity="right"
-            />
-
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_gravity="right"
+                android:src="@drawable/notificacion" />
 
 
         </androidx.appcompat.widget.Toolbar>
@@ -43,7 +41,8 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/content_main" />
+        layout="@layout/content_main"
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"

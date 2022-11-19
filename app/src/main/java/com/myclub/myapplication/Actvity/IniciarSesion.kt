@@ -40,20 +40,6 @@ class IniciarSesion : Activity() {
         queryPersonByIdResponseDto = ConsultarCuentaResponseDto()
         AlertLoading().alertLoadingDialog(this, "Validando")
 
-        //var crear : Button = findViewById(R.id.idBtnRegistro)
-        //crear.setOnClickListener {
-        //val intent = Intent(this, Registro::class.java)
-        //startActivity(intent)
-        //}
-
-        //var iniciar : Button = findViewById(R.id.idBtnIngresar)
-        //iniciar.setOnClickListener {
-        //val intent = Intent(this, MainActivity::class.java)
-        //startActivity(intent)
-        // AlertLoading.alertDialogLoading.dismiss()
-
-        //}
-
         botones()
 
     }
@@ -97,14 +83,14 @@ class IniciarSesion : Activity() {
                             "${signInResponseDto?.MensajeRespuesta}"
                         )
                         alertDialogErrorResponse.show()
-                        AlertLoading.alertDialogLoading.dismiss()
+                       alertDialogLoading.dismiss()
 
                     } else {
                         sharedPreferences = MySharedPreferences(this@IniciarSesion)
 
                         sharedPreferences.storeIdUser(signInResponseDto?.Id.toString())
                         sharedPreferences.storeActiveSessionUser("ActiveSession")
-                        //AlertLoading.alertDialogLoading.dismiss()
+                       alertDialogLoading.dismiss()
                         val i = Intent(this@IniciarSesion, MainActivity::class.java)
                         startActivity(i)
                     }
@@ -112,9 +98,8 @@ class IniciarSesion : Activity() {
 
                 override fun onFailure(call: Call<IniciarSesionResponseDto?>, t: Throwable) {
                     Toast.makeText(this@IniciarSesion, t.message, Toast.LENGTH_SHORT).show()
-                    //binding.idProgresBarLogin.visibility = View.GONE
 
-                    AlertLoading.alertDialogLoading.dismiss()
+                   alertDialogLoading.dismiss()
                 }
             })
 

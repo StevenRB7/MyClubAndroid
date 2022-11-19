@@ -1,5 +1,6 @@
 package com.myclub.myapplication.ui.membresias
 
+import android.content.ClipData.Item
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -53,8 +54,14 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
                         call: Call<List<ConsultarCuponResponseDto?>?>,
                         response: Response<List<ConsultarCuponResponseDto?>?>
                     ) {
-                        listacupones = response.body() as MutableList<ConsultarCuponResponseDto>
-                        initRecyclerView(listacupones)
+                        if (response.body() != null && response.body()?.size!! > 0) {
+                            listacupones =
+                                response.body() as MutableList<ConsultarCuponResponseDto>
+                            initRecyclerView(listacupones)
+
+                        } else {
+                            Toast.makeText(requireContext(), "EmptyList", Toast.LENGTH_SHORT).show()
+                        }
                     }
 
                     override fun onFailure(

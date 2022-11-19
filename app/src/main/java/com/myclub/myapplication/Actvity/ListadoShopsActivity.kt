@@ -3,6 +3,7 @@ package com.myclub.myapplication.Actvity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,13 +25,16 @@ class ListadoShopsActivity : AppCompatActivity() {
     private lateinit var myAdapterShop: ShopsAdapter
     private lateinit var consultaShopDto: ConsultarShopsRequestDto
     private lateinit var recyclerViewShop: RecyclerView
+    private lateinit var idCouponRecover: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityListadoShopsBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
-
+        if (intent.extras != null) {
+            idCouponRecover = intent.getStringExtra("IdCoupon").toString()
+        }
         callService()
         botones()
     }
@@ -44,7 +48,7 @@ class ListadoShopsActivity : AppCompatActivity() {
     private fun callService() {
         try {
             consultaShopDto = ConsultarShopsRequestDto()
-            consultaShopDto.IdQuery = 1.0
+            consultaShopDto.IdQuery = idCouponRecover.toDouble()
 
             val apiService: ApiService = ApiClient.RetrofitHelper(Constantes.BASE_MY_CLUB)
                 .create(ApiService::class.java)

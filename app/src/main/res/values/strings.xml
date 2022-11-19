@@ -49,7 +49,7 @@
     <string name="programados">Programados</string>
     <string name="cancelados">Cancelados</string>
     <string name="_3145875809">3145875809</string>
-    <string name="registro">Registro</string>
+    <string name="txtinformativo">¿Aun no tienes una cuenta?</string>
     <string name="completa_tu_informaci_n">Completa tu información</string>
     <string name="n_mero_de_tel_fono">Teléfono</string>
     <string name="nombre">Nombre</string>
@@ -62,7 +62,7 @@
     <string name="Promociones">Promociones</string>
     <string name="Membresias">Membresias</string>
     <string name="Metodos">Metodos de pago</string>
-    <string name="Vauchers">Vauchers</string>
+    <string name="Vauchers"> Mis Vauchers</string>
     <string name="Redimir">Redimir puntos</string>
     <string name="Codigo">Codigo de referidos</string>
     <string name="Soporte">Soporte</string>
@@ -85,5 +85,12 @@
     <string name="alerterror">Usuario no encontrado</string>
     <string name="Inicio">Inicio</string>
     <string name="bienvenida">Bienvenido | Que bueno verte</string>
+    <string name="mis">MIS VAUNCHER</string>
+    <string name="ingresa">Por favor ingresa tu usuario</string>
+    <string name="ingresa2">Por favor ingresa tu correo</string>
+    <string name="sing_up">Registrate</string>
+    <string name="msjRecuperar">Te enviaremos una contraseña temporal a tu correo electrónico, recuerda cambiarla</string>
+    <string name="enviarbtnrecuperar">ENVIAR</string>
+    <string name="registro">Registro</string>
 
 </resources>

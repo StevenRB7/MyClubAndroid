@@ -3,6 +3,7 @@ package com.myclub.myapplication
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 
 import android.widget.ImageView
@@ -17,8 +18,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.myclub.myapplication.Actvity.IniciarSesion
 import com.myclub.myapplication.Actvity.Notificaciones
 import com.myclub.myapplication.databinding.ActivityMainBinding
+import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 
 class MainActivity : AppCompatActivity() {
 
@@ -60,6 +63,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_Vauchers,
                 R.id.nav_Redimir,
                 R.id.nav_Codigo,
+                R.id.nav_cerrarsesion,
 
                 ///NAV BUTTON
                 R.id.nav_perfil,
@@ -111,6 +115,17 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_cerrarsesion -> {
+                MySharedPreferences(this).deleteMySharedPreferences()
+                val i = Intent(this, IniciarSesion::class.java)
+                startActivity(i)
+                }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)

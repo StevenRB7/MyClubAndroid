@@ -48,7 +48,7 @@
                 android:backgroundTint="@color/transparente"
                 android:text="@string/verificado"
                 android:textAlignment="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -62,7 +62,7 @@
                 android:backgroundTint="@color/transparente"
                 android:text="@string/informacion"
                 android:textAlignment="center"
-                android:textColor="@color/color_hint"
+                android:textColor="@color/black"
                 android:textSize="22sp" />
 
             <androidx.appcompat.widget.AppCompatButton

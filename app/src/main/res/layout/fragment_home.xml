@@ -447,7 +447,6 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="26dp"
                 android:layout_marginBottom="79dp"
                 android:background="@drawable/border_redondo"
                 android:gravity="center"
@@ -457,12 +456,11 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/idBtnmensajes"
                 app:layout_constraintTop_toBottomOf="@+id/idBtnveterinaria"
-                app:layout_constraintVertical_bias="1.0"
-                >
+                app:layout_constraintVertical_bias="0.75">
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:contentDescription="@string/str_imagenesdescription"
                     android:src="@drawable/ubicacion" />

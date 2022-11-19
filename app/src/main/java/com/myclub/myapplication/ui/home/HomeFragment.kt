@@ -10,14 +10,21 @@ import com.myclub.myapplication.Actvity.*
 import com.myclub.myapplication.R
 import com.myclub.myapplication.databinding.FragmentHomeBinding
 import com.myclub.myapplication.ui.membresias.MembresiasFragment
+import com.myclub.myapplication.utils.dataStore.MyClub.Companion.sharedPreferences
+import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private var binding: FragmentHomeBinding? = null
+    private var idPersonRecovered = ""
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
+
+        idPersonRecovered = recoverIdPersonShared()
+
 
         binding?.idbtnrestaurantes?.setOnClickListener {
             val i = Intent(requireContext(), Restaurantes::class.java)
@@ -42,6 +49,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+    }
+    private fun recoverIdPersonShared(): String {
+        var idPerson = ""
+        try {
+            sharedPreferences = MySharedPreferences(requireContext())
+            idPerson = sharedPreferences.recoverIdPersonPref()
+        } catch (e: Exception) {
+            //
+        }
+        return idPerson
     }
 
 

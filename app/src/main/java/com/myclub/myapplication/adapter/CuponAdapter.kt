@@ -42,11 +42,11 @@ class CuponAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(consultar: ConsultarCuponResponseDto) {
 
-            binding.txtDscripcionCupon.text = consultar.DescripcionCupon?.toString()
-            binding.txtIdCupon.text = consultar.IdCupon.toString()
+            binding.txtDscripcionCupon.text = consultar.DescripcionCupon
 
             binding.idbtntarjetacupon.setOnClickListener {
                 val i = Intent(context, ListadoShopsActivity::class.java)
+                i.putExtra("IdCoupon", consultar.Id.toString())
                 context.startActivity(i)
             }
             binding.idbtnverdetalle.setOnClickListener {

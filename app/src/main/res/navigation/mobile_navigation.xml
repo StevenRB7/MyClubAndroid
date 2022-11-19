@@ -66,6 +66,10 @@
         android:name="com.myclub.myapplication.Actvity.ListadoShopsActivity"
         android:label="activity_listado_shops"
         tools:layout="@layout/activity_listado_shops" />
-
+    <activity
+        android:id="@+id/iniciarSesion"
+        android:name="com.myclub.myapplication.Actvity.IniciarSesion"
+        android:label="activity_iniciar_sesion"
+        tools:layout="@layout/activity_iniciar_sesion" />
 
 </navigation>
