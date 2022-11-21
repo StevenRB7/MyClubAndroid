@@ -97,13 +97,13 @@
                 android:textAlignment="center"
                 android:textColor="@color/white" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/idBtnForgotPasword"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="@dimen/m_32dp"
-                android:backgroundTint="@color/vino"
                 android:text="@string/enviarbtnrecuperar"
+                android:background="@drawable/color_btninicio"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"

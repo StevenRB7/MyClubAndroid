@@ -149,15 +149,15 @@
 
             </androidx.appcompat.widget.AppCompatButton>
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/idBtnRegistro"
-                android:layout_width="250dp"
-                android:layout_height="60dp"
+                android:layout_width="248dp"
+                android:layout_height="51dp"
                 android:layout_marginStart="125dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="125dp"
-                android:layout_marginBottom="26dp"
-                android:backgroundTint="@color/prueba"
+                android:layout_marginBottom="62dp"
+                android:background="@drawable/color_btninicio"
                 android:text="@string/crear_usuario"
                 android:textColor="@color/white"
                 android:textStyle="bold"
@@ -168,7 +168,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/idBtnIngresar"
                 app:layout_constraintVertical_bias="0.01999998">
 
-            </com.google.android.material.button.MaterialButton>
+            </androidx.appcompat.widget.AppCompatButton>
 
             <ImageView
                 android:id="@+id/imageView2"

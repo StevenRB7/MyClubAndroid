@@ -14,6 +14,7 @@ import com.myclub.myapplication.dataDto.response.IniciarSesionResponseDto
 import com.myclub.myapplication.databinding.ActivityIniciarSesionBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
+import com.myclub.myapplication.utils.Constantes
 import com.myclub.myapplication.utils.Constantes.BASE_URL_PERSONAS
 import com.myclub.myapplication.utils.Constantes.ID_PROYECTO
 import com.myclub.myapplication.utils.dataStore.MySharedPreferences
@@ -46,9 +47,10 @@ class IniciarSesion : Activity() {
 
     private fun botones() {
         binding.idBtnIngresar.setOnClickListener {
-            iniciarsesion(binding.idusuario.text.toString(), binding.idpwd.text.toString())
+            if (ValidacionesLogin()) {
+                iniciarsesion(binding.idusuario.text.toString(), binding.idpwd.text.toString())
+            }
         }
-
         binding.idBtnRegistro.setOnClickListener {
             val i = Intent(this, Registro::class.java)
             startActivity(i)
@@ -59,6 +61,31 @@ class IniciarSesion : Activity() {
         }
 
     }
+
+    private fun ValidacionesLogin(): Boolean {
+        var isValidForm = true
+        try {
+            if (binding.idusuario.text.toString().isNotEmpty()) {
+                isValidForm = true
+                binding.idusuario.error = null
+            } else {
+                isValidForm = false
+                binding.idusuario.error = Constantes.ERROR_FORMULARIO_VACIO
+            }
+
+            if (binding.idpwd.text.toString().isNotEmpty()) {
+                isValidForm = true
+                binding.idpwd.error = null
+            } else {
+                isValidForm = false
+                binding.idpwd.error = Constantes.ERROR_FORMULARIO_VACIO
+            }
+        } catch (e: Exception) {
+            //
+        }
+        return isValidForm;
+    }
+
 
     private fun iniciarsesion(login: String, password: String) {
 
@@ -76,6 +103,8 @@ class IniciarSesion : Activity() {
                     call: Call<IniciarSesionResponseDto?>,
                     response: Response<IniciarSesionResponseDto?>
                 ) {
+                    signInResponseDto = response.body()
+                    sharedPreferences = MySharedPreferences(this@IniciarSesion)
 
                     if (signInResponseDto?.CodigoRespuesta == 500) {
                         AlertErrorResponse().alertErrorResponseDialog(
@@ -86,7 +115,7 @@ class IniciarSesion : Activity() {
                        alertDialogLoading.dismiss()
 
                     } else {
-                        sharedPreferences = MySharedPreferences(this@IniciarSesion)
+                        //sharedPreferences = MySharedPreferences(this@IniciarSesion)
 
                         sharedPreferences.storeIdUser(signInResponseDto?.Id.toString())
                         sharedPreferences.storeActiveSessionUser("ActiveSession")
