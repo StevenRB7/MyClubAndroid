@@ -29,7 +29,7 @@ class GeneradorQRActivity : AppCompatActivity() {
         binding = ActivityGeneradorQractivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         if (intent.extras != null) {
-            idVacher = intent.getSerializableExtra("IdVaucher").toString()
+            idVacher = intent.getDoubleArrayExtra("IdVaucher").toString()
             generarQR()
 
         }

@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.myclub.myapplication.Actvity.AlertLoading
+import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
 import com.myclub.myapplication.Actvity.ListadoComerciosPlanActivity
 import com.myclub.myapplication.dataDto.response.MisPlanesResponseDto
 import com.myclub.myapplication.databinding.ItemCouponBinding
@@ -35,8 +37,14 @@ class MisPlanesAdapter(
         private val binding: ItemCouponBinding, val context: Context
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(myPlan: MisPlanesResponseDto) {
-            binding.txtIdCupon.text = myPlan.DescriptionPlan
+            binding.txtDescripcionCupon.text = myPlan.DescriptionPlan
             binding.idbtnverdetalle.setOnClickListener {
+                val i = Intent(context, ListadoComerciosPlanActivity::class.java)
+                i.putExtra("IdPerson", myPlan.IdPerson)
+                i.putExtra("IdCoupon", myPlan.IdCoupon)
+                context.startActivity(i)
+            }
+            binding.IdbtnCoupon.setOnClickListener {
                 val i = Intent(context, ListadoComerciosPlanActivity::class.java)
                 i.putExtra("IdPerson", myPlan.IdPerson)
                 i.putExtra("IdCoupon", myPlan.IdCoupon)

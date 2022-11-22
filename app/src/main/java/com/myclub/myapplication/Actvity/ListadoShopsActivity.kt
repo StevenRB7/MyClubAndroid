@@ -1,15 +1,16 @@
 package com.myclub.myapplication.Actvity
 
 
+import android.R.attr.button
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
-
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.myclub.myapplication.MainActivity
 import com.myclub.myapplication.adapter.ShopsAdapter
 import com.myclub.myapplication.dataDto.request.ConsultarBuyRequestDto
@@ -23,6 +24,7 @@ import com.myclub.myapplication.utils.Constantes
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 class ListadoShopsActivity : AppCompatActivity() {
 
@@ -55,6 +57,7 @@ class ListadoShopsActivity : AppCompatActivity() {
         }
         binding?.BtnFloatingActivarPlan?.setOnClickListener {
             callServiceBuy(buyRequestDto?.IdPlan.toString())
+
         }
     }
 
@@ -62,7 +65,7 @@ class ListadoShopsActivity : AppCompatActivity() {
         try {
 
             buyRequestDto = ConsultarBuyRequestDto()
-            buyRequestDto!!.IdPerson = 191.0
+            buyRequestDto!!.IdPerson = null
             buyRequestDto!!.IdPlan = 1.0
             buyRequestDto!!.IdProject = Constantes.ID_PROYECTO
             buyRequestDto!!.IdStatus = 1.0
@@ -76,10 +79,12 @@ class ListadoShopsActivity : AppCompatActivity() {
                         response: Response<ConsultarBuyResponseDto?>
                     ) {
                         buynResponseDto = response.body()
-                        if (response.body() != null) {
+                        if (response.body() != null ) {
                             if (buynResponseDto?.Codigo == 500) {
+                                Toast.makeText(this@ListadoShopsActivity, "usted ya adquirio esta membresia", Toast.LENGTH_SHORT).show()
                                 Log.e("holaaaa", buynResponseDto?.Codigo.toString())
                                 Log.e("holaaaa", buynResponseDto?.Mensaje.toString())
+                                FloatingActionButton.INVISIBLE
                                 //AlertErrorResponse.alertDialogErrorResponse.show()
                                 //AlertLoading.alertDialogLoading.dismiss()
 
@@ -87,8 +92,9 @@ class ListadoShopsActivity : AppCompatActivity() {
                                 Log.e("holaaaa", buynResponseDto?.Codigo.toString())
                                 Log.e("holaaaa", buynResponseDto?.Mensaje.toString())
                                 //AlertLoading.alertDialogLoading.dismiss()
-                                /*val i = Intent(this@ListadoShopsActivity, MainActivity::class.java)
-                                startActivity(i)*/
+                                val i = Intent(this@ListadoShopsActivity, MainActivity::class.java)
+                                Toast.makeText(this@ListadoShopsActivity, "Membresia Activada", Toast.LENGTH_SHORT).show()
+                                startActivity(i)
                             }
                         }
 

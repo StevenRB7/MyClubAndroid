@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.myclub.myapplication.Actvity.AlertLoading
+import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
 import com.myclub.myapplication.Actvity.ListadoShopsActivity
 import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.response.ConsultarCuponResponseDto
@@ -54,15 +56,18 @@ class CuponAdapter(
                 }
             }
 
-            binding.txtDscripcionCupon.text = consultar.DescripcionCupon
-
-            binding.idbtntarjetacupon.setOnClickListener {
+            binding.txtDescripcionCupon.text = consultar.DescripcionCupon
+            binding.IdbtnCoupon.setOnClickListener {
                 val i = Intent(context, ListadoShopsActivity::class.java)
                 i.putExtra("IdCoupon", consultar.Id.toString())
+                //alertDialogLoading.show()
                 context.startActivity(i)
+
             }
             binding.idbtnverdetalle.setOnClickListener {
                 val i = Intent(context, ListadoShopsActivity::class.java)
+                i.putExtra("IdCoupon", consultar.Id.toString())
+                //alertDialogLoading.dismiss()
                 context.startActivity(i)
             }
         }

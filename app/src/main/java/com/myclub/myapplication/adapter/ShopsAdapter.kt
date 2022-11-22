@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.myclub.myapplication.Actvity.ListadoShopsActivity
 import com.myclub.myapplication.dataDto.response.ConsultarShopsResponseDto
 import com.myclub.myapplication.databinding.ItemShopBinding
@@ -41,6 +42,9 @@ class ShopsAdapter(
     ) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(consultarshop: ConsultarShopsResponseDto) {
+            //Glide.with(context)
+                //.load(consultarshop)
+                //.into(adapterPosition);
 
             binding.txtshopdescripcion.text = consultarshop.Description
             binding.txtshopdireccion.text = consultarshop.Direction

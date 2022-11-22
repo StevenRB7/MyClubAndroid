@@ -19,34 +19,29 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
         binding = FragmentPerfilBinding.bind(view)
 
 
-        when(binding?.BtnEscanearQR?.id?.toDouble()){
-            191.0->{
-                binding?.BtnEscanearQR?.setOnClickListener { initScanner() }
-                View.VISIBLE
-            }
-            157.0->{
-                View.INVISIBLE
-            }
-        }
-
-
-
+        //when(binding?.BtnEscanearQR?.id?.toDouble()){
+        //191.0->{
+        binding?.BtnEscanearQR?.setOnClickListener { initScanner() }
+        //View.VISIBLE
+        //}
+        //157.0->{
+        //View.INVISIBLE
+        //}
     }
-
 
 
     private fun initScanner() {
         val integrator = IntentIntegrator.forSupportFragment(this@PerfilFragment)
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES)
-        integrator.setPrompt( "Escanear código QR" );
+        integrator.setPrompt("Escanear código QR para redimir cupones");
         integrator.setTorchEnabled(false)
         integrator.setBeepEnabled(true)
         integrator.initiateScan()
-        integrator.setDesiredBarcodeFormats(IntentIntegrator. QR_CODE );
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
 
     }
 
-
-
 }
+
+
 

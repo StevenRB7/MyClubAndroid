@@ -71,6 +71,7 @@
         android:text="ACTIVAR MEMBRESIA"
         android:textSize="18dp"
         android:gravity="center"
+        android:visibility="visible"
         android:backgroundTint="@color/vino"
         android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"

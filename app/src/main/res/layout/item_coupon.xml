@@ -12,7 +12,7 @@
     <androidx.cardview.widget.CardView
         android:background="@color/white"
         android:backgroundTint="@color/white"
-        android:id="@+id/idbtntarjetacupon"
+        android:id="@+id/IdbtnCoupon"
         android:layout_width="412dp"
         android:layout_height="201dp"
         android:clickable="true"
@@ -34,7 +34,7 @@
 
 
             <TextView
-                android:id="@+id/txtDscripcionCupon"
+                android:id="@+id/txtDescripcionCupon"
                 android:layout_width="383dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="16dp"
@@ -56,16 +56,16 @@
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="52dp"
                 android:layout_marginEnd="36dp"
-
                 android:layout_marginBottom="1dp"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text=""
-                android:textColor="@android:color/black"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/txtDscripcionCupon"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.33"
+                app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />

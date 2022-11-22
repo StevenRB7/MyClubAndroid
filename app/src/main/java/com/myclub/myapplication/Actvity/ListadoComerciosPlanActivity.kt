@@ -36,6 +36,13 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
 
         getDataExtra()
         callListService()
+        botones()
+    }
+
+    private fun botones() {
+        binding.btnregresarlistado.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun getDataExtra() {
@@ -90,7 +97,6 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
             myAdapter = VaucherAdapter(lista, this)
             recyclerView.adapter = myAdapter
 
-            callListService()
 
         } catch (e: Exception) {
             //
