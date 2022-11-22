@@ -1,14 +1,13 @@
 package com.myclub.myapplication.uiNav.perfil
 
 
-import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
+import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.Fragment
-import com.myclub.myapplication.Actvity.EscanearQRAdminActivity
-import com.myclub.myapplication.Actvity.Restaurantes
+import com.google.zxing.integration.android.IntentIntegrator
 import com.myclub.myapplication.R
-import com.myclub.myapplication.databinding.FragmentHomeBinding
 import com.myclub.myapplication.databinding.FragmentPerfilBinding
 
 class PerfilFragment : Fragment(R.layout.fragment_perfil) {
@@ -19,12 +18,35 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPerfilBinding.bind(view)
 
-        //prueba escanear
-        binding?.BtnEscanearQR?.setOnClickListener {
-            val i = Intent(requireContext(), EscanearQRAdminActivity::class.java)
-            startActivity(i)
+
+        when(binding?.BtnEscanearQR?.id?.toDouble()){
+            191.0->{
+                binding?.BtnEscanearQR?.setOnClickListener { initScanner() }
+                View.VISIBLE
+            }
+            157.0->{
+                View.INVISIBLE
+            }
         }
+
+
+
     }
+
+
+
+    private fun initScanner() {
+        val integrator = IntentIntegrator.forSupportFragment(this@PerfilFragment)
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES)
+        integrator.setPrompt( "Escanear código QR" );
+        integrator.setTorchEnabled(false)
+        integrator.setBeepEnabled(true)
+        integrator.initiateScan()
+        integrator.setDesiredBarcodeFormats(IntentIntegrator. QR_CODE );
+
+    }
+
+
 
 }
 

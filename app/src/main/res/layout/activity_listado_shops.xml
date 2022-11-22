@@ -25,8 +25,8 @@
 
             <ImageView
                 android:id="@+id/idbtnregresarshop"
-                android:layout_width="@dimen/m_32dp"
-                android:layout_height="@dimen/m_32dp"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
                 android:padding="@dimen/m_5dp"
                 android:src="@drawable/atras_blanca"
                 app:tint="@color/white" />
@@ -68,10 +68,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:text="ACTIVAR CUPON"
-        android:textSize="@dimen/m_22dp"
+        android:text="ACTIVAR MEMBRESIA"
+        android:textSize="18dp"
         android:gravity="center"
-        android:backgroundTint="@color/gris"
+        android:backgroundTint="@color/vino"
         android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

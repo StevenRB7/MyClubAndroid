@@ -10,6 +10,11 @@ import retrofit2.http.POST
 
 interface ApiService {
 
+
+    @POST("/api/Usuario/GenerarNuevaContraseniaUsuarioOlvidado")
+    fun RecuperarContraseña(@Body consultaRecuperarDto: ConsultarRecuperarRequestDto?): Call<ConsultarRecuperarResponseDto?>
+
+
     @POST("/api/CuponesUsuario/BuyMembershipPlan")
     fun BuyPlan(@Body consultaBuyPlanDto: ConsultarBuyRequestDto?): Call<ConsultarBuyResponseDto?>
 

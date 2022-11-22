@@ -3,7 +3,6 @@ package com.myclub.myapplication.Actvity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.myclub.myapplication.R
 import com.myclub.myapplication.databinding.ActivityRecuperarContraBinding
 
 class RecuperarContra : AppCompatActivity() {
@@ -25,4 +24,6 @@ class RecuperarContra : AppCompatActivity() {
             finish()
         }
     }
+
+
 }

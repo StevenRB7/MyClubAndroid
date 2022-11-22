@@ -26,8 +26,8 @@
 
             <ImageView
                 android:id="@+id/btnregresarnoti"
-                android:layout_width="@dimen/m_32dp"
-                android:layout_height="@dimen/m_32dp"
+                android:layout_width="42dp"
+                android:layout_height="40dp"
                 android:padding="@dimen/m_5dp"
                 android:src="@drawable/atras_blanca"
                 app:tint="@color/white" />

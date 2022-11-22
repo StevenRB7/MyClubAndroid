@@ -47,10 +47,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/m_32dp"
-                android:text="@string/nombre"
+                android:text="@string/usuario"
                 android:textColor="@color/white"
                 android:textSize="23sp" />
-
 
             <EditText
                 android:id="@+id/idTxtUserName"
@@ -144,7 +143,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/txtNC"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>

@@ -25,4 +25,12 @@
     <color name="color_hint">#9CFFFFFF</color>
 
 
+    //COLORES PARA MODIFICAR QR
+    <color name="zxing_viewfinder_laser">#F70761</color>
+    <color name="zxing_possible_result_points" >#FFEB3B</color>
+
+    <color name="zxing_result_view" >#b0000000</color>
+    <color name="zxing_status_text" >#ffffffff</color>
+    <color name="zxing_transparent" >#00000000</color>
+    <color name="zxing_viewfinder_mask" > #60000000</color>
 </resources>
