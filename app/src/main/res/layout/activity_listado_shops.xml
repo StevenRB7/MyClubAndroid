@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Actvity.ListadoShopsActivity"
-    >
+    tools:context=".Actvity.ListadoShopsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -25,10 +24,10 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:padding="@dimen/m_5dp"
                 android:id="@+id/idbtnregresarshop"
                 android:layout_width="@dimen/m_32dp"
                 android:layout_height="@dimen/m_32dp"
+                android:padding="@dimen/m_5dp"
                 android:src="@drawable/atras_blanca"
                 app:tint="@color/white" />
 
@@ -45,9 +44,8 @@
                     android:layout_marginEnd="@dimen/m_10dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/notificacion"
-                    app:tint="@color/white"
                     android:visibility="invisible"
-                    />
+                    app:tint="@color/white" />
 
             </LinearLayout>
         </LinearLayout>
@@ -64,4 +62,18 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/BtnFloatingActivarPlan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="ACTIVAR CUPON"
+        android:textSize="@dimen/m_22dp"
+        android:gravity="center"
+        android:backgroundTint="@color/gris"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

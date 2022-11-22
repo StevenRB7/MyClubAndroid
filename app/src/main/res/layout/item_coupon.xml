@@ -24,10 +24,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/CardBackground"
             android:layout_width="388dp"
             android:layout_height="180dp"
             android:layout_gravity="center"
-            android:background="@drawable/myqcupon"
+            android:background="@drawable/membresiamyq"
             android:orientation="horizontal">
 
 
@@ -44,7 +45,6 @@
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtIdCupon" />

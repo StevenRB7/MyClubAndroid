@@ -10,11 +10,15 @@ import retrofit2.http.POST
 
 interface ApiService {
 
+    @POST("/api/CuponesUsuario/BuyMembershipPlan")
+    fun BuyPlan(@Body consultaBuyPlanDto: ConsultarBuyRequestDto?): Call<ConsultarBuyResponseDto?>
+
+
     @POST("/api/CuponesUsuario/GetListMyCoupons")
     fun ConsultarVaucher(@Body consultaVaucherDto: ConsultarVaucherRequestDto?): Call<List<ConsultarVaucherResponseDto?>>
 
     @POST("/api/CuponComercio/AllShopsOfCoupon")
-    fun ConsultarShops(@Body consultaShopDto: ConsultarShopsRequestDto?): Call<List<ConsultarShopsResponseDto?>>
+    fun ConsultarShops(@Body consultaShopDto: ConsultarShopsRequestDto): Call<List<ConsultarShopsResponseDto?>>
 
     @POST("/api/CuponComercio/CouponListAll")
     fun ConsultarCupon(@Body consultaCuponDto: ConsultaCuponRequestDto?): Call<List<ConsultarCuponResponseDto?>>

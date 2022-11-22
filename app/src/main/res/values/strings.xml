@@ -83,6 +83,7 @@
     <string name="verify">Verificar</string>
     <string name="verificado">Usuario creado correctamente</string>
     <string name="alerterror">Usuario no encontrado</string>
+    <string name="alerterrorBuy">Compra No realizada</string>
     <string name="Inicio">Inicio</string>
     <string name="bienvenida">Bienvenido | Que bueno verte</string>
     <string name="mis">MIS VAUNCHER</string>

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.myclub.myapplication.Actvity.ListadoShopsActivity
+import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.response.ConsultarCuponResponseDto
 import com.myclub.myapplication.databinding.ItemCouponBinding
 
@@ -41,6 +42,17 @@ class CuponAdapter(
     ) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(consultar: ConsultarCuponResponseDto) {
+            when(consultar.Id?.toInt()){
+                1->{
+                    binding.CardBackground.setBackgroundResource(R.drawable.membresiamyq)
+                }
+                2->{
+                    binding.CardBackground.setBackgroundResource(R.drawable.membresiaplus)
+                }
+                3->{
+                    binding.CardBackground.setBackgroundResource(R.drawable.membresiapremium)
+                }
+            }
 
             binding.txtDscripcionCupon.text = consultar.DescripcionCupon
 
