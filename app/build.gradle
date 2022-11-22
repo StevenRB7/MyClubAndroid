@@ -61,4 +61,13 @@ dependencies {
     //ANIMACIONES
     implementation "com.airbnb.android:lottie:5.2.0"
 
+    //GENERAR QR
+    implementation 'com.github.kenglxn.QRGen:android:2.6.0'
+    
+    //LEER QR
+    implementation('com.journeyapps:zxing-android-embedded:4.3.0') { transitive = false }
+    implementation 'com.google.zxing:core:3.4.1'
+
+
+
 }

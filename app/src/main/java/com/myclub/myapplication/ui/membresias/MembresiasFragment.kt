@@ -85,6 +85,7 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
             recyclerView.setHasFixedSize(true)
 
             myAdapter = CuponAdapter(listFunction, requireContext())
+            
             recyclerView.adapter = myAdapter
         } catch (e: Exception) {
             //

@@ -3,82 +3,243 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/idcarperfil"
-        android:layout_width="340dp"
-        android:layout_height="318dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="@dimen/m_15dp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgperfil"
+        android:layout_width="141dp"
+        android:layout_height="126dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="131dp"
+        android:layout_marginBottom="17dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtnombreperfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtnombreperfil2">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/txtnombreperfil"
+        android:layout_width="202dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="22dp"
+        android:layout_weight="1"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtnombreperfil3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgperfil" />
+
+    <TextView
+        android:id="@+id/txtnombreperfil2"
+        android:layout_width="202dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="6dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Mi Perfil"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/imgperfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01999998" />
+
+    <TextView
+        android:id="@+id/txtnombreperfil3"
+        android:layout_width="374dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="35dp"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:text="Información básica"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtapellidoperfil5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtnombreperfil" />
+
+    <TextView
+        android:id="@+id/txtnombreperfil4"
+        android:layout_width="375dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="21dp"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:text="Información de contacto"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtapellidoperfil6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtcedula" />
+
+    <TextView
+        android:id="@+id/txtcorreoelectronico"
+        android:layout_width="162dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="12dp"
+        android:layout_weight="1"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtapellidoperfil4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtapellidoperfil5" />
+
+    <TextView
+        android:id="@+id/txtcedula"
+        android:layout_width="162dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="71dp"
+        android:layout_weight="1"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtnombreperfil4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtapellidoperfil4" />
+
+    <TextView
+        android:id="@+id/txtapellidoperfil4"
+        android:layout_width="162dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+
+        android:text="Cedula"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtcedula"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtcorreoelectronico" />
+
+    <TextView
+        android:id="@+id/txtapellidoperfil6"
+        android:layout_width="162dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="228dp"
+        android:layout_weight="1"
+        android:text="Celular"
+
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtcelular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtnombreperfil4" />
+
+    <TextView
+        android:id="@+id/txtapellidoperfil5"
+        android:layout_width="162dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:text="Correo Electronico"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtcorreoelectronico"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtnombreperfil3" />
+
+    <TextView
+        android:id="@+id/txtcelular"
+        android:layout_width="162dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="228dp"
+        android:layout_marginBottom="38dp"
+        android:layout_weight="1"
+        android:text=""
+
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/CambiarContraseña"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtapellidoperfil6" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/CambiarContraseña"
+        android:layout_width="151dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="235dp"
+        android:layout_marginBottom="51dp"
+        android:background="@drawable/botones_fondo"
+        android:text="Cambiar Contraseña"
+        android:textColor="@color/white"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/txtcelular" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:orientation="horizontal"
-            >
-
-
-            <ImageView
-                android:id="@+id/imgperfil"
-                android:layout_width="150dp"
-                android:layout_height="157dp"
-                android:layout_marginStart="95dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="95dp"
-                android:layout_marginBottom="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/txtnombreperfil"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.36">
-
-            </ImageView>
-
-            <TextView
-                android:id="@+id/txtnombreperfil"
-                android:layout_width="202dp"
-                android:layout_height="28dp"
-                android:layout_marginStart="69dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="69dp"
-                android:layout_marginBottom="30dp"
-                android:layout_weight="1"
-                android:text=""
-                android:textColor="@android:color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/txtapellidoperfil"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgperfil" />
-
-            <TextView
-                android:id="@+id/txtapellidoperfil"
-                android:layout_width="171dp"
-                android:layout_height="41dp"
-                android:layout_marginStart="87dp"
-                android:layout_marginEnd="82dp"
-                android:layout_marginBottom="23dp"
-                android:layout_weight="1"
-                android:text=""
-                android:textColor="@android:color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtnombreperfil" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/BtnEscanearQR"
+        android:layout_width="151dp"
+        android:layout_height="32dp"
+        android:background="@drawable/botones_fondo"
+        android:text="Escanear QR"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.614"
+        app:layout_constraintStart_toEndOf="@+id/CambiarContraseña"
+        app:layout_constraintTop_toBottomOf="@+id/txtcelular"
+        app:layout_constraintVertical_bias="0.42000002" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

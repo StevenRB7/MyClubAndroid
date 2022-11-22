@@ -1,11 +1,14 @@
 package com.myclub.myapplication.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.myclub.myapplication.Actvity.GeneradorQRActivity
+import com.myclub.myapplication.Actvity.ListadoShopsActivity
 import com.myclub.myapplication.dataDto.response.ConsultarShopsResponseDto
 import com.myclub.myapplication.dataDto.response.ConsultarVaucherResponseDto
 import com.myclub.myapplication.databinding.ItemVaucherBinding
@@ -41,11 +44,17 @@ data class VaucherAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(ConsultarVaucher: ConsultarVaucherResponseDto) {
 
-            binding.txtvaucherdescripcion.text = ConsultarVaucher.Description.toString()
+            binding.txtvaucherdescripcion.text = ConsultarVaucher.DescriptionShop.toString()
             binding.txtvaucherdireccion.text = ConsultarVaucher.Direction.toString()
             binding.txtvaucherciudad.text = ConsultarVaucher.IdCity.toString()
             binding.txtvaucherusuario.text = ConsultarVaucher.IdUser.toString()
 
+            binding.btncanjear.setOnClickListener {
+                val i = Intent(context, GeneradorQRActivity::class.java)
+                i.putExtra("IdVaucher",(ArrayList<ConsultarVaucherResponseDto>())
+                )
+                context.startActivity(i)
+            }
 
             //Toast.makeText(context, "${ConsultarVaucher.Direction}", Toast.LENGTH_SHORT).show()
 
@@ -59,3 +68,5 @@ data class VaucherAdapter(
     }
 
 }
+
+

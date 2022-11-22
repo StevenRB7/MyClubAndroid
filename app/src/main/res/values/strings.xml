@@ -92,5 +92,7 @@
     <string name="msjRecuperar">Te enviaremos una contraseña temporal a tu correo electrónico, recuerda cambiarla</string>
     <string name="enviarbtnrecuperar">ENVIAR</string>
     <string name="registro">Registro</string>
+    <string name="msjQR">Al Scanear el código se quitará esta promoción de tu bandeja de Vaucher`s</string>
+    <string name="Regresar">Regresar</string>
 
 </resources>

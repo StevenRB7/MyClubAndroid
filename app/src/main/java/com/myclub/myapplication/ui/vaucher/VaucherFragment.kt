@@ -83,7 +83,8 @@ class VaucherFragment : Fragment(R.layout.fragment_vaucher) {
     private fun initRecyclerView(listFunction: MutableList<ConsultarVaucherResponseDto>) {
         try {
             recyclerView = binding!!.idRecyclerViewVaucher
-            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
             recyclerView.setHasFixedSize(true)
 
             myAdapter = VaucherAdapter(listFunction, requireContext())
