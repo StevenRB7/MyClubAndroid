@@ -13,6 +13,9 @@ interface ApiService {
     @POST("/api/CuponesUsuario/BuyMembershipPlan")
     fun BuyPlan(@Body consultaBuyPlanDto: ConsultarBuyRequestDto?): Call<ConsultarBuyResponseDto?>
 
+    @POST("/api/CuponesUsuario/GetListMyPlans")
+    fun GetMyPlans(@Body consulta: ConsultaMisPlanesRequestDto?): Call<List<MisPlanesResponseDto>?>
+
 
     @POST("/api/CuponesUsuario/GetListMyCoupons")
     fun ConsultarVaucher(@Body consultaVaucherDto: ConsultarVaucherRequestDto?): Call<List<ConsultarVaucherResponseDto?>>
