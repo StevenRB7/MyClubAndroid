@@ -21,6 +21,8 @@ import com.myclub.myapplication.databinding.ActivityListadoShopsBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
+import com.myclub.myapplication.utils.dataStore.MyClub.Companion.sharedPreferences
+import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -65,8 +67,8 @@ class ListadoShopsActivity : AppCompatActivity() {
         try {
 
             buyRequestDto = ConsultarBuyRequestDto()
-            buyRequestDto!!.IdPerson = null
-            buyRequestDto!!.IdPlan = 1.0
+            buyRequestDto!!.IdPerson = recoverIdPersonShared().toDouble()
+            buyRequestDto!!.IdPlan = intent.extras?.get("IdCoupon").toString().toDouble()
             buyRequestDto!!.IdProject = Constantes.ID_PROYECTO
             buyRequestDto!!.IdStatus = 1.0
 
@@ -79,9 +81,13 @@ class ListadoShopsActivity : AppCompatActivity() {
                         response: Response<ConsultarBuyResponseDto?>
                     ) {
                         buynResponseDto = response.body()
-                        if (response.body() != null ) {
+                        if (response.body() != null) {
                             if (buynResponseDto?.Codigo == 500) {
-                                Toast.makeText(this@ListadoShopsActivity, "usted ya adquirio esta membresia", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this@ListadoShopsActivity,
+                                    "usted ya adquirio esta membresia",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                                 Log.e("holaaaa", buynResponseDto?.Codigo.toString())
                                 Log.e("holaaaa", buynResponseDto?.Mensaje.toString())
                                 FloatingActionButton.INVISIBLE
@@ -93,7 +99,11 @@ class ListadoShopsActivity : AppCompatActivity() {
                                 Log.e("holaaaa", buynResponseDto?.Mensaje.toString())
                                 //AlertLoading.alertDialogLoading.dismiss()
                                 val i = Intent(this@ListadoShopsActivity, MainActivity::class.java)
-                                Toast.makeText(this@ListadoShopsActivity, "Membresia Activada", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this@ListadoShopsActivity,
+                                    "Membresia Activada",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                                 startActivity(i)
                             }
                         }
@@ -168,6 +178,17 @@ class ListadoShopsActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         binding = null
+    }
+
+    private fun recoverIdPersonShared(): String {
+        var idPerson = ""
+        try {
+            sharedPreferences = MySharedPreferences(this)
+            idPerson = sharedPreferences.recoverIdPersonPref()
+        } catch (e: Exception) {
+            //
+        }
+        return idPerson
     }
 
 }

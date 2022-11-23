@@ -2,6 +2,7 @@ package com.myclub.myapplication.Actvity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.myclub.myapplication.R
@@ -33,8 +34,10 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityListadoComerciosPlanBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        IdPersonRecoverted = intent.extras?.getString("IdPerson").toString()
 
-        getDataExtra()
+        Toast.makeText(this, ""+IdPersonRecoverted, Toast.LENGTH_SHORT).show()
+
         callListService()
         botones()
     }
@@ -45,21 +48,12 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
         }
     }
 
-    private fun getDataExtra() {
-        try {
-            IdPersonRecoverted = intent.extras?.getString("IdPerson").toString()
-            IdCouponRecoverted = intent.extras?.getString("IdCoupon").toString()
-        } catch (e: Exception) {
-            //
-        }
-    }
-
     private fun callListService() {
         try {
             consultaMisPlanes = ConsultarVaucherRequestDto()
-            consultaMisPlanes.IdPerson = 191.0
+            consultaMisPlanes.IdPerson = intent.extras?.getString("IdPerson").toString().toDouble()
             consultaMisPlanes.IdProject = Constantes.ID_PROYECTO
-            consultaMisPlanes.IdCoupon = 1.0
+            consultaMisPlanes.IdCoupon =  intent.extras?.getString("IdCoupon").toString().toDouble()
 
             val apiService: ApiService =
                 ApiClient.RetrofitHelper(Constantes.BASE_MY_CLUB).create(ApiService::class.java)

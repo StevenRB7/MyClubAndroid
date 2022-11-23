@@ -21,6 +21,8 @@ import com.myclub.myapplication.databinding.FragmentVaucherBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
+import com.myclub.myapplication.utils.dataStore.MyClub.Companion.sharedPreferences
+import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -48,9 +50,9 @@ class VaucherFragment : Fragment(R.layout.fragment_vaucher) {
 
         try {
             consultaMisPlanes = ConsultaMisPlanesRequestDto()
-            consultaMisPlanes.IdPerson = 191.0
+            consultaMisPlanes.IdPerson = recoverIdPersonShared().toString().toDouble()
             consultaMisPlanes.IdProject = Constantes.ID_PROYECTO
-            consultaMisPlanes.IdCoupon = 1.0
+            consultaMisPlanes.IdCoupon = 0.0
 
             val apiService: ApiService =
                 ApiClient.RetrofitHelper(Constantes.BASE_MY_CLUB).create(ApiService::class.java)
@@ -77,7 +79,7 @@ class VaucherFragment : Fragment(R.layout.fragment_vaucher) {
         }
     }
 
-    private fun initRecyclerView(lista:MutableList<MisPlanesResponseDto>) {
+    private fun initRecyclerView(lista: MutableList<MisPlanesResponseDto>) {
         try {
             recyclerView = binding!!.idRecyclerViewVaucher
             recyclerView.layoutManager =
@@ -93,5 +95,16 @@ class VaucherFragment : Fragment(R.layout.fragment_vaucher) {
     override fun onDestroy() {
         super.onDestroy()
         binding = null
+    }
+
+    private fun recoverIdPersonShared(): String {
+        var idPerson = ""
+        try {
+            sharedPreferences = MySharedPreferences(requireContext())
+            idPerson = sharedPreferences.recoverIdPersonPref()
+        } catch (e: Exception) {
+            //
+        }
+        return idPerson
     }
 }

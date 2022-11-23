@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.myclub.myapplication.Actvity.AlertLoading
 import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
@@ -40,14 +41,14 @@ class MisPlanesAdapter(
             binding.txtDescripcionCupon.text = myPlan.DescriptionPlan
             binding.idbtnverdetalle.setOnClickListener {
                 val i = Intent(context, ListadoComerciosPlanActivity::class.java)
-                i.putExtra("IdPerson", myPlan.IdPerson)
-                i.putExtra("IdCoupon", myPlan.IdCoupon)
+                i.putExtra("IdPerson", myPlan.IdPerson.toString())
+                i.putExtra("IdCoupon", myPlan.IdCoupon.toString())
                 context.startActivity(i)
             }
             binding.IdbtnCoupon.setOnClickListener {
                 val i = Intent(context, ListadoComerciosPlanActivity::class.java)
-                i.putExtra("IdPerson", myPlan.IdPerson)
-                i.putExtra("IdCoupon", myPlan.IdCoupon)
+                i.putExtra("IdPerson", myPlan.IdPerson.toString())
+                i.putExtra("IdCoupon", myPlan.IdCoupon.toString())
                 context.startActivity(i)
             }
         }
