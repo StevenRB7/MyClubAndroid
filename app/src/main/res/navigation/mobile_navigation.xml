@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/nav_Vauchers"
-        android:name="com.myclub.myapplication.ui.vaucher.VaucherFragment"
+        android:name="com.myclub.myapplication.ui.MisVaucher.VaucherFragment"
         tools:layout="@layout/fragment_vaucher" />
     <fragment
         android:id="@+id/nav_membresia"
@@ -71,5 +71,68 @@
         android:name="com.myclub.myapplication.Actvity.IniciarSesion"
         android:label="activity_iniciar_sesion"
         tools:layout="@layout/activity_iniciar_sesion" />
+
+
+
+    <fragment
+        android:id="@+id/nav_perfilBusiness"
+        android:name="com.myclub.myapplication.uiNavBusiness.perfilBusiness.PerfilBusinnesFragment"
+        android:label="@string/Perfil"
+        tools:layout="@layout/fragment_perfil_businnes" />
+
+    <fragment
+        android:id="@+id/nav_superpromosBusiness"
+        android:name="com.myclub.myapplication.uiNavBusiness.superpromos.SuperFragmentBusinessFragment"
+        android:label="@string/superpromo"
+        tools:layout="@layout/fragment_super_fragment_business" />
+
+    <fragment
+        android:id="@+id/nav_configuracionBusiness"
+        android:name="com.myclub.myapplication.uiNavBusiness.configuracion.ConfiguracionBusinessFragment"
+        android:label="@string/configuraci_n"
+        tools:layout="@layout/fragment_configuracion_business" />
+
+
+
+
+
+
+    <fragment
+        android:id="@+id/nav_homeBusiness"
+        android:name="com.myclub.myapplication.uiBusiness.home.HomeBusinessFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_promocionesBusiness"
+        android:name="com.myclub.myapplication.uiBusiness.promociones.PromocionesBusinessFragment"
+        tools:layout="@layout/fragment_promociones" />
+
+    <fragment
+        android:id="@+id/nav_MetodosBusines"
+        android:name="com.myclub.myapplication.uiBusiness.metodos.MetodosBusinessFragment"
+        tools:layout="@layout/fragment_metodo" />
+
+    <fragment
+        android:id="@+id/nav_VauchersBusiness"
+        android:name="com.myclub.myapplication.uiBusiness.vaucher.VaucherBusinessFragment"
+        tools:layout="@layout/fragment_vaucher" />
+    <fragment
+        android:id="@+id/nav_membresiaBusiness"
+        android:name="com.myclub.myapplication.uiBusiness.membresias.MembresiasBusinessFragment"
+        tools:layout="@layout/fragment_membresias" />
+
+    <fragment
+        android:id="@+id/nav_RedimirBusiness"
+        android:name="com.myclub.myapplication.uiBusiness.redimir.RedimirBusinessFragment"
+        tools:layout="@layout/fragment_redimir" />
+    <fragment
+        android:id="@+id/nav_CodigoBusiness"
+        android:name="com.myclub.myapplication.uiBusiness.codigo.CodigoreferidosBusinessFragment"
+        tools:layout="@layout/fragment_codigo_de_referidos" />
+    <fragment
+        android:id="@+id/nav_SoporteBusiness"
+        android:name="com.myclub.myapplication.uiBusiness.soporte.SoporteBusinessFragment"
+        tools:layout="@layout/fragment_soporte" />
+
 
 </navigation>

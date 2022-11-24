@@ -3,11 +3,13 @@ package com.myclub.myapplication.Actvity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.myclub.myapplication.Actvity.AlertErrorResponse.Companion.alertDialogErrorResponse
 import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
 import com.myclub.myapplication.MainActivity
-
+import com.myclub.myapplication.MainActivityBusiness
+import com.myclub.myapplication.dataDto.PersonalModelDto
 import com.myclub.myapplication.dataDto.request.SignInRequestDto
 import com.myclub.myapplication.dataDto.response.ConsultarCuentaResponseDto
 import com.myclub.myapplication.dataDto.response.IniciarSesionResponseDto
@@ -30,6 +32,7 @@ class IniciarSesion : Activity() {
     private lateinit var password: String
     private lateinit var queryPersonByIdResponseDto: ConsultarCuentaResponseDto
     private lateinit var sharedPreferences: MySharedPreferences
+    private lateinit var personaRequest: PersonalModelDto
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,6 +97,8 @@ class IniciarSesion : Activity() {
         signInRequestdDto!!.Login = login
         signInRequestdDto!!.Password = password
         signInRequestdDto!!.IdProyecto = ID_PROYECTO
+        //personaRequest.IdRol = Constantes.ID_ROL_PERSONA_NATURAL
+
 
         val apiService: ApiService =
             ApiClient.RetrofitHelper(BASE_URL_PERSONAS).create(ApiService::class.java)
@@ -103,6 +108,7 @@ class IniciarSesion : Activity() {
                     call: Call<IniciarSesionResponseDto?>,
                     response: Response<IniciarSesionResponseDto?>
                 ) {
+
                     signInResponseDto = response.body()
                     sharedPreferences = MySharedPreferences(this@IniciarSesion)
 
@@ -112,25 +118,46 @@ class IniciarSesion : Activity() {
                             "${signInResponseDto?.MensajeRespuesta}"
                         )
                         alertDialogErrorResponse.show()
-                       alertDialogLoading.dismiss()
+                        alertDialogLoading.dismiss()
 
                     } else {
                         //sharedPreferences = MySharedPreferences(this@IniciarSesion)
 
                         sharedPreferences.storeIdUser(signInResponseDto?.Id.toString())
                         sharedPreferences.storeActiveSessionUser("ActiveSession")
-                       alertDialogLoading.dismiss()
-                        val i = Intent(this@IniciarSesion, MainActivity::class.java)
-                        startActivity(i)
+
+                        jumpToViewDesition(signInResponseDto?.IdRol)
+                        alertDialogLoading.dismiss()
+
                     }
                 }
+
 
                 override fun onFailure(call: Call<IniciarSesionResponseDto?>, t: Throwable) {
                     Toast.makeText(this@IniciarSesion, t.message, Toast.LENGTH_SHORT).show()
 
-                   alertDialogLoading.dismiss()
+                    alertDialogLoading.dismiss()
                 }
             })
+    }
 
+    private fun jumpToViewDesition(code: Double?) {
+        try {
+            val i: Intent
+            when (code) {
+                1.0 -> {
+                    i = Intent(this@IniciarSesion, MainActivity::class.java)
+                    startActivity(i)
+                    finish()
+                }
+                2.0 -> {
+                    i = Intent(this@IniciarSesion, MainActivityBusiness::class.java)
+                    startActivity(i)
+                    finish()
+                }
+            }
+        } catch (e: Exception) {
+            //
+        }
     }
 }

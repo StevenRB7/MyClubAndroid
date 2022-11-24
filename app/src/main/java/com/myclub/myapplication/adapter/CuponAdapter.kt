@@ -41,9 +41,11 @@ class CuponAdapter(
     class ViewHolder(
         private val binding: ItemCouponBinding,
         val context: Context
-    ) :
+    ):
         RecyclerView.ViewHolder(binding.root) {
+
         fun bind(consultar: ConsultarCuponResponseDto) {
+
             when(consultar.Id?.toInt()){
                 1->{
                     binding.CardBackground.setBackgroundResource(R.drawable.membresiamyq)

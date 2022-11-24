@@ -5,6 +5,7 @@
     android:id="@+id/itemcupon"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -15,6 +16,7 @@
         android:layout_marginTop="@dimen/m_8dp"
         android:focusable="true"
         app:cardCornerRadius="30dp"
+        android:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +59,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/txtshopdescripcion"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+                />
 
             <TextView
                 android:id="@+id/txtshopciudad"
@@ -78,34 +80,28 @@
                 app:layout_constraintTop_toBottomOf="@+id/txtshopdireccion" />
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/imgshop"
                 android:layout_width="135dp"
                 android:layout_height="67dp"
                 android:layout_marginStart="16dp"
-
                 android:layout_marginTop="19dp"
                 android:layout_marginEnd="207dp"
                 android:layout_marginBottom="26dp"
-                android:src="@drawable/caran"
                 app:layout_constraintBottom_toTopOf="@+id/txtshopdireccion"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
             </ImageView>
 
             <ImageView
-                android:id="@+id/imageView9"
                 android:layout_width="99dp"
                 android:layout_height="61dp"
-
                 android:layout_marginStart="104dp"
                 android:layout_marginEnd="4dp"
                 android:layout_marginBottom="52dp"
                 android:src="@drawable/descuento"
                 app:layout_constraintBottom_toTopOf="@+id/txtshopdescripcion"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView8"
                 app:layout_constraintTop_toTopOf="parent">
 
             </ImageView>

@@ -12,7 +12,7 @@ interface ApiService {
 
 
     @POST("/api/Usuario/GenerarNuevaContraseniaUsuarioOlvidado")
-    fun RecuperarContraseña(@Body consultaRecuperarDto: ConsultarRecuperarRequestDto?): Call<ConsultarRecuperarResponseDto?>
+    fun RecuperarContrasena(@Body consultaRecuperarDto: ConsultarRecuperarRequestDto?): Call<ConsultarRecuperarResponseDto?>
 
 
     @POST("/api/CuponesUsuario/BuyMembershipPlan")

@@ -1,14 +1,12 @@
 package com.myclub.myapplication.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.myclub.myapplication.Actvity.ListadoShopsActivity
 import com.myclub.myapplication.dataDto.response.ConsultarShopsResponseDto
 import com.myclub.myapplication.databinding.ItemShopBinding
 
@@ -42,16 +40,12 @@ class ShopsAdapter(
     ) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(consultarshop: ConsultarShopsResponseDto) {
-            //Glide.with(context)
-                //.load(consultarshop)
-                //.into(adapterPosition);
-
+            Glide.with(binding.imgshop)
+                .load(consultarshop.Logo)
+                .into(binding.imgshop);
             binding.txtshopdescripcion.text = consultarshop.Description
             binding.txtshopdireccion.text = consultarshop.Direction
             binding.txtshopciudad.text = consultarshop.IdCity.toString()
-
-            //Toast.makeText(context, "${consultarshop.Direction}", Toast.LENGTH_SHORT).show()
-
 
         }
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/itemcupon"
-    android:layout_width="300dp"
+    android:layout_width="250dp"
     android:background="@color/white"
     android:layout_height="199dp"
     android:orientation="horizontal"
@@ -13,8 +13,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/idvaucher"
-        android:layout_width="250dp"
-        android:layout_height="199dp"
+        android:layout_width="240dp"
+        android:layout_height="190dp"
         android:layout_marginStart="10dp"
         android:background="@color/white"
         android:backgroundTint="@color/white"
@@ -36,21 +36,19 @@
                 android:id="@+id/txtvaucherdescripcion"
                 android:layout_width="104dp"
                 android:layout_height="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="17dp"
-                android:layout_marginEnd="130dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginEnd="133dp"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text=""
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/txtvaucherusuario"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView5"
-                app:layout_constraintVertical_bias="0.3" />
+                app:layout_constraintTop_toBottomOf="@+id/imgVaucher"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/txtvaucherciudad"
@@ -76,30 +74,29 @@
                 android:id="@+id/txtvaucherusuario"
                 android:layout_width="109dp"
                 android:layout_height="19dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginEnd="30dp"
                 android:layout_weight="1"
-
                 android:text=""
                 android:textColor="@android:color/black"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/txtvaucherdireccion"
                 app:layout_constraintEnd_toStartOf="@+id/btncanjear"
-                app:layout_constraintHorizontal_bias="0.347"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtvaucherdescripcion" />
 
             <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="121dp"
-                android:layout_height="54dp"
-                android:layout_marginTop="32dp"
+                android:id="@+id/imgVaucher"
+                android:layout_width="106dp"
+                android:layout_height="43dp"
                 android:backgroundTint="@color/vino"
-                android:src="@drawable/caran"
+                app:layout_constraintBottom_toTopOf="@+id/txtvaucherdescripcion"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.031"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.92">
 
             </ImageView>
 
@@ -107,33 +104,34 @@
                 android:id="@+id/btncanjear"
                 android:layout_width="76dp"
                 android:layout_height="24dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/border_redondooo"
                 android:backgroundTint="@color/naranja"
                 android:text="Canjear"
+                android:textSize="10dp"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/txtvaucherusuario"
+                app:layout_constraintStart_toEndOf="@+id/txtvaucherdireccion"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.897" />
 
             <TextView
                 android:id="@+id/txtvaucherdireccion"
                 android:layout_width="102dp"
                 android:layout_height="18dp"
+                android:layout_marginEnd="60dp"
                 android:layout_weight="1"
                 android:text=""
                 android:textColor="@color/black"
-                android:textSize="10sp"
+                android:textSize="8sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btncanjear"
-                app:layout_constraintHorizontal_bias="0.339"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.141"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.962" />
+                app:layout_constraintTop_toBottomOf="@+id/txtvaucherusuario" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

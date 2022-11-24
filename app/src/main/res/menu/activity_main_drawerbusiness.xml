@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+
+    >
+
+    <group android:checkableBehavior="single"
+
+        >
+        <item
+            android:id="@+id/nav_homeBusiness"
+            android:icon="@drawable/perfil"
+            android:title="@string/Inicio"
+            />
+        <item
+            android:id="@+id/nav_promocionesBusiness"
+            android:icon="@drawable/promo"
+            android:title="@string/Promociones" />
+        <item
+            android:id="@+id/nav_membresiaBusiness"
+            android:icon="@drawable/membresia"
+            android:title="@string/Membresias" />
+        <item
+            android:id="@+id/nav_MetodosBusiness"
+            android:icon="@drawable/metodo"
+            android:title="@string/Metodos"
+            />
+        <item
+            android:id="@+id/nav_VauchersBusiness"
+            android:icon="@drawable/vaucher"
+            android:title="@string/Vauchers" />
+        <item
+            android:id="@+id/nav_RedimirBusiness"
+            android:icon="@drawable/redimir"
+            android:title="@string/Redimir" />
+        <item
+            android:id="@+id/nav_CodigoBusiness"
+            android:icon="@drawable/referir"
+            android:title="@string/Codigo" />
+        <item
+            android:id="@+id/nav_SoporteBusiness"
+            android:icon="@drawable/soporte"
+            android:title="@string/Soporte" />
+
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_cerrarsesionBusiness"
+                android:icon="@drawable/cerrarsesion"
+                android:title="@string/cerra" />
+        </menu>
+    </item>
+</menu>
+
+

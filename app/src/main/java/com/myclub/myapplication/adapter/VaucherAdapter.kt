@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.myclub.myapplication.Actvity.GeneradorQRActivity
 import com.myclub.myapplication.Actvity.ListadoShopsActivity
+import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.response.ConsultarShopsResponseDto
 import com.myclub.myapplication.dataDto.response.ConsultarVaucherResponseDto
 import com.myclub.myapplication.databinding.ItemVaucherBinding
@@ -33,6 +35,7 @@ data class VaucherAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(listvaucher[position])
+
     }
 
     override fun getItemCount() = listvaucher.size
@@ -44,6 +47,11 @@ data class VaucherAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(ConsultarVaucher: ConsultarVaucherResponseDto) {
 
+            Glide.with(binding.imgVaucher)
+                .load(ConsultarVaucher.Logo)
+                .into(binding.imgVaucher);
+
+
             binding.txtvaucherdescripcion.text = ConsultarVaucher.DescriptionShop.toString()
             binding.txtvaucherdireccion.text = ConsultarVaucher.Direction.toString()
             binding.txtvaucherciudad.text = ConsultarVaucher.IdCity.toString()
@@ -51,12 +59,15 @@ data class VaucherAdapter(
 
             binding.btncanjear.setOnClickListener {
                 val i = Intent(context, GeneradorQRActivity::class.java)
-                i.putExtra("IdVaucher",(ArrayList<ConsultarVaucherResponseDto>())
-                )
+                i.putExtra("IdShop", ConsultarVaucher.IdShop.toString())
+                i.putExtra("IdDes", ConsultarVaucher.DescriptionShop.toString())
+                i.putExtra("IdCoupon", ConsultarVaucher.IdCoupon.toString())
+
+                i.putExtra("idtodo",ArrayList<ConsultarVaucherResponseDto>())
+
+
                 context.startActivity(i)
             }
-
-            //Toast.makeText(context, "${ConsultarVaucher.Direction}", Toast.LENGTH_SHORT).show()
 
 
         }

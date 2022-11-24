@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_perfilBusiness"
+        android:icon="@drawable/pefil"
+        android:title="perfil" />
+
+    <item
+        android:id="@+id/nav_superpromosBusiness"
+        android:icon="@drawable/discount"
+        android:title="Super Promos" />
+    <item
+        android:id="@+id/nav_configuracionBusiness"
+        android:iconTint="@color/vino"
+        android:icon="@drawable/configuracion"
+        android:title="Configuracion" />
+
+</menu>

@@ -16,6 +16,8 @@ import com.myclub.myapplication.databinding.ActivityListadoComerciosPlanBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
+import com.myclub.myapplication.utils.dataStore.MyClub
+import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,7 +29,6 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
     private lateinit var consultaMisPlanes: ConsultarVaucherRequestDto
     private lateinit var recyclerView: RecyclerView
     private lateinit var IdPersonRecoverted: String
-    private lateinit var IdCouponRecoverted: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +52,7 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
     private fun callListService() {
         try {
             consultaMisPlanes = ConsultarVaucherRequestDto()
-            consultaMisPlanes.IdPerson = intent.extras?.getString("IdPerson").toString().toDouble()
+            consultaMisPlanes.IdPerson = recoverIdPersonShared().toDouble()
             consultaMisPlanes.IdProject = Constantes.ID_PROYECTO
             consultaMisPlanes.IdCoupon =  intent.extras?.getString("IdCoupon").toString().toDouble()
 
@@ -95,6 +96,16 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
         } catch (e: Exception) {
             //
         }
+    }
+    private fun recoverIdPersonShared(): String {
+        var idPerson = ""
+        try {
+            MyClub.sharedPreferences = MySharedPreferences(this)
+            idPerson = MyClub.sharedPreferences.recoverIdPersonPref()
+        } catch (e: Exception) {
+            //
+        }
+        return idPerson
     }
 
 

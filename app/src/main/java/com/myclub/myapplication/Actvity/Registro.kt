@@ -129,7 +129,7 @@ class Registro : AppCompatActivity() {
     private fun validateTextFields(): Boolean {
         var esValido = true
         try {
-            if (binding.idTxtNombre.text.toString().isNullOrEmpty()) {
+            if (binding.idTxtNombre.text.toString().isEmpty()) {
                 esValido = false
                 binding.idTxtNombre.error = ERROR_FORMULARIO_VACIO
             } else {
@@ -138,7 +138,7 @@ class Registro : AppCompatActivity() {
             }
 
             if (binding.idTxtTelefono.text.toString()
-                    .isNullOrEmpty() && binding.idTxtTelefono.text.toString().length >= 10
+                    .isEmpty() && binding.idTxtTelefono.text.toString().length >= 10
             ) {
                 esValido = false
                 binding.idTxtTelefono.error = ERROR_FORMULARIO_VACIO
@@ -147,7 +147,7 @@ class Registro : AppCompatActivity() {
                 binding.idTxtTelefono.error = null
             }
 
-            if (binding.idTxtCorreo.text.toString().isNullOrEmpty()) {
+            if (binding.idTxtCorreo.text.toString().isEmpty()) {
                 esValido = false
                 binding.idTxtCorreo.error = ERROR_FORMULARIO_VACIO
             } else {
@@ -155,7 +155,7 @@ class Registro : AppCompatActivity() {
                 binding.idTxtCorreo.error = null
             }
 
-            if (binding.idTxtNumberIdentification.text.toString().isNullOrEmpty()) {
+            if (binding.idTxtNumberIdentification.text.toString().isEmpty()) {
                 esValido = false
                 binding.idTxtNumberIdentification.error = ERROR_FORMULARIO_VACIO
             } else {

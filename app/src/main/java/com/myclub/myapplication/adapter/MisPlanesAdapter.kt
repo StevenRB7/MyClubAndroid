@@ -5,16 +5,15 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.myclub.myapplication.Actvity.AlertLoading
-import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
 import com.myclub.myapplication.Actvity.ListadoComerciosPlanActivity
+import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.response.MisPlanesResponseDto
 import com.myclub.myapplication.databinding.ItemCouponBinding
 
 class MisPlanesAdapter(
-    val listvaucher: MutableList<MisPlanesResponseDto>, private val context: Context
+    val listvaucher: MutableList<MisPlanesResponseDto>,
+    private val context: Context
 
 ) : RecyclerView.Adapter<MisPlanesAdapter.ViewHolder>(), View.OnClickListener {
     private var clickListenert: View.OnClickListener? = null
@@ -30,14 +29,21 @@ class MisPlanesAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(listvaucher[position])
+
+
     }
 
     override fun getItemCount() = listvaucher.size
 
     class ViewHolder(
-        private val binding: ItemCouponBinding, val context: Context
-    ) : RecyclerView.ViewHolder(binding.root) {
+        private val binding: ItemCouponBinding,
+        val context: Context
+
+    ):
+        RecyclerView.ViewHolder(binding.root) {
+
         fun bind(myPlan: MisPlanesResponseDto) {
+
             binding.txtDescripcionCupon.text = myPlan.DescriptionPlan
             binding.idbtnverdetalle.setOnClickListener {
                 val i = Intent(context, ListadoComerciosPlanActivity::class.java)

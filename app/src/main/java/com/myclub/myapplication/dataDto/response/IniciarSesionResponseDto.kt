@@ -16,8 +16,8 @@ class IniciarSesionResponseDto {
     var Celular: String? = null
     var Direccion: String? = null
     var Correo: String? = null
-    var IdProyecto: String? = null
-    var IdRol: String? = null
+    var IdProyecto: Double? = null
+    var IdRol: Double? = null
     var CodigoRespuesta: Int? = 0
     var MensajeRespuesta: String? = null
 

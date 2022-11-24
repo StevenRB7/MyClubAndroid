@@ -3,7 +3,7 @@ package com.myclub.myapplication.dataDto.response
 data class ConsultarVaucherResponseDto(
 
     val Id: Double? = null,
-    val IdShop: Double? = null,
+    val IdShop: String? = null,
     val DescriptionShop: String? = null,
     val Direction: String? = null,
     val IdCity: Double? = null,

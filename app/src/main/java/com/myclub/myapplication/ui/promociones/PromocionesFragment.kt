@@ -6,16 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.myclub.myapplication.R
 import com.myclub.myapplication.databinding.FragmentPromocionesBinding
-import com.myclub.myapplication.databinding.FragmentVaucherBinding
-import com.myclub.myapplication.ui.vaucher.VaucherViewModel
 
 class PromocionesFragment : Fragment() {
 
     private var _binding: FragmentPromocionesBinding? = null
-
-
     private val binding get() = _binding!!
 
     override fun onCreateView(

@@ -88,16 +88,10 @@ class ListadoShopsActivity : AppCompatActivity() {
                                     "usted ya adquirio esta membresia",
                                     Toast.LENGTH_SHORT
                                 ).show()
-                                Log.e("holaaaa", buynResponseDto?.Codigo.toString())
-                                Log.e("holaaaa", buynResponseDto?.Mensaje.toString())
+                                //Log.e("holaaaa", buynResponseDto?.Codigo.toString())
                                 FloatingActionButton.INVISIBLE
-                                //AlertErrorResponse.alertDialogErrorResponse.show()
-                                //AlertLoading.alertDialogLoading.dismiss()
 
                             } else {
-                                Log.e("holaaaa", buynResponseDto?.Codigo.toString())
-                                Log.e("holaaaa", buynResponseDto?.Mensaje.toString())
-                                //AlertLoading.alertDialogLoading.dismiss()
                                 val i = Intent(this@ListadoShopsActivity, MainActivity::class.java)
                                 Toast.makeText(
                                     this@ListadoShopsActivity,
