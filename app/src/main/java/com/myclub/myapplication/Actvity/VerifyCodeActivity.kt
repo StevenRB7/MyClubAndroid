@@ -1,6 +1,5 @@
 package com.myclub.myapplication.Actvity
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading

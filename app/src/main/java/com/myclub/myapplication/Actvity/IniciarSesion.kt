@@ -3,7 +3,6 @@ package com.myclub.myapplication.Actvity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import com.myclub.myapplication.Actvity.AlertErrorResponse.Companion.alertDialogErrorResponse
 import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading

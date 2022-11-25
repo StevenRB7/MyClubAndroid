@@ -60,7 +60,7 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
                             initRecyclerView(listacupones)
 
                         } else {
-                            Toast.makeText(requireContext(), "EmptyList", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), "Sin Conexion a internet", Toast.LENGTH_SHORT).show()
                         }
                     }
 

@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import com.myclub.myapplication.MainActivity
 import com.myclub.myapplication.dataDto.request.ConsultarRecuperarRequestDto
 
 import com.myclub.myapplication.dataDto.response.ConsultarRecuperarResponseDto
@@ -12,7 +11,6 @@ import com.myclub.myapplication.databinding.ActivityRecuperarContraBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
-import com.myclub.myapplication.utils.dataStore.MyClub.Companion.sharedPreferences
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -101,7 +99,6 @@ class RecuperarContra : AppCompatActivity() {
 
                         } else {
 
-                            //AlertLoading.alertDialogLoading.dismiss()
                             val i = Intent(this@RecuperarContra, IniciarSesion::class.java)
                             i.putExtra("IdPersona", recuperarResponseDto?.IdPersona)
                             i.putExtra("EmailUser", binding.idTxtUserEmail.text.toString())

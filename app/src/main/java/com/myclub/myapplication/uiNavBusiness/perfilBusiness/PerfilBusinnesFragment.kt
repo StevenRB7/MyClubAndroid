@@ -8,14 +8,27 @@ import android.view.View
 import android.widget.Toast
 import com.google.zxing.integration.android.IntentIntegrator
 import com.myclub.myapplication.R
+import com.myclub.myapplication.dataDto.request.CanjearQRRequestDto
+import com.myclub.myapplication.dataDto.response.CanjearQRResponseDto
 import com.myclub.myapplication.databinding.FragmentPerfilBusinnesBinding
-import com.myclub.myapplication.utils.DataUserInsert
+import com.myclub.myapplication.network.ApiClient
+import com.myclub.myapplication.network.ApiService
+import com.myclub.myapplication.utils.Constantes
+import com.myclub.myapplication.utils.dataStore.MyClub
+import com.myclub.myapplication.utils.dataStore.MySharedPreferences
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.lang.Exception
 
 class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
 
     private var binding: FragmentPerfilBusinnesBinding? = null
-    private var dataUserInsert: DataUserInsert? = null
+
+    private lateinit var canjearResponse: CanjearQRResponseDto
+    private lateinit var canjearRequest: CanjearQRRequestDto
+
+
 
 
 
@@ -26,7 +39,44 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
 
         binding?.BtnEscanearQR?.setOnClickListener { initScanner() }
 
+
     }
+
+    private fun callCajearService() {
+
+        try {
+            canjearRequest = CanjearQRRequestDto()
+            canjearRequest.IdPersonShop = recoverIdPersonShared().toString().toDouble()
+            canjearRequest.IdProject = Constantes.ID_PROYECTO
+            canjearRequest.IdCoupon = 0.0
+            canjearRequest.IdPlan = 0.0
+
+
+            val apiService: ApiService =
+                ApiClient.RetrofitHelper(Constantes.BASE_MY_CLUB).create(ApiService::class.java)
+
+            apiService.CanjearQR(canjearRequest)
+                .enqueue(object : Callback<CanjearQRResponseDto?>{
+                    override fun onResponse(
+                        call: Call<CanjearQRResponseDto?>,
+                        response: Response<CanjearQRResponseDto?>
+                    ) {
+                        canjearResponse = response.body()!!
+                        if (canjearResponse.Codigo == 500) {
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<CanjearQRResponseDto?>, t: Throwable) {
+                    }
+
+                })
+
+        } catch (e: Exception) {
+            //
+        }
+    }
+
 
 
     private fun initScanner() {
@@ -37,9 +87,12 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
         integrator.setBeepEnabled(true)
         integrator.initiateScan()
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
+        callCajearService()
 
     }
 
+
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
@@ -53,6 +106,17 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
+    }
+
+    private fun recoverIdPersonShared(): String {
+        var idPerson = ""
+        try {
+            MyClub.sharedPreferences = MySharedPreferences(requireContext())
+            idPerson = MyClub.sharedPreferences.recoverIdPersonPref()
+        } catch (e: Exception) {
+            //
+        }
+        return idPerson
     }
 
 }
