@@ -64,6 +64,7 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
                 ) {
                     responseDto = response.body()!!
 
+
                 }
 
                 override fun onFailure(call: Call<ResponseDto?>, t: Throwable) {

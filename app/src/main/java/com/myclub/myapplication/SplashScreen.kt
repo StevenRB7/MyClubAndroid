@@ -11,11 +11,10 @@ import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 class SplashScreen : AppCompatActivity() {
 
 
-
     private lateinit var binding: ActivitySplashScreenBinding
     private lateinit var sharedPreferences: MySharedPreferences
     private lateinit var activeSessionUser: String
-
+    private var idRoleRestore = ""
     private val timeSplash: Long = 2700
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,17 +29,30 @@ class SplashScreen : AppCompatActivity() {
     }
 
     private fun splashScreen() {
+
         Handler().postDelayed(Runnable {
             if (activeSessionUser == "ActiveSession") {
-                val intentSplash = Intent(this, MainActivity::class.java)
-                startActivity(intentSplash)
-                finish()
+                idRoleRestore = sharedPreferences.restoreIdRoleUserPref()
+                val intentDecitionRole: Intent
+                when (idRoleRestore) {
+                    "1.0" -> {
+                        intentDecitionRole = Intent(this, MainActivity::class.java)
+                        startActivity(intentDecitionRole)
+                        finish()
+                    }
+                    "2.0" -> {
+                        intentDecitionRole = Intent(this, MainActivityBusiness::class.java)
+                        startActivity(intentDecitionRole)
+                        finish()
+                    }
+                }
             } else {
                 val intentSplash = Intent(this, IniciarSesion::class.java)
                 startActivity(intentSplash)
                 finish()
             }
         }, timeSplash)
+
     }
 
     private fun recoverInternalDataPreferences(): String {

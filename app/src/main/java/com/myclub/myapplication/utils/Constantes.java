@@ -11,7 +11,11 @@ public class Constantes {
 
     public static final String PREF_NAME = "StoreMyPrefs";
     public static final String PREF_ACTIVE_SESSION = "ActiveSessionUser";
+    public static final String PREF_ACTIVE_SESSION_ROL = "ActiveSessionRol";
+
     public static final String PREF_ID_USUARIO = "StoreIdUser";
+    public static final String PREF_ID_ROL = "StoreIdRol";
+
 
     public static String E_EMAIL_INVALID = "Correo no valido";
     public static String M_VALIDATE_DATA = "We are validating your data please wait.";

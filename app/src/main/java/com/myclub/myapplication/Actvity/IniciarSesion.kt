@@ -96,7 +96,6 @@ class IniciarSesion : Activity() {
         signInRequestdDto!!.Login = login
         signInRequestdDto!!.Password = password
         signInRequestdDto!!.IdProyecto = ID_PROYECTO
-        //personaRequest.IdRol = Constantes.ID_ROL_PERSONA_NATURAL
 
 
         val apiService: ApiService =
@@ -120,10 +119,6 @@ class IniciarSesion : Activity() {
                         alertDialogLoading.dismiss()
 
                     } else {
-                        //sharedPreferences = MySharedPreferences(this@IniciarSesion)
-
-                        sharedPreferences.storeIdUser(signInResponseDto?.Id.toString())
-                        sharedPreferences.storeActiveSessionUser("ActiveSession")
 
                         jumpToViewDesition(signInResponseDto?.IdRol)
                         alertDialogLoading.dismiss()
@@ -140,17 +135,25 @@ class IniciarSesion : Activity() {
             })
     }
 
-    private fun jumpToViewDesition(code: Double?) {
+    private fun jumpToViewDesition(prueba: Double?) {
         try {
             val i: Intent
-            when (code) {
+            when (prueba) {
                 1.0 -> {
                     i = Intent(this@IniciarSesion, MainActivity::class.java)
+                    sharedPreferences.storeIdUser(signInResponseDto?.Id.toString())
+                    sharedPreferences.storeActiveSessionUser("ActiveSession")
+                    sharedPreferences.storeIdRol(signInResponseDto?.IdRol.toString())
+
                     startActivity(i)
                     finish()
                 }
                 2.0 -> {
                     i = Intent(this@IniciarSesion, MainActivityBusiness::class.java)
+                    sharedPreferences.storeIdRol(signInResponseDto?.IdRol.toString())
+                    sharedPreferences.storeActiveSessionUser("ActiveSession")
+
+
                     startActivity(i)
                     finish()
                 }

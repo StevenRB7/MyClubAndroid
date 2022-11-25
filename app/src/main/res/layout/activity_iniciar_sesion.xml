@@ -72,8 +72,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/idusuario"
                     android:textColor="@color/gris"
-                    android:background="@color/white"
+                    android:background="@drawable/border_redondo_login"
                     android:layout_width="match_parent"
+                    android:textColorLink="@color/white"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
@@ -102,7 +103,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/idpwd"
                     android:textColor="@color/gris"
-                    android:background="@color/white"
+                    android:background="@drawable/border_redondo_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"

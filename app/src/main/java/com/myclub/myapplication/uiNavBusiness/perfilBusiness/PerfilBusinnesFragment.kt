@@ -6,9 +6,13 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import com.google.gson.Gson
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
 import com.google.zxing.integration.android.IntentIntegrator
 import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.request.CanjearQRRequestDto
+import com.myclub.myapplication.dataDto.request.generadorQRDto
 import com.myclub.myapplication.dataDto.response.CanjearQRResponseDto
 import com.myclub.myapplication.databinding.FragmentPerfilBusinnesBinding
 import com.myclub.myapplication.network.ApiClient
@@ -19,7 +23,9 @@ import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
+import java.util.Objects
 
 class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
 
@@ -27,9 +33,6 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
 
     private lateinit var canjearResponse: CanjearQRResponseDto
     private lateinit var canjearRequest: CanjearQRRequestDto
-
-
-
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,7 +59,7 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
                 ApiClient.RetrofitHelper(Constantes.BASE_MY_CLUB).create(ApiService::class.java)
 
             apiService.CanjearQR(canjearRequest)
-                .enqueue(object : Callback<CanjearQRResponseDto?>{
+                .enqueue(object : Callback<CanjearQRResponseDto?> {
                     override fun onResponse(
                         call: Call<CanjearQRResponseDto?>,
                         response: Response<CanjearQRResponseDto?>
@@ -65,6 +68,7 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
                         if (canjearResponse.Codigo == 500) {
 
                         }
+
                     }
 
                     override fun onFailure(call: Call<CanjearQRResponseDto?>, t: Throwable) {
@@ -76,7 +80,6 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
             //
         }
     }
-
 
 
     private fun initScanner() {
@@ -100,8 +103,15 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
             if (result.contents == null) {
                 Toast.makeText(context, "Cancelado", Toast.LENGTH_SHORT).show()
             } else {
-                Log.e("Resultado", result.formatName)
-                Toast.makeText(context, "Resultado=> ${result.contents}", Toast.LENGTH_LONG).show()
+                var newww = "'holaa:'IdPersonShop'"
+                Log.e("Resultado", result.contents)
+                for (i in result.contents) {
+                    if (i.toString() == "'") {
+                        newww = i.toString().replace("'","""""").toString()
+                        Log.e("Resultado=>", newww)
+                    }
+                }
+
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)

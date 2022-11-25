@@ -14,6 +14,7 @@ class GeneradorQRActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGeneradorQractivityBinding
     private lateinit var QR: generadorQRDto
+    private var holaaaaaa: String = "Vacio"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,16 +23,21 @@ class GeneradorQRActivity : AppCompatActivity() {
 
         if (intent != null) {
 
-            val IdDes = intent.extras?.getString("IdDes").toString()
+            val IdPersonShop = intent.extras?.getString("IdPersonShop").toString()
             val IdShop = intent.extras?.getString("IdShop").toString()
             val IdCoupon = intent.extras?.getString("IdCoupon").toString()
+            val IdProject = intent.extras?.getString("IdProject").toString()
 
-            val todo = IdDes + IdCoupon + IdCoupon
-            println(todo)
 
-            QR = generadorQRDto(IdDes, IdShop, IdCoupon)
+            holaaaaaa =
+                "{${"IdPersonShop:" + "${IdPersonShop}"}}" +
+                        "{${"IdShop:" + "${IdShop}"}}" +
+                        "{${"IdCoupon:" + "${IdCoupon}"}}" +
+                        "{${"IdProject:" + "${IdProject}"}}" +
 
-            generarQR()
+
+                        generarQR()
+
         }
         botones()
 
@@ -50,9 +56,11 @@ class GeneradorQRActivity : AppCompatActivity() {
     }
 
     fun generarQR() {
-        if (TextUtils.isDigitsOnly(QR.toString())) {
+        if (TextUtils.isDigitsOnly("holaaaaaa" + "${"IdPersonShop"}")) {
+
         } else {
-            val bitmap = QRCode.from(QR.toString()).withSize(1000, 1000).bitmap()
+            val bitmap =
+                QRCode.from("'${"holaa:"}'" + "${"IdPersonShop"}").withSize(1000, 1000).bitmap()
             binding.ivQRCode.setImageBitmap(bitmap)
         }
     }

@@ -60,8 +60,12 @@ data class VaucherAdapter(
             binding.btncanjear.setOnClickListener {
                 val i = Intent(context, GeneradorQRActivity::class.java)
                 i.putExtra("IdShop", ConsultarVaucher.IdShop.toString())
-                i.putExtra("IdDes", ConsultarVaucher.DescriptionShop.toString())
+                i.putExtra("IdPersonShop", ConsultarVaucher.IdUser.toString())
                 i.putExtra("IdCoupon", ConsultarVaucher.IdCoupon.toString())
+                i.putExtra("IdProject", ConsultarVaucher.IdProject.toString())
+                i.putExtra("IdPlan", ConsultarVaucher.Id.toString())
+
+
 
                 i.putExtra("idtodo",ArrayList<ConsultarVaucherResponseDto>())
 
