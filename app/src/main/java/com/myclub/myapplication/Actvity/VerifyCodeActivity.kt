@@ -32,7 +32,6 @@ class VerifyCodeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getDataIntentExtras()
-        //botones()
 
         binding.idBtnVerifyCode.setOnClickListener {
             if (validateTextFieldForm()) {
@@ -42,16 +41,9 @@ class VerifyCodeActivity : AppCompatActivity() {
                         binding.idTxtCuatro.text.toString()
                 callCodeVerifyService(codeVerify, userPerson)
             }
-            //val i = Intent (this, ::class.java)
-           // startActivity(i)
         }
     }
 
-   // private fun botones() {
-     //   binding.idBtnVerifyCode.setOnClickListener {
-       //     val i = Intent (this, Registro::class.java)
-         //   startActivity(i)
-        //}    }
 
     private fun callCodeVerifyService(codeVerify: String, login: String) {
         try {

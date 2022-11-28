@@ -44,6 +44,19 @@ class MisPlanesAdapter(
 
         fun bind(myPlan: MisPlanesResponseDto) {
 
+
+            when(myPlan.IdCoupon?.toInt()){
+                1->{
+                    binding.CardBackground.setBackgroundResource(R.drawable.membresiamyq)
+                }
+                2->{
+                    binding.CardBackground.setBackgroundResource(R.drawable.membresiaplus)
+                }
+                3->{
+                    binding.CardBackground.setBackgroundResource(R.drawable.membresiapremium)
+                }
+            }
+
             binding.txtDescripcionCupon.text = myPlan.DescriptionPlan
             binding.idbtnverdetalle.setOnClickListener {
                 val i = Intent(context, ListadoComerciosPlanActivity::class.java)

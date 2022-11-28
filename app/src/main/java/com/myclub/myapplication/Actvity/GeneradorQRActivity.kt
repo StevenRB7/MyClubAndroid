@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
-import com.myclub.myapplication.dataDto.request.generadorQRDto
 import com.myclub.myapplication.databinding.ActivityGeneradorQractivityBinding
 import net.glxn.qrgen.android.QRCode
 import kotlin.math.log
@@ -13,8 +12,8 @@ import kotlin.math.log
 class GeneradorQRActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGeneradorQractivityBinding
-    private lateinit var QR: generadorQRDto
-    private var holaaaaaa: String = "Vacio"
+    private var holaaaaaa: String = "vacio"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,20 +26,15 @@ class GeneradorQRActivity : AppCompatActivity() {
             val IdShop = intent.extras?.getString("IdShop").toString()
             val IdCoupon = intent.extras?.getString("IdCoupon").toString()
             val IdProject = intent.extras?.getString("IdProject").toString()
+            holaaaaaa = """ {"IdPersonShop": "${IdPersonShop}","IdShop": "${IdShop}","IdCoupon": "${IdCoupon}","IdProject": "${IdProject}"}"""
 
 
-            holaaaaaa =
-                "{${"IdPersonShop:" + "${IdPersonShop}"}}" +
-                        "{${"IdShop:" + "${IdShop}"}}" +
-                        "{${"IdCoupon:" + "${IdCoupon}"}}" +
-                        "{${"IdProject:" + "${IdProject}"}}" +
+            Log.e("kajhskh", holaaaaaa)
 
-
-                        generarQR()
+            generarQR()
 
         }
         botones()
-
 
     }
 
@@ -56,11 +50,11 @@ class GeneradorQRActivity : AppCompatActivity() {
     }
 
     fun generarQR() {
-        if (TextUtils.isDigitsOnly("holaaaaaa" + "${"IdPersonShop"}")) {
+        if (TextUtils.isDigitsOnly(holaaaaaa)) {
 
         } else {
             val bitmap =
-                QRCode.from("'${"holaa:"}'" + "${"IdPersonShop"}").withSize(1000, 1000).bitmap()
+                QRCode.from(holaaaaaa).withSize(1000, 1000).bitmap()
             binding.ivQRCode.setImageBitmap(bitmap)
         }
     }

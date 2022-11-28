@@ -95,5 +95,8 @@
     <string name="registro">Registro</string>
     <string name="msjQR">Al Scanear el código se quitará esta promoción de tu bandeja de Vaucher`s</string>
     <string name="Regresar">Regresar</string>
+    <string name="confirmar">¿Confirmar su compra?</string>
+    <string name="informacioncompra">Al darle confinmar se redimira el cupon</string>
+    <string name="btnconfirmar">CONFIRMAR</string>
 
 </resources>

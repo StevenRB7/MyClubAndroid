@@ -13,7 +13,7 @@ interface ApiService {
 
     //  PARA CANJEAR QR
     @POST("/api/Comercios/RedeemUserCoupon")
-    fun CanjearQR(@Body canjearQRDto: CanjearQRRequestDto?): Call<CanjearQRResponseDto?>
+    fun CanjearQR(@Body requestRedimirDto: RedimirCuponUsuarioDto?): Call<CanjearQRResponseDto?>
 
 
     //  PARA RECUPERAR CONRASEÑA
