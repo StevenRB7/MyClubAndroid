@@ -18,7 +18,7 @@ class Notificaciones : AppCompatActivity() {
     }
 
     private fun botones() {
-        binding?.btnregresarnoti?.setOnClickListener {
+        binding.btnregresarnoti.setOnClickListener {
             onBackPressed()
         }
     }

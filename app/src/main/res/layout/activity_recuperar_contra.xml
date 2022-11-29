@@ -13,14 +13,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/m_32dp"
             android:layout_marginEnd="@dimen/m_32dp"
             android:gravity="center"
+            android:layout_marginTop="@dimen/m_15dp"
             android:orientation="vertical">
 
             <ImageView
@@ -49,9 +51,9 @@
                 android:layout_marginTop="@dimen/m_32dp"
                 android:text="@string/usuario"
                 android:textColor="@color/white"
-                android:textSize="23sp" />
+                android:textSize="22sp" />
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/idTxtUserName"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -59,11 +61,12 @@
                 android:hint="@string/ingresa"
                 android:importantForAutofill="no"
                 android:paddingStart="@dimen/m_10dp"
-                android:background="@color/white"
+                android:background="@drawable/border_redondo_login"
                 android:textColor="@color/black"
                 android:textColorHint="#9C000000"
                 android:textSize="15sp"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -71,7 +74,7 @@
                 android:layout_gravity="start"
                 android:text="@string/correo_electr_nico"
                 android:textColor="@color/white"
-                android:textSize="23sp" />
+                android:textSize="22sp" />
 
 
             <EditText
@@ -82,7 +85,7 @@
                 android:hint="@string/ingresa2"
                 android:importantForAutofill="no"
                 android:paddingStart="@dimen/m_10dp"
-                android:background="@color/black"
+                android:background="@drawable/border_redondo_login"
                 android:textColor="@color/black"
                 android:textColorHint="#9C000000"
                 android:textSize="15sp"

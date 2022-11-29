@@ -205,13 +205,13 @@
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/CambiarContraseña"
+                app:layout_constraintBottom_toTopOf="@+id/btnCambiarContraseñaEmpresa"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtapellidoperfil6" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/CambiarContraseña"
+                android:id="@+id/btnCambiarContraseñaEmpresa"
                 android:layout_width="151dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="25dp"
@@ -237,7 +237,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.614"
-                app:layout_constraintStart_toEndOf="@+id/CambiarContraseña"
+                app:layout_constraintStart_toEndOf="@+id/btnCambiarContraseñaEmpresa"
                 app:layout_constraintTop_toBottomOf="@+id/txtcelular"
                 app:layout_constraintVertical_bias="0.42000002" />
 

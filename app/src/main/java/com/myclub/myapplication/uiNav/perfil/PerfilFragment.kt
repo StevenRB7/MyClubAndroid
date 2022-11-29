@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.google.zxing.integration.android.IntentIntegrator
 import com.myclub.myapplication.Actvity.AlertErrorResponse
 import com.myclub.myapplication.Actvity.AlertLoading
+import com.myclub.myapplication.Actvity.CambiarContrasenaActivity
 import com.myclub.myapplication.Actvity.VerifyCodeActivity
 import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.PersonalModelDto
@@ -34,21 +35,17 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
         binding = FragmentPerfilBinding.bind(view)
 
         callUserperfilService()
-        //binding?.BtnEscanearQR?.setOnClickListener { initScanner() }
+        botonesperfil()
 
     }
 
-
-    private fun initScanner() {
-        val integrator = IntentIntegrator.forSupportFragment(this@PerfilFragment)
-        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES)
-        integrator.setPrompt("Escanear código QR para redimir vaucher");
-        integrator.setTorchEnabled(false)
-        integrator.setBeepEnabled(true)
-        integrator.initiateScan()
-        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
-
+    private fun botonesperfil() {
+        binding?.btnCambiarContrasena?.setOnClickListener {
+            val i = Intent(requireContext(), CambiarContrasenaActivity::class.java)
+            startActivity(i)
+        }
     }
+
     private fun callUserperfilService() {
         try {
             setData()

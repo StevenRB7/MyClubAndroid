@@ -56,12 +56,11 @@ class Registro : AppCompatActivity() {
                     alertDialogLoading.dismiss()
 
                     if (responseDto.Codigo == CODIGO_ERROR) {
-
+                        alertDialogErrorResponse.show()
                         AlertErrorResponse().alertErrorResponseDialog(
                             this@Registro,
                             responseDto.Mensaje.toString() + " ${personaRequest.Telefono}"
                         )
-                        alertDialogErrorResponse.show()
 
                     } else {
                         val i = Intent(this@Registro, VerifyCodeActivity::class.java)
@@ -69,7 +68,6 @@ class Registro : AppCompatActivity() {
                         i.putExtra("PhonePerson", binding.idTxtTelefono.text.toString())
                         i.putExtra("EmailUser", binding.idTxtCorreo.text.toString())
                         startActivity(i)
-                        alertDialogLoading.show()
 
                     }
                 }
@@ -137,8 +135,8 @@ class Registro : AppCompatActivity() {
                 binding.idTxtNombre.error = null
             }
 
-            if (binding.idTxtTelefono.text.toString()
-                    .isEmpty() && binding.idTxtTelefono.text.toString().length >= 10
+            if (binding.idTxtTelefono.text.toString().isEmpty()
+                && binding.idTxtTelefono.text.toString().length >= 10
             ) {
                 esValido = false
                 binding.idTxtTelefono.error = ERROR_FORMULARIO_VACIO

@@ -94,6 +94,7 @@
                 app:boxCornerRadiusBottomEnd="@dimen/m_8dp"
                 app:boxCornerRadiusBottomStart="@dimen/m_8dp"
                 app:boxCornerRadiusTopEnd="@dimen/m_8dp"
+                app:endIconTint="@color/gris"
                 app:boxCornerRadiusTopStart="@dimen/m_8dp"
                 app:endIconMode="password_toggle"
                 app:layout_constraintEnd_toEndOf="parent"

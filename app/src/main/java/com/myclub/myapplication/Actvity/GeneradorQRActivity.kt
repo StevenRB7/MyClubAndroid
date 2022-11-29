@@ -13,6 +13,8 @@ class GeneradorQRActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGeneradorQractivityBinding
     private var holaaaaaa: String = "vacio"
+   // private var otro: String? = "15878084"
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,10 +28,19 @@ class GeneradorQRActivity : AppCompatActivity() {
             val IdShop = intent.extras?.getString("IdShop").toString()
             val IdCoupon = intent.extras?.getString("IdCoupon").toString()
             val IdProject = intent.extras?.getString("IdProject").toString()
-            holaaaaaa = """ {"IdPersonShop": "${IdPersonShop}","IdShop": "${IdShop}","IdCoupon": "${IdCoupon}","IdProject": "${IdProject}"}"""
+            holaaaaaa = """ 
+                
+                {"IdPersonShop"
+                : "${IdPersonShop}","IdShop"
+                : "${IdShop}","IdCoupon"
+                : "${IdCoupon}","IdProject"
+                : "${IdProject}"}
+                
+                """
+
+                .trimIndent()
 
 
-            Log.e("kajhskh", holaaaaaa)
 
             generarQR()
 

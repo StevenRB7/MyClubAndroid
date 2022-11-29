@@ -1,5 +1,6 @@
 package com.myclub.myapplication
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import com.myclub.myapplication.Actvity.IniciarSesion
 import com.myclub.myapplication.databinding.ActivitySplashScreenBinding
 import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreen : AppCompatActivity() {
 
 

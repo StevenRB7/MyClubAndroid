@@ -22,6 +22,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Actvity.CambiarContrasenaActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivityBusiness"
             android:exported="false">
             <meta-data
@@ -31,15 +38,6 @@
         <activity
             android:name=".Actvity.ListadoComerciosPlanActivity"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Actvity.EscanearQRAdminActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:replace="screenOrientation">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -151,7 +149,7 @@
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"
-            tools:replace="screenOrientation"></activity>
+            tools:replace="screenOrientation" />
     </application>
 
 </manifest>

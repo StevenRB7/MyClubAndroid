@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.Toast
 import com.myclub.myapplication.dataDto.request.ConsultarRecuperarRequestDto
 
 import com.myclub.myapplication.dataDto.response.ConsultarRecuperarResponseDto
@@ -11,6 +12,8 @@ import com.myclub.myapplication.databinding.ActivityRecuperarContraBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
+import com.myclub.myapplication.utils.Constantes.CODIGO_ERROR
+import com.myclub.myapplication.utils.Constantes.CODIGO_EXITOSO
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,6 +44,7 @@ class RecuperarContra : AppCompatActivity() {
             if (validateTextFields()) {
                 if (validateEmail(binding.idTxtUserEmail.text.toString())) {
                     callService(binding.idTxtUserName.text.toString(), binding.idTxtUserEmail.text.toString())
+
                 } else {
                     binding.idTxtUserEmail.error = Constantes.E_EMAIL_INVALID
                 }
@@ -50,7 +54,7 @@ class RecuperarContra : AppCompatActivity() {
     private fun validateTextFields(): Boolean {
         var esValido = true
         try {
-            if (binding.idTxtUserName.text.toString().isEmpty()) {
+            if (binding.idTxtUserName.text.toString().isNullOrEmpty()) {
                 esValido = false
                 binding.idTxtUserName.error = Constantes.ERROR_FORMULARIO_VACIO
             } else {
@@ -58,7 +62,7 @@ class RecuperarContra : AppCompatActivity() {
                 binding.idTxtUserName.error = null
             }
 
-            if (binding.idTxtUserEmail.text.toString().isEmpty()) {
+            if (binding.idTxtUserEmail.text.toString().isNullOrEmpty()) {
                 esValido = false
                 binding.idTxtUserEmail.error = Constantes.ERROR_FORMULARIO_VACIO
             } else {
@@ -67,19 +71,23 @@ class RecuperarContra : AppCompatActivity() {
             }
 
         } catch (e: Exception) {
-            esValido = false
+            //
         }
         return esValido
     }
     private fun callService(login: String, email: String) {
         try {
             recuperarRequestDto = ConsultarRecuperarRequestDto()
-            recuperarRequestDto!!.Email = 0.0
+            recuperarRequestDto!!.Email = email
             recuperarRequestDto!!.IdProyecto = Constantes.ID_PROYECTO
             recuperarRequestDto!!.Login = login
 
+
+            AlertLoading.alertDialogLoading.show()
+
+
             val apiService: ApiService =
-                ApiClient.RetrofitHelper(Constantes.BASE_MY_CLUB).create(ApiService::class.java)
+                ApiClient.RetrofitHelper(Constantes.BASE_URL_PERSONAS).create(ApiService::class.java)
 
             apiService.RecuperarContrasena(recuperarRequestDto)
                 .enqueue(object : Callback<ConsultarRecuperarResponseDto?>{
@@ -88,8 +96,9 @@ class RecuperarContra : AppCompatActivity() {
                         response: Response<ConsultarRecuperarResponseDto?>
                     ) {
                         recuperarResponseDto = response.body()
+                        AlertLoading.alertDialogLoading.dismiss()
 
-                        if (recuperarResponseDto?.Codigo == 500) {
+                        if (recuperarResponseDto?.Codigo == CODIGO_ERROR) {
                             AlertErrorResponse().alertErrorResponseDialog(
                                 this@RecuperarContra,
                                 "${recuperarResponseDto?.Mensaje}"
@@ -98,11 +107,9 @@ class RecuperarContra : AppCompatActivity() {
                             AlertLoading.alertDialogLoading.dismiss()
 
                         } else {
-
+                            (recuperarResponseDto?.Codigo == CODIGO_EXITOSO)
+                            Toast.makeText(this@RecuperarContra, "siuuu", Toast.LENGTH_SHORT).show()
                             val i = Intent(this@RecuperarContra, IniciarSesion::class.java)
-                            i.putExtra("IdPersona", recuperarResponseDto?.IdPersona)
-                            i.putExtra("EmailUser", binding.idTxtUserEmail.text.toString())
-
                             startActivity(i)
                         }
 
@@ -117,6 +124,7 @@ class RecuperarContra : AppCompatActivity() {
                 })
 
     } catch (e: Exception){
+            AlertLoading.alertDialogLoading.dismiss()
 
         }
     }

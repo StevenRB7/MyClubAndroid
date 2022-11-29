@@ -10,6 +10,11 @@ import retrofit2.http.POST
 
 interface ApiService {
 
+    //  PARA CAMBIAR CONTRASEÑA
+    @POST("/apiamingenieria.app/api/Usuario/CambiarContraseniaUsuario")
+    fun CambiarContra(@Body cambiarDto: CambiarContraRequestDto?): Call<ResponseDto?>
+
+
 
     //  PARA CANJEAR QR
     @POST("/api/Comercios/RedeemUserCoupon")
