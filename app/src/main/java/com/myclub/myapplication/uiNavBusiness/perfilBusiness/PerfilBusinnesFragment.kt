@@ -3,16 +3,13 @@
 package com.myclub.myapplication.uiNavBusiness.perfilBusiness
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 import com.google.zxing.integration.android.IntentIntegrator
-import com.myclub.myapplication.Actvity.AlertCheckEmail
 import com.myclub.myapplication.Actvity.AlertLoading
 import com.myclub.myapplication.Actvity.IniciarSesion
 import com.myclub.myapplication.R
@@ -28,7 +25,7 @@ import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.Exception
+import java.nio.file.attribute.AclEntry.Builder
 
 class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
 
@@ -36,7 +33,8 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
 
     private lateinit var canjearResponse: CanjearQRResponseDto
     private lateinit var canjearRequest: RedimirCuponUsuarioDto
-    private lateinit var codeResult: RedimirCuponUsuarioDto
+    private lateinit var alertDialogOpcion: AlertDialog
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -85,7 +83,8 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
 
                                 Toast.makeText(requireContext(), "Este codigo ya esta canjeaado", Toast.LENGTH_SHORT).show()
                             } else {
-
+                                AlertConfirmarCompra().alertConfirmarCompra(requireContext(), "cancelar")
+                                alertDialogOpcion.dismiss()
                                 Toast.makeText(requireContext(), "¡Codigo canjeado correctamente!", Toast.LENGTH_SHORT).show()
                             }
                         }
@@ -99,7 +98,6 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
                 })
 
         } catch (e: Exception) {
-            Log.e("Errrr", e.message.toString())
         }
     }
 
@@ -121,6 +119,7 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result != null) {
             if (result.contents == null) {
+
                 Toast.makeText(context, "Cancelado", Toast.LENGTH_SHORT).show()
 
             } else {
@@ -133,6 +132,7 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
                 }.create()
 
                 try {
+                    alertBuilder.show()
 
                     viewAlert.idBtnComfirmarCompra.setOnClickListener {
                         callCajearService(
@@ -142,13 +142,14 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
                             codeResult.IdPersonShop!!.toDouble()
 
                         )
+
                     }
                     viewAlert.idBtnCancelarCompra.setOnClickListener {
                         Toast.makeText(requireContext(), "cancelado", Toast.LENGTH_SHORT).show()
-                        AlertConfirmarCompra().alertConfirmarCompra(requireContext(), "cancelar")
 
+                        AlertConfirmarCompra().alertConfirmarCompra(requireContext(), "cancelar")
+                        alertBuilder.dismiss()
                     }
-                    alertBuilder.show()
 
 
 
@@ -158,9 +159,6 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
 
                 }
             }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
-
         }
     }
 }
