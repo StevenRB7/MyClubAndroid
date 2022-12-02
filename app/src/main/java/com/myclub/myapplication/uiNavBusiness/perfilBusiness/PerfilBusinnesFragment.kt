@@ -81,9 +81,9 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
                             if (canjearResponse.Codigo == 500) {
 
 
-                                Toast.makeText(requireContext(), "Este codigo ya esta canjeaado", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireContext(), "Este codigo ya esta canjeado", Toast.LENGTH_SHORT).show()
                             } else {
-                                AlertConfirmarCompra().alertConfirmarCompra(requireContext(), "cancelar")
+                                AlertConfirmarCompra().alertConfirmarCompra(requireContext(), "comprar")
                                 alertDialogOpcion.dismiss()
                                 Toast.makeText(requireContext(), "¡Codigo canjeado correctamente!", Toast.LENGTH_SHORT).show()
                             }
