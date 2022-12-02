@@ -7,15 +7,17 @@ import android.util.Patterns
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
-import com.myclub.myapplication.Actvity.AlertErrorResponse.Companion.alertDialogErrorResponse
-import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
+import androidx.appcompat.app.AlertDialog
 import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.PersonalModelDto
 import com.myclub.myapplication.dataDto.response.ResponseDto
 import com.myclub.myapplication.databinding.ActivityRegistroBinding
+import com.myclub.myapplication.databinding.AlertLoadingBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes.*
+import com.myclub.myapplication.utils.alerts.AlertErrorResponse
+import com.myclub.myapplication.utils.alerts.AlertErrorResponse.Companion.alertDialogErrorResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,50 +28,59 @@ class Registro : AppCompatActivity() {
     private lateinit var binding: ActivityRegistroBinding
     private lateinit var personaRequest: PersonalModelDto
     private lateinit var responseDto: ResponseDto
+    private lateinit var alertDialogLoading: AlertDialog
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registro)
-
         binding = ActivityRegistroBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        alertLoadingShow()
         buttonActions();
+        AlertLoading().alertLoadingDialog(this, M_VALIDATE_CODE)
+
+
     }
     private fun callUserRegistrationService() {
         try {
             setData()
-            responseDto = ResponseDto()
             alertDialogLoading.show()
             val apiService: ApiService =
                 ApiClient.RetrofitHelper(BASE_URL_PERSONAS)
                     .create(ApiService::class.java)
-            apiService.registerNewUser(personaRequest)?.enqueue(object : Callback<ResponseDto?> {
+            apiService.registerNewUser(personaRequest)
+                ?.enqueue(object : Callback<ResponseDto?> {
                 override fun onResponse(
                     call: Call<ResponseDto?>,
                     response: Response<ResponseDto?>
                 ) {
-                    responseDto = response.body()!!
-                    Toast.makeText(this@Registro, "${responseDto.Codigo}", Toast.LENGTH_SHORT).show()
                     alertDialogLoading.dismiss()
+                    if (response.body() != null) {
+                        responseDto = response.body()!!
+                        if (responseDto.Codigo == CODIGO_ERROR) {
 
-                    if (responseDto.Codigo == CODIGO_ERROR) {
-                        alertDialogErrorResponse.show()
-                        AlertErrorResponse().alertErrorResponseDialog(
-                            this@Registro,
-                            responseDto.Mensaje.toString() + " ${personaRequest.Telefono}"
-                        )
+                            alertDialogErrorResponse.show()
 
-                    } else {
-                        val i = Intent(this@Registro, VerifyCodeActivity::class.java)
-                        i.putExtra("IdPersona", responseDto.IdPersona)
-                        i.putExtra("PhonePerson", binding.idTxtTelefono.text.toString())
-                        i.putExtra("EmailUser", binding.idTxtCorreo.text.toString())
-                        startActivity(i)
+                            AlertErrorResponse().alertErrorResponseDialog(
 
+                                this@Registro,
+                                responseDto.Mensaje.toString() + " ${personaRequest.Telefono}"
+
+                            )
+                            //alertDialogErrorResponse.dismiss()
+
+
+                        } else {
+                            val i = Intent(this@Registro, VerifyCodeActivity::class.java)
+                            i.putExtra("IdPersona", responseDto.IdPersona)
+                            i.putExtra("PhonePerson", binding.idTxtTelefono.text.toString())
+                            i.putExtra("EmailUser", binding.idTxtCorreo.text.toString())
+                            startActivity(i)
+                        }
                     }
+
                 }
 
                 override fun onFailure(call: Call<ResponseDto?>, t: Throwable) {
@@ -90,15 +101,19 @@ class Registro : AppCompatActivity() {
                 }
             }
         }
-        var btn : ImageView = findViewById(R.id.btnregresar)
+        val btn : ImageView = findViewById(R.id.btnregresar)
         btn.setOnClickListener {
             val intent = Intent(this, IniciarSesion::class.java)
             startActivity(intent)
+            finish()
+
         }
-        var iniciar : Button = findViewById(R.id.btnIniciarSesion2)
+        val iniciar : Button = findViewById(R.id.btnIniciarSesion2)
         iniciar.setOnClickListener {
             val i = Intent(this, IniciarSesion::class.java)
             startActivity(i)
+            finish()
+
         }
     }
     private fun setData() {
@@ -120,7 +135,7 @@ class Registro : AppCompatActivity() {
             personaRequest.IdProyecto = ID_PROYECTO
             personaRequest.IdRol = ID_ROL_PERSONA_NATURAL
         } catch (e: Exception) {
-            Toast.makeText(this, "ErrorSetDataTransform", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Error de datos", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -136,13 +151,17 @@ class Registro : AppCompatActivity() {
             }
 
             if (binding.idTxtTelefono.text.toString().isEmpty()
-                && binding.idTxtTelefono.text.toString().length >= 10
+                && binding.idTxtTelefono.text.toString().length > 10
             ) {
                 esValido = false
                 binding.idTxtTelefono.error = ERROR_FORMULARIO_VACIO
             } else {
-                esValido = true
-                binding.idTxtTelefono.error = null
+                if (binding.idTxtTelefono.text.toString().isEmpty()) {
+                } else {
+                    esValido = true
+                    binding.idTxtTelefono.error = null
+                }
+
             }
 
             if (binding.idTxtCorreo.text.toString().isEmpty()) {
@@ -170,5 +189,20 @@ class Registro : AppCompatActivity() {
         val pattern: Pattern = Patterns.EMAIL_ADDRESS
         pattern.matcher(email).matches()
         return pattern.matcher(email).matches()
+    }
+
+
+    private fun alertLoadingShow() {
+        try {
+            val viewAlert = AlertLoadingBinding.inflate(layoutInflater)
+            alertDialogLoading = AlertDialog.Builder(this).apply {
+                setView(viewAlert.root)
+                setCancelable(false)
+            }.create()
+            viewAlert.idTxtxMessage.text = "Validando datos por favor espere"
+            alertDialogLoading.window?.setBackgroundDrawableResource(R.color.transparente)
+        } catch (e: Exception) {
+            //
+        }
     }
 }

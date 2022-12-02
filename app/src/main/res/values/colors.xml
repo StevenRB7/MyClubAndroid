@@ -5,12 +5,16 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+
+    //COLORES UTILES
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-
     <color name="gris">#716F6F</color>
+    <color name="transparente">#00FFFFFF</color>
+    <color name="color_hint">#9CFFFFFF</color>
 
+
+     // COLORES PRIMERA RONDA
     <color name="vino">#f70761</color>
     <color name="rojo">#fb2744</color>
     <color name="rojo2">#ff3835</color>
@@ -18,11 +22,12 @@
     <color name="amarillo">#FFFF00</color>
 
 
-    <color name="prueba">#F70761</color>
+    // COLORES SEGUNDA OPCION
+    <color name="vinonew">#f60761</color>
+    <color name="rojonew">#fa2744</color>
+    <color name="negronew">#333333</color>
+    <color name="newoscuronew">#1a1a1a</color>
 
-
-    <color name="transparente">#00FFFFFF</color>
-    <color name="color_hint">#9CFFFFFF</color>
 
 
     //COLORES PARA MODIFICAR QR

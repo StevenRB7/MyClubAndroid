@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 
 import android.widget.ImageView
+import android.widget.Toast
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -74,7 +75,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         observeDestination()
-
     }
     private fun setBottom() {
         val navHostFragment =
@@ -104,6 +104,9 @@ class MainActivity : AppCompatActivity() {
                     (findViewById<BottomNavigationView>(R.id.nav_viewbutton)).visibility =
                         View.VISIBLE
                 }
+                R.id.nav_cerrarsesionBusiness -> {
+                    Toast.makeText(this, "jhhhd", Toast.LENGTH_SHORT).show()
+                }
 
             }
         }
@@ -118,9 +121,12 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_cerrarsesion -> {
+
                 MySharedPreferences(this).deleteMySharedPreferences()
                 val i = Intent(this, IniciarSesion::class.java)
+                Toast.makeText(this, "ss", Toast.LENGTH_SHORT).show()
                 startActivity(i)
+
                 }
         }
         return super.onOptionsItemSelected(item)

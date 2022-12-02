@@ -169,7 +169,7 @@
                 android:textColor="@color/gris"                android:gravity="center"
                 android:hint="@string/identificacion"
                 android:importantForAutofill="no"
-                android:inputType="text"
+                android:inputType="number"
                 android:outlineProvider="background"
                 android:paddingStart="@dimen/m_15dp"
                 tools:ignore="RtlSymmetry" />
@@ -190,7 +190,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/idBtnRegistrarme"
-        android:layout_width="350dp"
+        android:layout_width="330dp"
         android:layout_height="40dp"
         android:layout_marginBottom="10dp"
         android:text="@string/crear_usuario"
@@ -206,7 +206,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnIniciarSesion2"
-        android:layout_width="350dp"
+        android:layout_width="330dp"
         android:layout_height="40dp"
         android:layout_marginStart="116dp"
         android:layout_marginTop="10dp"

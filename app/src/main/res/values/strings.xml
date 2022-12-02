@@ -101,5 +101,8 @@
     <string name="cambiarcontra">CAMBIAR CONTRASEÑA</string>
     <string name="mensajecontra2">Después de cambiar su contraseña, debe iniciar sesión nuevamente</string>
     <string name="confirmarvtn">CONFIRMAR</string>
+    <string name="verificadorecuperar">Nueva contraseña enviada</string>
+    <string name="informacionrecuperar">Te hemos enviado tu nueva contraseña por mensaje de texto y al correo electronico para poder iniciar sesión</string>
+    <string name="recuperarinfo">Usuario o correo invalido</string>
 
 </resources>

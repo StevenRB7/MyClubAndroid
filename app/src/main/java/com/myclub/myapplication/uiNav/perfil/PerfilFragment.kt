@@ -4,13 +4,9 @@ package com.myclub.myapplication.uiNav.perfil
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.zxing.integration.android.IntentIntegrator
-import com.myclub.myapplication.Actvity.AlertErrorResponse
 import com.myclub.myapplication.Actvity.AlertLoading
 import com.myclub.myapplication.Actvity.CambiarContrasenaActivity
-import com.myclub.myapplication.Actvity.VerifyCodeActivity
 import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.PersonalModelDto
 import com.myclub.myapplication.dataDto.response.ResponseDto

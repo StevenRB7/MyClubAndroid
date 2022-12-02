@@ -4,7 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import android.widget.Toast
+import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
+import com.myclub.myapplication.dataDto.PersonalModelDto
 import com.myclub.myapplication.dataDto.request.ConsultarRecuperarRequestDto
 
 import com.myclub.myapplication.dataDto.response.ConsultarRecuperarResponseDto
@@ -12,8 +13,8 @@ import com.myclub.myapplication.databinding.ActivityRecuperarContraBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
-import com.myclub.myapplication.utils.Constantes.CODIGO_ERROR
-import com.myclub.myapplication.utils.Constantes.CODIGO_EXITOSO
+import com.myclub.myapplication.utils.alerts.AlertErrorResponse
+import com.myclub.myapplication.utils.alerts.AlertErrorResponse.Companion.alertDialogErrorResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,12 +25,18 @@ class RecuperarContra : AppCompatActivity() {
 
     private var recuperarRequestDto: ConsultarRecuperarRequestDto? = null
     private var recuperarResponseDto: ConsultarRecuperarResponseDto? = null
+    private lateinit var personaRequest: PersonalModelDto
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         binding = ActivityRecuperarContraBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        recuperarResponseDto = ConsultarRecuperarResponseDto()
+        AlertLoading().alertLoadingDialog(this, "Validando")
+
         BotonesDeRecuperar()
 
     }
@@ -77,18 +84,18 @@ class RecuperarContra : AppCompatActivity() {
     }
     private fun callService(login: String, email: String) {
         try {
+
+            alertDialogLoading.show()
             recuperarRequestDto = ConsultarRecuperarRequestDto()
             recuperarRequestDto!!.Email = email
             recuperarRequestDto!!.IdProyecto = Constantes.ID_PROYECTO
             recuperarRequestDto!!.Login = login
 
 
-            AlertLoading.alertDialogLoading.show()
 
 
             val apiService: ApiService =
                 ApiClient.RetrofitHelper(Constantes.BASE_URL_PERSONAS).create(ApiService::class.java)
-
             apiService.RecuperarContrasena(recuperarRequestDto)
                 .enqueue(object : Callback<ConsultarRecuperarResponseDto?>{
                     override fun onResponse(
@@ -96,22 +103,25 @@ class RecuperarContra : AppCompatActivity() {
                         response: Response<ConsultarRecuperarResponseDto?>
                     ) {
                         recuperarResponseDto = response.body()
-                        AlertLoading.alertDialogLoading.dismiss()
 
-                        if (recuperarResponseDto?.Codigo == CODIGO_ERROR) {
-                            AlertErrorResponse().alertErrorResponseDialog(
-                                this@RecuperarContra,
-                                "${recuperarResponseDto?.Mensaje}"
-                            )
-                            AlertErrorResponse.alertDialogErrorResponse.show()
-                            AlertLoading.alertDialogLoading.dismiss()
 
-                        } else {
-                            (recuperarResponseDto?.Codigo == CODIGO_EXITOSO)
-                            Toast.makeText(this@RecuperarContra, "siuuu", Toast.LENGTH_SHORT).show()
-                            val i = Intent(this@RecuperarContra, IniciarSesion::class.java)
-                            startActivity(i)
-                        }
+                            if (recuperarResponseDto?.Codigo == 500) {
+                                AlertErrorResponse().alertErrorResponseDialog(
+                                    this@RecuperarContra,
+                                    "${recuperarResponseDto?.Mensaje}" )
+                                alertDialogErrorResponse.show()
+                                alertDialogLoading.dismiss()
+
+                            } else {
+                                AlertCheckRecuperar().alertCheckRecuperar(
+                                    this@RecuperarContra,
+                                    "enviar"
+
+                                )
+
+
+
+                            }
 
                     }
 

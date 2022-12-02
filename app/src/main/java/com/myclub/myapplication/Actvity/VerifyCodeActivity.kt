@@ -12,6 +12,7 @@ import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
 import com.myclub.myapplication.utils.Constantes.ERROR_FORMULARIO_VACIO
 import com.myclub.myapplication.utils.Constantes.ID_PROYECTO
+import com.myclub.myapplication.utils.alerts.AlertErrorResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -57,16 +58,17 @@ class VerifyCodeActivity : AppCompatActivity() {
             val apiService: ApiService =
                 ApiClient.RetrofitHelper(Constantes.BASE_URL_PERSONAS)
                     .create(ApiService::class.java)
-            apiService.verifyCode(verifyCoeRequestDto)?.enqueue(object : Callback<Boolean?> {
-                override fun onResponse(call: Call<Boolean?>, response: Response<Boolean?>) {
+            apiService.verifyCode(verifyCoeRequestDto)
+                ?.enqueue(object : Callback<Boolean?> {
+                override fun onResponse(
+                    call: Call<Boolean?>, response: Response<Boolean?>) {
                     alertDialogLoading.dismiss()
                     if (response.body() == true) {
                         AlertCheckEmail().alertCheckEmail(this@VerifyCodeActivity, "iniciar")
                     } else {
                         AlertErrorResponse().alertErrorResponseDialog(
                             this@VerifyCodeActivity,
-                            Constantes.M_E_VERIFY_CODE
-                        )
+                            Constantes.M_E_VERIFY_CODE)
                     }
                 }
 

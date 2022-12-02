@@ -42,13 +42,15 @@
             android:id="@+id/nav_SoporteBusiness"
             android:icon="@drawable/soporte"
             android:title="@string/Soporte" />
-
+        <item
+            android:id="@+id/nav_cerrarsesionBusiness"
+            android:icon="@drawable/cerrarsesion"
+            android:title="@string/cerra" />
     </group>
 
     <item android:title="">
         <menu>
             <item
-                android:id="@+id/nav_cerrarsesionBusiness"
                 android:icon="@drawable/cerrarsesion"
                 android:title="@string/cerra" />
         </menu>

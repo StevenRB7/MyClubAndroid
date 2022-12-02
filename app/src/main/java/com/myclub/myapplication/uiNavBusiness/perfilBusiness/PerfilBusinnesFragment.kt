@@ -8,17 +8,10 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
 import com.google.gson.Gson
-import com.google.gson.JsonObject
-import com.google.gson.JsonParser
 import com.google.zxing.integration.android.IntentIntegrator
 import com.myclub.myapplication.Actvity.AlertCheckEmail
 import com.myclub.myapplication.Actvity.AlertConfirmarCompra
-import com.myclub.myapplication.Actvity.AlertErrorResponse
-import com.myclub.myapplication.Actvity.AlertLoading
-import com.myclub.myapplication.MainActivity
-import com.myclub.myapplication.MainActivityBusiness
 import com.myclub.myapplication.R
-import com.myclub.myapplication.dataDto.request.CanjearQRRequestDto
 import com.myclub.myapplication.dataDto.request.RedimirCuponUsuarioDto
 import com.myclub.myapplication.dataDto.response.CanjearQRResponseDto
 import com.myclub.myapplication.databinding.AlertConfirmarCompraBinding
@@ -26,15 +19,10 @@ import com.myclub.myapplication.databinding.FragmentPerfilBusinnesBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
-import com.myclub.myapplication.utils.dataStore.MyClub
-import com.myclub.myapplication.utils.dataStore.MySharedPreferences
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
-import java.util.Objects
 
 class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
 
@@ -128,17 +116,21 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
             } else {
                 val gson = Gson()
                 val codeResult = gson.fromJson(result.contents, RedimirCuponUsuarioDto::class.java)
-                Log.e("jshdsds", codeResult.IdPersonShop.toString())
                 val viewAlert = AlertConfirmarCompraBinding.inflate(layoutInflater)
                 val alertBuild = AlertDialog.Builder(requireContext()).apply {
                     setView(viewAlert.root)
                 }.create()
                 viewAlert.idBtnComfirmarCompra.setOnClickListener {
                     callCajearService(
+
                         codeResult.IdCoupon!!.toDouble(),
                         codeResult.IdShop!!.toDouble(),
                         codeResult.IdPersonShop!!.toDouble()
+
                     )
+                    AlertConfirmarCompra().alertConfirmarCompra(requireContext(), "comprar")
+
+
                 }
                 alertBuild.show()
 

@@ -51,6 +51,9 @@ class ListadoShopsActivity : AppCompatActivity() {
         }
         callService()
         botones()
+
+        AlertLoading().alertLoadingDialog(this, "Cargando")
+
     }
 
     private fun botones() {

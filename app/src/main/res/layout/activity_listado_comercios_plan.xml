@@ -21,7 +21,8 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/m_15dp"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            >
 
             <ImageView
                 android:id="@+id/btnregresarlistado"
@@ -55,7 +56,7 @@
         android:id="@+id/txtapellidoperfil5"
         android:layout_width="305dp"
         android:layout_height="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:text="@string/Restaurante"
         android:textColor="@android:color/black"
@@ -68,12 +69,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRecyclerViewPlanesComercio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="419dp"
+        android:layout_height="658dp"
         android:layout_marginTop="7dp"
-        android:layout_marginBottom="422dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtapellidoperfil5" />
 

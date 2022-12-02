@@ -87,7 +87,7 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
     private fun initRecyclerView(lista: MutableList<ConsultarVaucherResponseDto>) {
         try {
             recyclerView = binding.idRecyclerViewPlanesComercio
-            recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+            recyclerView.layoutManager = LinearLayoutManager(this)
             recyclerView.setHasFixedSize(true)
             myAdapter = VaucherAdapter(lista, this)
             recyclerView.adapter = myAdapter

@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import com.myclub.myapplication.Actvity.AlertErrorResponse.Companion.alertDialogErrorResponse
 import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
 import com.myclub.myapplication.MainActivity
 import com.myclub.myapplication.MainActivityBusiness
@@ -18,6 +17,8 @@ import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
 import com.myclub.myapplication.utils.Constantes.BASE_URL_PERSONAS
 import com.myclub.myapplication.utils.Constantes.ID_PROYECTO
+import com.myclub.myapplication.utils.alerts.AlertErrorResponse
+import com.myclub.myapplication.utils.alerts.AlertErrorResponse.Companion.alertDialogErrorResponse
 import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 import retrofit2.Call
 import retrofit2.Callback

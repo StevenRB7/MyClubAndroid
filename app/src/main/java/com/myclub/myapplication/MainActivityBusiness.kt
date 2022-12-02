@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -96,6 +97,9 @@ class MainActivityBusiness : AppCompatActivity() {
                     (findViewById<BottomNavigationView>(R.id.nav_viewbuttonbusiness)).visibility =
                         View.VISIBLE
                 }
+                R.id.nav_cerrarsesionBusiness -> {
+                    Toast.makeText(this, "jhhhd", Toast.LENGTH_SHORT).show()
+                }
 
             }
         }
@@ -108,20 +112,30 @@ class MainActivityBusiness : AppCompatActivity() {
         return true
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+
+
         when (item.itemId) {
             R.id.nav_cerrarsesion -> {
                 MySharedPreferences(this).deleteMySharedPreferences()
                 val i = Intent(this, IniciarSesion::class.java)
                 startActivity(i)
             }
+            R.id.nav_cerrarsesionBusiness -> {
+                Toast.makeText(this, "jhhhd", Toast.LENGTH_SHORT).show()
+            }
         }
         return super.onOptionsItemSelected(item)
     }
 
 
+
+
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_mainbusiness)
         return navController.navigateUp(appBarConfiguration2) || super.onSupportNavigateUp()
+
+
     }
 
 
