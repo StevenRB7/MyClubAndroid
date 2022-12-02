@@ -10,7 +10,7 @@
         >
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/perfil"
+            android:icon="@drawable/perfilbar"
             android:title="@string/Inicio"
             />
         <item
@@ -42,10 +42,7 @@
             android:id="@+id/nav_Soporte"
             android:icon="@drawable/soporte"
             android:title="@string/Soporte" />
-        <item
-            android:id="@+id/nav_cerrarsesion"
-            android:icon="@drawable/cerrarsesion"
-            android:title="@string/cerra" />
+
     </group>
 
 

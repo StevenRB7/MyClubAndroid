@@ -50,157 +50,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/idotro"
-                android:layout_width="116dp"
-                android:layout_height="81dp"
-                android:layout_marginTop="67dp"
-                android:layout_marginEnd="22dp"
-                android:background="@color/white"
-                android:elevation="@dimen/m_15dp"
-                app:cardElevation="@dimen/m_5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/estilo_cards"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    tools:ignore="UseCompoundDrawables">
-
-
-                    <ImageView
-                        android:layout_width="85dp"
-                        android:layout_height="66dp"
-                        android:layout_gravity="left"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="34dp"
-                        android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/membresias"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.454"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/idBtnmispuntos"
-                android:layout_width="116dp"
-                android:layout_height="81dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="1dp"
-                android:background="@color/white"
-
-                android:elevation="@dimen/m_15dp"
-                app:cardElevation="@dimen/m_5dp"
-                app:layout_constraintEnd_toStartOf="@+id/idotro"
-                app:layout_constraintStart_toEndOf="@+id/idBtnmisahorros"
-                app:layout_constraintTop_toBottomOf="@+id/txtDscripcionCupon">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/estilo_cards"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    tools:ignore="UseCompoundDrawables">
-
-                    <ImageView
-                        android:layout_width="85dp"
-                        android:layout_height="64dp"
-                        android:layout_gravity="left"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="46dp"
-                        android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/ahorros"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.387"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/idBtnmisahorros"
-                android:layout_width="116dp"
-                android:layout_height="81dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/white"
-                android:elevation="@dimen/m_15dp"
-                app:cardElevation="@dimen/m_5dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtDscripcionCupon">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/estilo_cards"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    tools:ignore="UseCompoundDrawables">
-
-
-                    <ImageView
-                        android:id="@+id/imageView7"
-                        android:layout_width="85dp"
-                        android:layout_height="64dp"
-                        android:layout_gravity="left"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="38dp"
-                        android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/puntos"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.378"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:layout_width="94dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginEnd="28dp"
-                        android:gravity="center"
-                        android:text="@string/ahorros"
-                        android:textColor="@color/white"
-                        android:textSize="10sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.831"
-                        app:layout_constraintStart_toEndOf="@+id/imageView7"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.983" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idcardveterinaria"
                 android:layout_width="111dp"
-                android:layout_height="111dp"
-                android:layout_marginStart="22dp"
-                android:layout_marginTop="44dp"
+                android:layout_height="115dp"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="80dp"
                 android:layout_marginEnd="4dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
                 app:layout_constraintEnd_toStartOf="@+id/idcardbelleza"
                 app:layout_constraintStart_toEndOf="@+id/idcardhoteles"
-                app:layout_constraintTop_toBottomOf="@+id/idBtnmispuntos">
+                app:layout_constraintTop_toBottomOf="@+id/txtDscripcionCupon"
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -224,15 +87,15 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idcardbelleza"
-                android:layout_width="111dp"
-                android:layout_height="111dp"
-                android:layout_marginTop="44dp"
+                android:layout_width="107dp"
+                android:layout_height="115dp"
+                android:layout_marginTop="83dp"
                 android:layout_marginEnd="40dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/idcardveterinaria"
-                app:layout_constraintTop_toBottomOf="@+id/idotro">
+                app:layout_constraintTop_toBottomOf="@+id/imageView5">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -260,7 +123,7 @@
                 android:layout_width="113dp"
                 android:layout_height="109dp"
                 android:layout_marginStart="17dp"
-                android:layout_marginTop="192dp"
+                android:layout_marginTop="142dp"
                 android:layout_marginBottom="400dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -336,7 +199,7 @@
                 android:layout_height="111dp"
                 android:layout_marginStart="29dp"
                 android:layout_marginTop="25dp"
-                android:layout_marginEnd="9dp"
+                android:layout_marginEnd="7dp"
                 android:elevation="@dimen/m_15dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
@@ -401,13 +264,14 @@
                 android:layout_width="340dp"
                 android:layout_height="191dp"
                 android:layout_marginStart="31dp"
-                android:layout_marginTop="19dp"
+                android:layout_marginTop="70dp"
                 android:layout_marginEnd="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/idcardbares" />
 
             <ImageView
+                android:id="@+id/imageView5"
                 android:layout_width="85dp"
                 android:layout_height="54dp"
                 android:layout_gravity="left"

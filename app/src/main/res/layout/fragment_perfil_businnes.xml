@@ -17,19 +17,20 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/imgperfil"
-                android:layout_width="141dp"
-                android:layout_height="126dp"
+                android:layout_width="119dp"
+                android:layout_height="95dp"
                 android:layout_marginStart="130dp"
                 android:layout_marginTop="6dp"
-                android:src="@drawable/pefil"
                 android:layout_marginEnd="131dp"
                 android:layout_marginBottom="17dp"
+                android:src="@drawable/pefil"
                 app:layout_constraintBottom_toTopOf="@+id/txtnombreperfil"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.516"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtnombreperfil2">
 
@@ -70,7 +71,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.01999998" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/txtnombreperfil3"
@@ -90,21 +91,21 @@
                 app:layout_constraintTop_toBottomOf="@+id/txtnombreperfil" />
 
             <TextView
-                android:id="@+id/txtnombreperfil4"
+                android:id="@+id/informacion"
                 android:layout_width="375dp"
                 android:layout_height="27dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="6dp"
-                android:layout_marginBottom="21dp"
                 android:layout_weight="1"
                 android:gravity="left"
+                android:layout_marginTop="@dimen/m_15dp"
                 android:text="Información de contacto"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/txtapellidoperfil6"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.722"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtcedula" />
+                app:layout_constraintTop_toBottomOf="@+id/txtcedula"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/txtcorreoelectronico"
@@ -163,17 +164,17 @@
                 android:layout_width="162dp"
                 android:layout_height="21dp"
                 android:layout_marginStart="34dp"
-                android:layout_marginEnd="228dp"
+
+                android:layout_marginEnd="215dp"
                 android:layout_weight="1"
                 android:text="Celular"
-
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/txtcelular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtnombreperfil4" />
+                app:layout_constraintTop_toBottomOf="@+id/informacion" />
 
             <TextView
                 android:id="@+id/txtapellidoperfil5"
@@ -201,28 +202,28 @@
                 android:layout_marginBottom="38dp"
                 android:layout_weight="1"
                 android:text=""
-
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/btnCambiarContraseñaEmpresa"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtapellidoperfil6" />
+                app:layout_constraintTop_toBottomOf="@+id/txtapellidoperfil6"
+                app:layout_constraintVertical_bias="0.0"
+                />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnCambiarContraseñaEmpresa"
                 android:layout_width="151dp"
                 android:layout_height="32dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="235dp"
-                android:layout_marginBottom="51dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="48dp"
                 android:background="@drawable/botones_fondo"
                 android:text="Cambiar Contraseña"
                 android:textColor="@color/white"
+
                 android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/BtnEscanearQR"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtcelular" />
 
@@ -236,11 +237,29 @@
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.614"
+                app:layout_constraintHorizontal_bias="0.64"
                 app:layout_constraintStart_toEndOf="@+id/btnCambiarContraseñaEmpresa"
                 app:layout_constraintTop_toBottomOf="@+id/txtcelular"
-                app:layout_constraintVertical_bias="0.42000002" />
+                app:layout_constraintVertical_bias="0.395" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btncerrarsesionbusiness"
+                android:layout_width="151dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="130dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/botones_fondo"
+                android:text="@string/cerra"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/BtnEscanearQR"
+                app:layout_constraintVertical_bias="1.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -101,31 +101,31 @@
     <fragment
         android:id="@+id/nav_homeBusiness"
         android:name="com.myclub.myapplication.uiBusiness.home.HomeBusinessFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home_business" />
 
     <fragment
         android:id="@+id/nav_promocionesBusiness"
         android:name="com.myclub.myapplication.uiBusiness.promociones.PromocionesBusinessFragment"
-        tools:layout="@layout/fragment_promociones" />
+        tools:layout="@layout/fragment_promociones_business" />
 
     <fragment
         android:id="@+id/nav_MetodosBusines"
         android:name="com.myclub.myapplication.uiBusiness.metodos.MetodosBusinessFragment"
-        tools:layout="@layout/fragment_metodo" />
+        tools:layout="@layout/fragment_metodos_business" />
 
     <fragment
         android:id="@+id/nav_VauchersBusiness"
         android:name="com.myclub.myapplication.uiBusiness.vaucher.VaucherBusinessFragment"
-        tools:layout="@layout/fragment_vaucher" />
+        tools:layout="@layout/fragment_vaucher_business" />
     <fragment
         android:id="@+id/nav_membresiaBusiness"
         android:name="com.myclub.myapplication.uiBusiness.membresias.MembresiasBusinessFragment"
-        tools:layout="@layout/fragment_membresias" />
+        tools:layout="@layout/fragment_membresias_business" />
 
     <fragment
         android:id="@+id/nav_RedimirBusiness"
         android:name="com.myclub.myapplication.uiBusiness.redimir.RedimirBusinessFragment"
-        tools:layout="@layout/fragment_redimir" />
+        tools:layout="@layout/fragment_redimir_business" />
     <fragment
         android:id="@+id/nav_CodigoBusiness"
         android:name="com.myclub.myapplication.uiBusiness.codigo.CodigoreferidosBusinessFragment"
@@ -133,7 +133,7 @@
     <fragment
         android:id="@+id/nav_SoporteBusiness"
         android:name="com.myclub.myapplication.uiBusiness.soporte.SoporteBusinessFragment"
-        tools:layout="@layout/fragment_soporte" />
+        tools:layout="@layout/fragment_soporte_business" />
 
 
 </navigation>

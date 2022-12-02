@@ -30,11 +30,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             //startActivity(i)
         //}
         val carrusel = ArrayList<Carrusel>()
-        carrusel.add(Carrusel(R.drawable.membresiapremium))
+        carrusel.add(Carrusel(R.drawable.cardbanner))
         carrusel.add(Carrusel(R.drawable.membresiaplus))
         carrusel.add(Carrusel(R.drawable.membresiamyq))
         carrusel.add(Carrusel(R.drawable.cardbanner))
-        carrusel.add(Carrusel(R.drawable.membresias))
+        carrusel.add(Carrusel(R.drawable.membresiamyq))
 
         val adapter = CarruselAdapter(carrusel)
 

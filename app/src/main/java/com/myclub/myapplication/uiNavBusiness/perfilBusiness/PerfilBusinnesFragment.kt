@@ -1,6 +1,9 @@
+@file:Suppress("SENSELESS_COMPARISON")
+
 package com.myclub.myapplication.uiNavBusiness.perfilBusiness
 
 import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +13,8 @@ import android.widget.Toast
 import com.google.gson.Gson
 import com.google.zxing.integration.android.IntentIntegrator
 import com.myclub.myapplication.Actvity.AlertCheckEmail
-import com.myclub.myapplication.Actvity.AlertConfirmarCompra
+import com.myclub.myapplication.Actvity.AlertLoading
+import com.myclub.myapplication.Actvity.IniciarSesion
 import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.request.RedimirCuponUsuarioDto
 import com.myclub.myapplication.dataDto.response.CanjearQRResponseDto
@@ -19,10 +23,12 @@ import com.myclub.myapplication.databinding.FragmentPerfilBusinnesBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
+import com.myclub.myapplication.utils.alerts.AlertConfirmarCompra
+import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.Exception
+import kotlin.Exception
 
 class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
 
@@ -36,11 +42,20 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPerfilBusinnesBinding.bind(view)
+        AlertLoading().alertLoadingDialog(requireContext(), "Validando")
 
-
+        botones()
         binding?.BtnEscanearQR?.setOnClickListener { initScanner() }
 
 
+    }
+
+    private fun botones() {
+        binding?.btncerrarsesionbusiness?.setOnClickListener {
+            MySharedPreferences(requireContext()).deleteMySharedPreferences()
+            val i = Intent(requireContext(), IniciarSesion::class.java)
+            startActivity(i)
+        }
     }
 
     private fun callCajearService(IdCoupon: Double, IdPlan: Double, idPerson: Double) {
@@ -66,17 +81,12 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
                             canjearResponse = response.body()!!
 
                             if (canjearResponse.Codigo == 500) {
-                                Toast.makeText(
-                                    requireContext(),
-                                    "${canjearResponse.Codigo}",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+
+
+                                Toast.makeText(requireContext(), "Este codigo ya esta canjeaado", Toast.LENGTH_SHORT).show()
                             } else {
-                                Toast.makeText(
-                                    requireContext(),
-                                    "${canjearResponse.Codigo}",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+
+                                Toast.makeText(requireContext(), "¡Codigo canjeado correctamente!", Toast.LENGTH_SHORT).show()
                             }
                         }
 
@@ -106,34 +116,47 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
     }
 
 
-    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result != null) {
             if (result.contents == null) {
                 Toast.makeText(context, "Cancelado", Toast.LENGTH_SHORT).show()
+
             } else {
                 val gson = Gson()
                 val codeResult = gson.fromJson(result.contents, RedimirCuponUsuarioDto::class.java)
                 val viewAlert = AlertConfirmarCompraBinding.inflate(layoutInflater)
-                val alertBuild = AlertDialog.Builder(requireContext()).apply {
+                val alertBuilder = AlertDialog.Builder(requireContext()).apply {
+
                     setView(viewAlert.root)
                 }.create()
-                viewAlert.idBtnComfirmarCompra.setOnClickListener {
-                    callCajearService(
 
-                        codeResult.IdCoupon!!.toDouble(),
-                        codeResult.IdShop!!.toDouble(),
-                        codeResult.IdPersonShop!!.toDouble()
+                try {
 
-                    )
-                    AlertConfirmarCompra().alertConfirmarCompra(requireContext(), "comprar")
+                    viewAlert.idBtnComfirmarCompra.setOnClickListener {
+                        callCajearService(
 
+                            codeResult.IdCoupon!!.toDouble(),
+                            codeResult.IdShop!!.toDouble(),
+                            codeResult.IdPersonShop!!.toDouble()
+
+                        )
+                    }
+                    viewAlert.idBtnCancelarCompra.setOnClickListener {
+                        Toast.makeText(requireContext(), "cancelado", Toast.LENGTH_SHORT).show()
+                        AlertConfirmarCompra().alertConfirmarCompra(requireContext(), "cancelar")
+
+                    }
+                    alertBuilder.show()
+
+
+
+
+
+                }catch (_: Exception){
 
                 }
-                alertBuild.show()
-
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)

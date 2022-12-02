@@ -69,7 +69,6 @@ class Registro : AppCompatActivity() {
                                 responseDto.Mensaje.toString() + " ${personaRequest.Telefono}"
 
                             )
-                            //alertDialogErrorResponse.dismiss()
 
 
                         } else {

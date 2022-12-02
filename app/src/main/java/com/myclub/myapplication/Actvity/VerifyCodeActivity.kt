@@ -2,11 +2,14 @@ package com.myclub.myapplication.Actvity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
+import com.myclub.myapplication.R
 
 import com.myclub.myapplication.dataDto.request.ConsultarCuentaRequestDto
 import com.myclub.myapplication.dataDto.request.VerifyCoeRequestDto
 import com.myclub.myapplication.databinding.ActivityVerifyCodeBinding
+import com.myclub.myapplication.databinding.AlertLoadingBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
@@ -25,12 +28,15 @@ class VerifyCodeActivity : AppCompatActivity() {
     private var emailUser: String = ""
     private lateinit var query: ConsultarCuentaRequestDto
     private lateinit var verifyCoeRequestDto: VerifyCoeRequestDto
+    private lateinit var alertLoadingNew: AlertDialog
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityVerifyCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        alertLoadingShow()
 
         getDataIntentExtras()
 
@@ -48,7 +54,7 @@ class VerifyCodeActivity : AppCompatActivity() {
 
     private fun callCodeVerifyService(codeVerify: String, login: String) {
         try {
-            //alertDialogLoading.show()
+            alertLoadingNew.show()
             verifyCoeRequestDto = VerifyCoeRequestDto()
             verifyCoeRequestDto.idPersona = idUserRetrieved
             verifyCoeRequestDto.IdProyecto = ID_PROYECTO
@@ -62,7 +68,7 @@ class VerifyCodeActivity : AppCompatActivity() {
                 ?.enqueue(object : Callback<Boolean?> {
                 override fun onResponse(
                     call: Call<Boolean?>, response: Response<Boolean?>) {
-                    alertDialogLoading.dismiss()
+                    alertLoadingNew.dismiss()
                     if (response.body() == true) {
                         AlertCheckEmail().alertCheckEmail(this@VerifyCodeActivity, "iniciar")
                     } else {
@@ -73,12 +79,13 @@ class VerifyCodeActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<Boolean?>, t: Throwable) {
-                    //
+                    alertLoadingNew.dismiss()
+
                 }
 
             })
         } catch (e: Exception) {
-            //
+            alertLoadingNew.dismiss()
         }
     }
 
@@ -128,6 +135,18 @@ class VerifyCodeActivity : AppCompatActivity() {
             //
         }
     }
-
+    private fun alertLoadingShow() {
+        try {
+            val viewAlert = AlertLoadingBinding.inflate(layoutInflater)
+            alertLoadingNew = AlertDialog.Builder(this).apply {
+                setView(viewAlert.root)
+                setCancelable(false)
+            }.create()
+            viewAlert.idTxtxMessage.text = "Validando datos por favor espere"
+            alertLoadingNew.window?.setBackgroundDrawableResource(R.color.transparente)
+        } catch (e: Exception) {
+            //
+        }
+    }
 
 }

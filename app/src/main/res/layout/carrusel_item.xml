@@ -6,7 +6,7 @@
 
     <com.jackandphantom.carouselrecyclerview.view.ReflectionImageView
         android:id="@+id/imagen"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="207dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"

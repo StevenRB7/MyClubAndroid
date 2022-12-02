@@ -98,7 +98,7 @@ class ListadoShopsActivity : AppCompatActivity() {
                                 val i = Intent(this@ListadoShopsActivity, MainActivity::class.java)
                                 Toast.makeText(
                                     this@ListadoShopsActivity,
-                                    "Membresia Activada",
+                                    "¡Membresia Activada exitosamente!",
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 startActivity(i)

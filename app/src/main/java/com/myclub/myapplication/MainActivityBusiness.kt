@@ -56,7 +56,6 @@ class MainActivityBusiness : AppCompatActivity() {
                 R.id.nav_VauchersBusiness,
                 R.id.nav_RedimirBusiness,
                 R.id.nav_CodigoBusiness,
-                R.id.nav_cerrarsesionBusiness,
 
                 ///NAV BUTTON
                 R.id.nav_perfilBusiness,
@@ -97,9 +96,6 @@ class MainActivityBusiness : AppCompatActivity() {
                     (findViewById<BottomNavigationView>(R.id.nav_viewbuttonbusiness)).visibility =
                         View.VISIBLE
                 }
-                R.id.nav_cerrarsesionBusiness -> {
-                    Toast.makeText(this, "jhhhd", Toast.LENGTH_SHORT).show()
-                }
 
             }
         }
@@ -113,18 +109,6 @@ class MainActivityBusiness : AppCompatActivity() {
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-
-
-        when (item.itemId) {
-            R.id.nav_cerrarsesion -> {
-                MySharedPreferences(this).deleteMySharedPreferences()
-                val i = Intent(this, IniciarSesion::class.java)
-                startActivity(i)
-            }
-            R.id.nav_cerrarsesionBusiness -> {
-                Toast.makeText(this, "jhhhd", Toast.LENGTH_SHORT).show()
-            }
-        }
         return super.onOptionsItemSelected(item)
     }
 

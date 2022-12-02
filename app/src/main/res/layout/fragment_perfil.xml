@@ -225,6 +225,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtcelular" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btncerrarsesion"
+        android:layout_width="151dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="38dp"
+        android:background="@drawable/botones_fondo"
+        android:text="@string/cerra"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnCambiarContrasena"
+        app:layout_constraintTop_toBottomOf="@+id/txtcelular"
+        app:layout_constraintVertical_bias="0.426" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,8 +37,6 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
         setContentView(binding.root)
         IdPersonRecoverted = intent.extras?.getString("IdPerson").toString()
 
-        Toast.makeText(this, ""+IdPersonRecoverted, Toast.LENGTH_SHORT).show()
-
         callListService()
         botones()
     }

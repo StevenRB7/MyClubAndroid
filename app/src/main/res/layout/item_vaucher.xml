@@ -6,28 +6,27 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:orientation="horizontal"
     >
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/idvaucher"
-        android:layout_width="363dp"
+        android:layout_width="365dp"
         android:layout_height="161dp"
-        android:layout_marginEnd="31dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="2dp"
         android:background="@color/white"
         android:backgroundTint="@color/white"
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="149dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:background="@drawable/vaucherfinal"
             android:orientation="horizontal">
@@ -35,7 +34,7 @@
 
             <TextView
                 android:id="@+id/txtvaucherdescripcion"
-                android:layout_width="104dp"
+                android:layout_width="wrap_content"
                 android:layout_height="16dp"
                 android:layout_marginStart="13dp"
                 android:layout_marginEnd="133dp"
