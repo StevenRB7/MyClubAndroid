@@ -38,7 +38,7 @@ class ListadoShopsActivity : AppCompatActivity() {
     private lateinit var myAdapterShop: ShopsAdapter
     private lateinit var consultaShopDto: ConsultarShopsRequestDto
     private lateinit var recyclerViewShop: RecyclerView
-    private lateinit var idCouponRecover: String
+    private var idCouponRecover: String = "1.0"
     private lateinit var alertLoadingNew: AlertDialog
 
 
@@ -51,9 +51,16 @@ class ListadoShopsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityListadoShopsBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+
+        idCouponRecover = "1"
+        Toast.makeText(this, "Uno "+idCouponRecover, Toast.LENGTH_SHORT).show()
+
         if (intent.extras != null) {
             idCouponRecover = intent.getStringExtra("IdCoupon").toString()
+        }else{
+            idCouponRecover = "1"
         }
+
         callService()
         botones()
         alertLoadingShow()
@@ -200,6 +207,7 @@ class ListadoShopsActivity : AppCompatActivity() {
         }
         return idPerson
     }
+
     private fun alertLoadingShow() {
         try {
             val viewAlert = AlertLoadingBinding.inflate(layoutInflater)

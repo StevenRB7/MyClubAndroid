@@ -14,6 +14,8 @@ interface ApiService {
     @POST("/apiamingenieria.app/api/Usuario/CambiarContraseniaUsuario")
     fun CambiarContra(@Body cambiarDto: CambiarContraRequestDto?): Call<ResponseDto?>
 
+    @POST("/api/Persona/BuscarPersonaPorIdPersona")
+    fun queryPersonByIdRequestDto(@Body queryPersonById: QueryPersonByIdRequestDto?): Call<QueryPersonByIdResponseDto?>?
 
 
     //  PARA CANJEAR QR

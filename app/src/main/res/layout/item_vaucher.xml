@@ -87,8 +87,8 @@
 
             <ImageView
                 android:id="@+id/imgVaucher"
-                android:layout_width="106dp"
-                android:layout_height="43dp"
+                android:layout_width="115dp"
+                android:layout_height="73dp"
                 android:backgroundTint="@color/vino"
                 app:layout_constraintBottom_toTopOf="@+id/txtvaucherdescripcion"
                 app:layout_constraintEnd_toEndOf="parent"
