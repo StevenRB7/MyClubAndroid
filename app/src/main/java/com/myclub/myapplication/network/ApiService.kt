@@ -39,6 +39,11 @@ interface ApiService {
     @POST("/api/CuponesUsuario/GetListMyCoupons")
     fun ConsultarVaucher(@Body consultaVaucherDto: ConsultarVaucherRequestDto?): Call<List<ConsultarVaucherResponseDto?>>
 
+    //LISTADO DE MIS COMERCIOS ASOCIADOS POR PLAN COMPRADO
+    @POST("/api/CuponesUsuario/GetListMyCouponsOrTrades")
+    fun consultarMisComerciosAsociados(@Body consultar: ConsultarVaucherRequestDto?): Call<CuponComercioResponseDto?>
+
+
 
     // LISTA DE CUPONES PARA ACTIVAR MEMBRESIA
     @POST("/api/CuponComercio/AllShopsOfCoupon")

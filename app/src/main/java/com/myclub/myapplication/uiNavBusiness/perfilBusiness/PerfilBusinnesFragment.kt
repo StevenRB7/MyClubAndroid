@@ -16,6 +16,7 @@ import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.request.RedimirCuponUsuarioDto
 import com.myclub.myapplication.dataDto.response.CanjearQRResponseDto
 import com.myclub.myapplication.databinding.AlertConfirmarCompraBinding
+import com.myclub.myapplication.databinding.AlertLoadingBinding
 import com.myclub.myapplication.databinding.FragmentPerfilBusinnesBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
@@ -33,14 +34,14 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
 
     private lateinit var canjearResponse: CanjearQRResponseDto
     private lateinit var canjearRequest: RedimirCuponUsuarioDto
-    private lateinit var alertDialogOpcion: AlertDialog
-
+    private lateinit var myAlertDialogOpcion: AlertDialog
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPerfilBusinnesBinding.bind(view)
         AlertLoading().alertLoadingDialog(requireContext(), "Validando")
+
 
         botones()
         binding?.BtnEscanearQR?.setOnClickListener { initScanner() }
@@ -56,14 +57,20 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
         }
     }
 
-    private fun callCajearService(IdCoupon: Double, IdPlan: Double, idPerson: Double) {
+    private fun callCajearService(
+        IdPersonShop: Double,
+        IdCoupon: Double,
+        IdTrade: Double,
+        IdUserAssociated: Double
+    ) {
 
         try {
             canjearRequest = RedimirCuponUsuarioDto()
-            canjearRequest.IdPersonShop = idPerson
+            canjearRequest.IdPersonTrade = IdPersonShop
             canjearRequest.IdProject = Constantes.ID_PROYECTO
             canjearRequest.IdCoupon = IdCoupon
-            canjearRequest.IdShop = IdPlan
+            canjearRequest.IdTrade = IdTrade
+            canjearRequest.IdUserAssociated = IdUserAssociated
 
 
             val apiService: ApiService =
@@ -74,27 +81,28 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
                     override fun onResponse(
                         call: Call<CanjearQRResponseDto?>, response: Response<CanjearQRResponseDto?>
                     ) {
-
                         if (response.body() != null) {
                             canjearResponse = response.body()!!
-
                             if (canjearResponse.Codigo == 500) {
-
-
-                                Toast.makeText(requireContext(), "Este codigo ya esta canjeado", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    requireContext(),
+                                    "Este codigo ya esta canjeado",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             } else {
-                                AlertConfirmarCompra().alertConfirmarCompra(requireContext(), "comprar")
-                                alertDialogOpcion.dismiss()
-                                Toast.makeText(requireContext(), "¡Codigo canjeado correctamente!", Toast.LENGTH_SHORT).show()
+
+                                myAlertDialogOpcion.dismiss()
+                                Toast.makeText(
+                                    requireContext(),
+                                    "¡Codigo canjeado correctamente!",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
-
-
                     }
 
                     override fun onFailure(call: Call<CanjearQRResponseDto?>, t: Throwable) {
                     }
-
                 })
 
         } catch (e: Exception) {
@@ -119,48 +127,70 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result != null) {
             if (result.contents == null) {
-
                 Toast.makeText(context, "Cancelado", Toast.LENGTH_SHORT).show()
-
             } else {
                 val gson = Gson()
                 val codeResult = gson.fromJson(result.contents, RedimirCuponUsuarioDto::class.java)
+
+
                 val viewAlert = AlertConfirmarCompraBinding.inflate(layoutInflater)
                 val alertBuilder = AlertDialog.Builder(requireContext()).apply {
-
                     setView(viewAlert.root)
                 }.create()
-
                 try {
-                    alertBuilder.show()
-
-                    viewAlert.idBtnComfirmarCompra.setOnClickListener {
-                        callCajearService(
-
-                            codeResult.IdCoupon!!.toDouble(),
-                            codeResult.IdShop!!.toDouble(),
-                            codeResult.IdPersonShop!!.toDouble()
-
-                        )
-
-                    }
-                    viewAlert.idBtnCancelarCompra.setOnClickListener {
-                        Toast.makeText(requireContext(), "cancelado", Toast.LENGTH_SHORT).show()
-
-                        AlertConfirmarCompra().alertConfirmarCompra(requireContext(), "cancelar")
-                        alertBuilder.dismiss()
-                    }
+                    alertDialogOpcionView(
+                        codeResult.IdPersonTrade!!.toDouble(),
+                        codeResult.IdCoupon!!.toDouble(),
+                        codeResult.IdTrade!!.toDouble(),
+                        codeResult.IdUserAssociated!!.toDouble()
+                    )
 
 
-
-
-
-                }catch (_: Exception){
+                } catch (_: Exception) {
 
                 }
             }
         }
     }
+
+    /**
+     * UTILEDADES
+     */
+
+    private fun alertDialogOpcionView(
+        IdPersonTrade: Double,
+        IdCoupon: Double,
+        IdTrade: Double,
+        IdUserAssociated: Double
+    ) {
+        try {
+            val viewAlert = AlertConfirmarCompraBinding.inflate(layoutInflater)
+            myAlertDialogOpcion = AlertDialog.Builder(requireContext()).apply {
+                setView(viewAlert.root)
+                setCancelable(false)
+            }.create()
+            viewAlert.idBtnComfirmarCompra.setOnClickListener {
+                callCajearService(
+                    IdPersonTrade,
+                    IdCoupon,
+                    IdTrade,
+                    IdUserAssociated
+                )
+            }
+            viewAlert.idBtnCancelarCompra.setOnClickListener {
+                Toast.makeText(requireContext(), "cancelado", Toast.LENGTH_SHORT).show()
+                myAlertDialogOpcion.dismiss()
+            }
+
+//            viewAlert.idTxtxMessage.text = "Cargando membresias"
+            //myAlertDialogOpcion.window?.setBackgroundDrawableResource(R.color.transparent)
+            myAlertDialogOpcion.show()
+        } catch (e: Exception) {
+            //
+        }
+    }
+
+
 }
 
 

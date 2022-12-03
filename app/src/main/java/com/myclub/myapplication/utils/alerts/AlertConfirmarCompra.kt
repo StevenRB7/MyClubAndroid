@@ -27,7 +27,6 @@ class AlertConfirmarCompra {
             if (dataExtra == "comprar") {
                 val i = Intent(context, MainActivityBusiness::class.java)
                 context.startActivity(i)
-
             }
         }
         viewAlert.idBtnCancelarCompra.setOnClickListener {

@@ -25,4 +25,5 @@ data class ComercioCategoriasResponseDto(
     var IdProject: Double? = null,
     var IdCoupon: Double? = null,
     var IdPersonTrade: Double? = null,
+    var IdStateTrade: Double? = null,
 )

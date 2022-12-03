@@ -1,11 +1,14 @@
 package com.myclub.myapplication.Actvity
 
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.widget.Toast
 import com.myclub.myapplication.databinding.ActivityGeneradorQractivityBinding
+import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 import net.glxn.qrgen.android.QRCode
 import kotlin.math.log
 
@@ -24,18 +27,19 @@ class GeneradorQRActivity : AppCompatActivity() {
 
         if (intent != null) {
 
-            val IdPersonShop = intent.extras?.getString("IdPersonShop").toString()
-            val IdShop = intent.extras?.getString("IdShop").toString()
-            val IdCoupon = intent.extras?.getString("IdCoupon").toString()
-            val IdProject = intent.extras?.getString("IdProject").toString()
+            val idCoupon = intent.extras?.getString("IdCoupon").toString()
+            val idTrade = intent.extras?.getString("IdTrade").toString()
+            val idProject = intent.extras?.getString("IdProject").toString()
+            val idPersonTrade = intent.extras?.getString("IdPersonTrade").toString()
+
             holaaaaaa = """ 
                 
-                {"IdPersonShop"
-                : "${IdPersonShop}","IdShop"
-                : "${IdShop}","IdCoupon"
-                : "${IdCoupon}","IdProject"
-                : "${IdProject}"}
-                
+                {
+                "IdPersonTrade":"${idPersonTrade}",
+                "IdCoupon": "${idCoupon}",
+                "IdTrade": "${idTrade}",
+                "IdProject": "${idProject}",
+                "IdUserAssociated": "${MySharedPreferences(this).recoverIdPersonPref()}"}              
                 """
 
                 .trimIndent()

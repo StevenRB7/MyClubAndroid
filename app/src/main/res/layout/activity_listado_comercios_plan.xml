@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/size_toolbar"
         android:background="@drawable/fondobtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,8 +21,7 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/m_15dp"
             android:gravity="center_vertical"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/btnregresarlistado"
@@ -40,35 +39,43 @@
                 android:orientation="horizontal">
 
 
-
             </LinearLayout>
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <TextView
-        android:id="@+id/txtapellidoperfil5"
-        android:layout_width="305dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="1"
-        android:text="@string/Restaurante"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.339"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idRecyclerViewPlanesComercio"
-        android:layout_width="419dp"
-        android:layout_height="658dp"
-        android:layout_marginTop="7dp"
+    <LinearLayout
+        android:layout_marginTop="@dimen/size_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtapellidoperfil5" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m_10dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/Restaurante"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.339"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/idRecyclerViewPlanesComercio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtapellidoperfil5" />
+
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

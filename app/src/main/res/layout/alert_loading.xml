@@ -7,15 +7,13 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:backgroundTint="@color/transparent"
         android:layout_marginStart="@dimen/m_10dp"
         android:layout_marginTop="@dimen/m_32dp"
         android:layout_marginEnd="@dimen/m_10dp"
         android:layout_marginBottom="@dimen/m_32dp"
-        android:background="@color/transparente"
-        android:backgroundTint="@color/transparente"
-        android:elevation="@dimen/m_15dp"
         app:cardCornerRadius="@dimen/m_15dp"
-        app:cardElevation="@dimen/m_15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,6 +22,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:backgroundTint="@color/transparent"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -38,11 +38,11 @@
 
             <TextView
                 android:id="@+id/idTxtxMessage"
-                android:layout_marginBottom="@dimen/m_10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32sp"
                 android:layout_marginEnd="32sp"
+                android:layout_marginBottom="@dimen/m_10dp"
                 android:background="@color/transparente"
                 android:backgroundTint="@color/transparente"
                 android:text=""
