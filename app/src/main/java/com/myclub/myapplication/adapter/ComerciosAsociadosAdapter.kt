@@ -2,6 +2,7 @@ package com.myclub.myapplication.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,7 +50,7 @@ class ComerciosAsociadosAdapter(
                 binding.btncanjear.visibility=View.GONE
                 binding.idvaucher.alpha=0.6f
             }
-
+            Log.e("LogoTrade", comercio.LogoTrade.toString());
             Glide.with(binding.imgVaucher)
                 .load(comercio.LogoTrade)
                 .into(binding.imgVaucher);
