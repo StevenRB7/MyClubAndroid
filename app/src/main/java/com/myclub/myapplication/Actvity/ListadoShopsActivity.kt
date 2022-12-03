@@ -53,7 +53,7 @@ class ListadoShopsActivity : AppCompatActivity() {
         setContentView(binding!!.root)
 
         idCouponRecover = "1"
-        Toast.makeText(this, "Uno "+idCouponRecover, Toast.LENGTH_SHORT).show()
+
 
         if (intent.extras != null) {
             idCouponRecover = intent.getStringExtra("IdCoupon").toString()

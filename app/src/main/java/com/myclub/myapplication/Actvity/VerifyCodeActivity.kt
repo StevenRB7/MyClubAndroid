@@ -28,7 +28,7 @@ class VerifyCodeActivity : AppCompatActivity() {
     private var emailUser: String = ""
     private lateinit var query: ConsultarCuentaRequestDto
     private lateinit var verifyCoeRequestDto: VerifyCoeRequestDto
-    private lateinit var alertLoadingNew: AlertDialog
+    //private lateinit var alertLoadingNew: AlertDialog
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +36,6 @@ class VerifyCodeActivity : AppCompatActivity() {
         binding = ActivityVerifyCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        alertLoadingShow()
 
         getDataIntentExtras()
 
@@ -54,7 +53,6 @@ class VerifyCodeActivity : AppCompatActivity() {
 
     private fun callCodeVerifyService(codeVerify: String, login: String) {
         try {
-            alertLoadingNew.show()
             verifyCoeRequestDto = VerifyCoeRequestDto()
             verifyCoeRequestDto.idPersona = idUserRetrieved
             verifyCoeRequestDto.IdProyecto = ID_PROYECTO
@@ -68,7 +66,6 @@ class VerifyCodeActivity : AppCompatActivity() {
                 ?.enqueue(object : Callback<Boolean?> {
                 override fun onResponse(
                     call: Call<Boolean?>, response: Response<Boolean?>) {
-                    alertLoadingNew.dismiss()
                     if (response.body() == true) {
                         AlertCheckEmail().alertCheckEmail(this@VerifyCodeActivity, "iniciar")
                     } else {
@@ -79,13 +76,11 @@ class VerifyCodeActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<Boolean?>, t: Throwable) {
-                    alertLoadingNew.dismiss()
 
                 }
 
             })
         } catch (e: Exception) {
-            alertLoadingNew.dismiss()
         }
     }
 
@@ -131,19 +126,6 @@ class VerifyCodeActivity : AppCompatActivity() {
             idUserRetrieved = intent.extras?.get("IdPersona") as Double
             userPerson = intent.extras?.get("PhonePerson").toString()
             emailUser = intent.extras?.get("EmailUser").toString()
-        } catch (e: Exception) {
-            //
-        }
-    }
-    private fun alertLoadingShow() {
-        try {
-            val viewAlert = AlertLoadingBinding.inflate(layoutInflater)
-            alertLoadingNew = AlertDialog.Builder(this).apply {
-                setView(viewAlert.root)
-                setCancelable(false)
-            }.create()
-            viewAlert.idTxtxMessage.text = "Validando datos por favor espere"
-            alertLoadingNew.window?.setBackgroundDrawableResource(R.color.transparente)
         } catch (e: Exception) {
             //
         }
