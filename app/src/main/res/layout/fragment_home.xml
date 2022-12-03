@@ -25,45 +25,41 @@
                 android:id="@+id/textView4"
                 android:layout_width="212dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="14dp"
-                android:layout_marginEnd="157dp"
+                android:layout_marginTop="40dp"
                 android:text="@string/bienvenida"
                 android:textColor="#8F8E8E"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.155"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/txtDscripcionCupon"
+                android:id="@+id/txtnombre"
                 android:layout_width="241dp"
                 android:layout_height="39dp"
+                android:layout_marginTop="16dp"
                 android:layout_weight="1"
                 android:text="Pedro Andrade"
                 android:textColor="@android:color/black"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.082"
+                app:layout_constraintHorizontal_bias="0.176"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/idcardveterinaria"
-                android:layout_width="111dp"
-                android:layout_height="115dp"
-                android:layout_marginStart="19dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginEnd="4dp"
+                android:layout_width="105dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="10dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
-                app:layout_constraintEnd_toStartOf="@+id/idcardbelleza"
-                app:layout_constraintStart_toEndOf="@+id/idcardhoteles"
-                app:layout_constraintTop_toBottomOf="@+id/txtDscripcionCupon"
-                >
+                app:layout_constraintBottom_toTopOf="@+id/idcardbares"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -87,15 +83,16 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idcardbelleza"
-                android:layout_width="107dp"
-                android:layout_height="115dp"
-                android:layout_marginTop="83dp"
-                android:layout_marginEnd="40dp"
+                android:layout_width="105dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginBottom="10dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/idcardveterinaria"
-                app:layout_constraintTop_toBottomOf="@+id/imageView5">
+                app:layout_constraintBottom_toTopOf="@+id/idcardrestaurente"
+                app:layout_constraintEnd_toStartOf="@+id/idcardhoteles"
+                app:layout_constraintStart_toEndOf="@+id/idcardveterinaria">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -120,16 +117,14 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idcardhoteles"
-                android:layout_width="113dp"
-                android:layout_height="109dp"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="142dp"
-                android:layout_marginBottom="400dp"
+                android:layout_width="105dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="10dp"
                 app:cardCornerRadius="@dimen/m_10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.36">
+                app:cardElevation="@dimen/m_5dp"
+                app:layout_constraintBottom_toTopOf="@+id/idcarddeporte"
+                app:layout_constraintEnd_toEndOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -142,36 +137,27 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="70dp"
+                        android:layout_height="90dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/hotelesresorts" />
+                        android:src="@drawable/belleza" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/m_5dp"
-                        android:text="@string/Hoteles"
-                        android:textAlignment="center"
-                        android:textColor="#FFFFFF"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idcardbares"
-                android:layout_width="115dp"
-                android:layout_height="109dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="105dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="60dp"
                 android:elevation="@dimen/m_15dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/idcardhoteles">
+                app:layout_constraintBottom_toTopOf="@+id/carouselRecyclerview"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -195,18 +181,17 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idcardrestaurente"
-                android:layout_width="111dp"
-                android:layout_height="111dp"
-                android:layout_marginStart="29dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="7dp"
+                android:layout_width="105dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginBottom="60dp"
                 android:elevation="@dimen/m_15dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
+                app:layout_constraintBottom_toTopOf="@+id/carouselRecyclerview"
                 app:layout_constraintEnd_toStartOf="@+id/idcarddeporte"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/idcardbares"
-                app:layout_constraintTop_toBottomOf="@+id/idcardveterinaria">
+                app:layout_constraintStart_toEndOf="@+id/idcardbares">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -230,15 +215,15 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idcarddeporte"
-                android:layout_width="111dp"
-                android:layout_height="111dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="20dp"
+                android:layout_width="105dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="60dp"
                 android:elevation="@dimen/m_15dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/idcardbelleza">
+                app:layout_constraintBottom_toTopOf="@+id/carouselRecyclerview"
+                app:layout_constraintEnd_toEndOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -263,25 +248,27 @@
                 android:id="@+id/carouselRecyclerview"
                 android:layout_width="340dp"
                 android:layout_height="191dp"
-                android:layout_marginStart="31dp"
-                android:layout_marginTop="70dp"
-                android:layout_marginEnd="32dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="450dp"
+                android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/idcardbares" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="85dp"
-                android:layout_height="54dp"
+                android:layout_width="92dp"
+                android:layout_height="61dp"
                 android:layout_gravity="left"
                 android:layout_marginStart="35dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="36dp"
                 android:contentDescription="@string/str_imagenesdescription"
                 android:src="@drawable/perfil"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/txtDscripcionCupon"
+                app:layout_constraintHorizontal_bias="0.937"
+                app:layout_constraintStart_toEndOf="@+id/txtnombre"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
