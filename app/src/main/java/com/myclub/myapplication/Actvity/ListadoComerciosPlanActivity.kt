@@ -3,21 +3,17 @@ package com.myclub.myapplication.Actvity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
-import android.widget.Toast
+
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.myclub.myapplication.R
 import com.myclub.myapplication.adapter.ComerciosAsociadosAdapter
-import com.myclub.myapplication.adapter.MisPlanesAdapter
 import com.myclub.myapplication.adapter.VaucherAdapter
-import com.myclub.myapplication.dataDto.request.ConsultaMisPlanesRequestDto
 import com.myclub.myapplication.dataDto.request.ConsultarVaucherRequestDto
 import com.myclub.myapplication.dataDto.response.ComercioCategoriasResponseDto
 import com.myclub.myapplication.dataDto.response.ConsultarVaucherResponseDto
 import com.myclub.myapplication.dataDto.response.CuponComercioResponseDto
-import com.myclub.myapplication.dataDto.response.MisPlanesResponseDto
 import com.myclub.myapplication.databinding.ActivityListadoComerciosPlanBinding
 import com.myclub.myapplication.databinding.AlertLoadingBinding
 import com.myclub.myapplication.network.ApiClient

@@ -7,17 +7,20 @@ import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.myclub.myapplication.MainActivity
+import com.myclub.myapplication.R
 import com.myclub.myapplication.adapter.ShopsAdapter
 import com.myclub.myapplication.dataDto.request.ConsultarBuyRequestDto
 import com.myclub.myapplication.dataDto.request.ConsultarShopsRequestDto
 import com.myclub.myapplication.dataDto.response.ConsultarBuyResponseDto
 import com.myclub.myapplication.dataDto.response.ConsultarShopsResponseDto
 import com.myclub.myapplication.databinding.ActivityListadoShopsBinding
+import com.myclub.myapplication.databinding.AlertLoadingBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
@@ -36,6 +39,8 @@ class ListadoShopsActivity : AppCompatActivity() {
     private lateinit var consultaShopDto: ConsultarShopsRequestDto
     private lateinit var recyclerViewShop: RecyclerView
     private lateinit var idCouponRecover: String
+    private lateinit var alertLoadingNew: AlertDialog
+
 
     //BUY PLAN
     private var buyRequestDto: ConsultarBuyRequestDto? = null
@@ -51,6 +56,8 @@ class ListadoShopsActivity : AppCompatActivity() {
         }
         callService()
         botones()
+        alertLoadingShow()
+
 
         AlertLoading().alertLoadingDialog(this, "Cargando")
 
@@ -69,6 +76,8 @@ class ListadoShopsActivity : AppCompatActivity() {
     private fun callServiceBuy(toString: String) {
         try {
 
+            alertLoadingNew.show()
+
             buyRequestDto = ConsultarBuyRequestDto()
             buyRequestDto!!.IdPerson = recoverIdPersonShared().toDouble()
             buyRequestDto!!.IdPlan = intent.extras?.get("IdCoupon").toString().toDouble()
@@ -83,6 +92,8 @@ class ListadoShopsActivity : AppCompatActivity() {
                         call: Call<ConsultarBuyResponseDto?>,
                         response: Response<ConsultarBuyResponseDto?>
                     ) {
+                        alertLoadingNew.dismiss()
+
                         buynResponseDto = response.body()
                         if (response.body() != null) {
                             if (buynResponseDto?.Codigo == 500) {
@@ -108,6 +119,7 @@ class ListadoShopsActivity : AppCompatActivity() {
                     }
 
                     override fun onFailure(call: Call<ConsultarBuyResponseDto?>, t: Throwable) {
+                        alertLoadingNew.dismiss()
 
                         //Toast.makeText(this@ListadoShopsActivity,  t.message, Toast.LENGTH_SHORT).show()
 
@@ -116,6 +128,7 @@ class ListadoShopsActivity : AppCompatActivity() {
                 })
 
         } catch (e: Exception) {
+            alertLoadingNew.dismiss()
 
         }
 
@@ -187,7 +200,19 @@ class ListadoShopsActivity : AppCompatActivity() {
         }
         return idPerson
     }
-
+    private fun alertLoadingShow() {
+        try {
+            val viewAlert = AlertLoadingBinding.inflate(layoutInflater)
+            alertLoadingNew = AlertDialog.Builder(this).apply {
+                setView(viewAlert.root)
+                setCancelable(false)
+            }.create()
+            viewAlert.idTxtxMessage.text = "Cargando membresias"
+            alertLoadingNew.window?.setBackgroundDrawableResource(R.color.transparent)
+        } catch (e: Exception) {
+            //
+        }
+    }
 }
 
 
