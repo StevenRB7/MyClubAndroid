@@ -1,8 +1,8 @@
 package com.myclub.myapplication.dataDto.request
 
 data class VerifyCoeRequestDto(
-    var idPersona: Double? = null,
-    var IdProyecto: Double? = null,
-    var CodigoVerificacion: String? = null,
+    var IdPerson: Double? = null,
     var Login: String? = null,
+    var IdProject: Double? = null,
+    var CodeVerification: String? = null,
 )

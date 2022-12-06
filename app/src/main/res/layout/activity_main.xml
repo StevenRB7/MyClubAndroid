@@ -22,7 +22,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
             app:itemTextColor="@color/white"
-        android:background="@drawable/fondobtn"
+        android:background="@drawable/navmenu"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />

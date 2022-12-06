@@ -11,7 +11,7 @@
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/fondobtn"
+        android:background="@color/azulcielo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -43,7 +43,7 @@
                     android:layout_height="@dimen/m_32dp"
                     android:layout_marginEnd="@dimen/m_10dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/notificacion"
+                    android:src="@drawable/notification"
                     android:visibility="invisible"
                     app:tint="@color/white" />
 

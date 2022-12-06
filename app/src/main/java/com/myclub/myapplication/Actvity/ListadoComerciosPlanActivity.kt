@@ -61,7 +61,7 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
         try {
             consultaMisPlanes = ConsultarVaucherRequestDto()
             consultaMisPlanes.IdPerson = recoverIdPersonShared().toDouble()
-            consultaMisPlanes.IdProject = Constantes.ID_PROYECTO
+            consultaMisPlanes.IdProject = Constantes.ID_PROYECTO.toDouble()
             consultaMisPlanes.IdCoupon = intent.extras?.getString("IdCoupon").toString().toDouble()
 
             val apiService: ApiService =
@@ -109,11 +109,11 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
 
     private fun callConsultarMisComerciosAsociadosService() {
         try {
-            alertLoadingNew.show()
+            //alertLoadingNew.show()
 
             consultaMisPlanes = ConsultarVaucherRequestDto()
             consultaMisPlanes.IdPerson = intent.extras?.getString("IdPerson")?.toDouble()
-            consultaMisPlanes.IdProject = Constantes.ID_PROYECTO
+            consultaMisPlanes.IdProject = Constantes.ID_PROYECTO.toDouble()
             consultaMisPlanes.IdCoupon = intent.extras?.getString("IdCoupon")?.toDouble()
 
             val apiService =
@@ -124,7 +124,7 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
                         call: Call<CuponComercioResponseDto?>,
                         response: Response<CuponComercioResponseDto?>
                     ) {
-                        alertLoadingNew.dismiss()
+                       // alertLoadingNew.dismiss()
 
                         if (response.body() != null) {
                             respuestMisComercioAsociados = response.body()!!
@@ -134,12 +134,12 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
                     }
 
                     override fun onFailure(call: Call<CuponComercioResponseDto?>, t: Throwable) {
-                        alertLoadingNew.dismiss()
+                        //alertLoadingNew.dismiss()
                     }
 
                 })
         } catch (e: Exception) {
-            alertLoadingNew.dismiss()
+            //alertLoadingNew.dismiss()
         }
     }
 

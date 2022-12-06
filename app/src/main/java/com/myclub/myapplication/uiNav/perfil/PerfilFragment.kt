@@ -92,22 +92,23 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
     private fun setData() {
         try {
             personaRequest = PersonalModelDto()
-            personaRequest.PrimerNombre = binding?.txtnombreperfil?.text.toString()
-            personaRequest.SegundoNombre = ""
-            personaRequest.PrimerApellidos = ""
-            personaRequest.SegundoApellido = ""
-            personaRequest.Sexo = ""
-            personaRequest.FechaNacimiento = ""
-            personaRequest.TipoDocumento = 1.0
-            personaRequest.Documento = binding?.txtcedula?.text.toString()
-            personaRequest.EstadoCivil = ""
-            personaRequest.Telefono = ""
-            personaRequest.Celular = binding?.txtcelular?.text.toString()
-            personaRequest.Direccion = ""
-            personaRequest.Correo = binding?.txtcorreoelectronico?.text.toString()
-            personaRequest.IdProyecto = Constantes.ID_PROYECTO
-            personaRequest.IdRol = Constantes.ID_ROL_PERSONA_NATURAL
+            personaRequest.FirstName = binding?.txtnombreperfil?.text.toString()
+            personaRequest.SecondName = ""
+            personaRequest.FirstSurname = ""
+            personaRequest.SecondSurname = ""
+            personaRequest.Sex = ""
+            personaRequest.DateOfBirth = ""
+            personaRequest.DocumentType = ""
+            personaRequest.Document = binding?.txtcedula?.text.toString()
+            personaRequest.MaritalStatus = ""
+            personaRequest.Phone = ""
+            personaRequest.CellPhone = binding?.txtcelular?.text.toString()
+            personaRequest.Direction = ""
+            personaRequest.Email = binding?.txtcorreoelectronico?.text.toString()
+            personaRequest.IdProject = Constantes.ID_PROYECTO.toString()
+            personaRequest.IdRole = Constantes.ID_ROL_PERSONA_NATURAL.toString()
         } catch (e: Exception) {
+            //
         }
     }
 

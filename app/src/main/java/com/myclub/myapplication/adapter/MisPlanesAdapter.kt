@@ -47,7 +47,7 @@ class MisPlanesAdapter(
 
             when(myPlan.IdCoupon?.toInt()){
                 1->{
-                    binding.CardBackground.setBackgroundResource(R.drawable.membresiamyq)
+                    binding.CardBackground.setBackgroundResource(R.drawable.membresiablue)
                 }
                 2->{
                     binding.CardBackground.setBackgroundResource(R.drawable.membresiaplus)

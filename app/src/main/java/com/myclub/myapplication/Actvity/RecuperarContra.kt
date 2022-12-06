@@ -88,7 +88,7 @@ class RecuperarContra : AppCompatActivity() {
             alertDialogLoading.show()
             recuperarRequestDto = ConsultarRecuperarRequestDto()
             recuperarRequestDto!!.Email = email
-            recuperarRequestDto!!.IdProyecto = Constantes.ID_PROYECTO
+            recuperarRequestDto!!.IdProyecto = Constantes.ID_PROYECTO.toDouble()
             recuperarRequestDto!!.Login = login
 
 
@@ -102,13 +102,15 @@ class RecuperarContra : AppCompatActivity() {
                         call: Call<ConsultarRecuperarResponseDto?>,
                         response: Response<ConsultarRecuperarResponseDto?>
                     ) {
-                        recuperarResponseDto = response.body()
+                        recuperarResponseDto = response.body()!!
 
 
-                            if (recuperarResponseDto?.Codigo == 500) {
+                            if (recuperarResponseDto?.Codigo == 200) {
+
                                 AlertErrorResponse().alertErrorResponseDialog(
                                     this@RecuperarContra,
-                                    "${recuperarResponseDto?.Mensaje}" )
+                                    "${recuperarResponseDto?.Mensaje}"
+                                )
                                 alertDialogErrorResponse.show()
                                 alertDialogLoading.dismiss()
 

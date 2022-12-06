@@ -19,21 +19,21 @@
             android:id="@+id/toolbarBusiness"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/fondobtn"
+            android:background="@color/white"
             app:titleTextColor="@color/transparente">
 
             <ImageView
                 android:layout_width="200dp"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:layout_gravity="center"
-                android:src="@drawable/logoregistro" />
+                android:src="@drawable/logosplashsquare" />
 
             <ImageView
                 android:id="@+id/idperfilmenu"
                 android:layout_width="70dp"
                 android:layout_height="30dp"
                 android:layout_gravity="right"
-                android:src="@drawable/notificacion" />
+                android:src="@drawable/notification" />
 
 
         </androidx.appcompat.widget.Toolbar>

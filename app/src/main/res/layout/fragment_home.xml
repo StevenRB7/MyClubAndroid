@@ -35,11 +35,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <TextView
                 android:id="@+id/txtnombre"
                 android:layout_width="241dp"
                 android:layout_height="39dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_weight="1"
                 android:text=""
                 android:textColor="@android:color/black"
@@ -51,20 +52,47 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardlarga"
+                android:layout_width="343dp"
+                android:layout_height="79dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="30dp"
+                app:cardCornerRadius="@dimen/m_10dp"
+                app:cardElevation="@dimen/m_5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtnombre">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/background"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
                 android:id="@+id/idcardveterinaria"
-                android:layout_width="105dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginBottom="10dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
+                android:backgroundTint="@color/transparente"
                 app:layout_constraintBottom_toTopOf="@+id/idcardbares"
                 app:layout_constraintStart_toStartOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/vinonew"
+                    android:background="@drawable/cardiconosmain"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -72,7 +100,7 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="90dp"
+                        android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
                         android:src="@drawable/veterinaria" />
@@ -83,21 +111,22 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idcardbelleza"
-                android:layout_width="105dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="13dp"
-                android:layout_marginEnd="13dp"
                 android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/transparente"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
                 app:layout_constraintBottom_toTopOf="@+id/idcardrestaurente"
                 app:layout_constraintEnd_toStartOf="@+id/idcardhoteles"
+                app:layout_constraintHorizontal_bias="0.04"
                 app:layout_constraintStart_toEndOf="@+id/idcardveterinaria">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/vinonew"
+                    android:background="@drawable/cardiconosmain"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -105,7 +134,7 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="90dp"
+                        android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
                         android:src="@drawable/belleza" />
@@ -114,22 +143,24 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-
             <androidx.cardview.widget.CardView
-                android:id="@+id/idcardhoteles"
-                android:layout_width="105dp"
-                android:layout_height="100dp"
-                android:layout_marginEnd="30dp"
+                android:id="@+id/idcardbellezaa"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="3dp"
                 android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/transparente"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
-                app:layout_constraintBottom_toTopOf="@+id/idcarddeporte"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintBottom_toTopOf="@+id/idcardrestaurente"
+                app:layout_constraintEnd_toStartOf="@+id/idcardhoteles"
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintStart_toEndOf="@+id/idcardveterinaria">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/vinonew"
+                    android:background="@drawable/cardiconosmain"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -137,7 +168,41 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="90dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/str_imagenesdescription"
+                        android:src="@drawable/veterinaria" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/idcardhoteles"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="@dimen/m_10dp"
+                app:cardElevation="@dimen/m_5dp"
+                android:backgroundTint="@color/transparente"
+                app:layout_constraintBottom_toTopOf="@+id/idcarddeporte"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cardiconosmain"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
                         android:src="@drawable/belleza" />
@@ -149,12 +214,13 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idcardbares"
-                android:layout_width="105dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginBottom="60dp"
                 android:elevation="@dimen/m_15dp"
                 app:cardCornerRadius="@dimen/m_10dp"
+                android:backgroundTint="@color/transparente"
                 app:cardElevation="@dimen/m_5dp"
                 app:layout_constraintBottom_toTopOf="@+id/carouselRecyclerview"
                 app:layout_constraintStart_toStartOf="parent">
@@ -162,7 +228,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/vinonew"
+                    android:background="@drawable/cardiconosmain"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -170,7 +236,7 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="90dp"
+                        android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
                         android:src="@drawable/barespubs" />
@@ -181,22 +247,23 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idcardrestaurente"
-                android:layout_width="105dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="13dp"
-                android:layout_marginEnd="13dp"
                 android:layout_marginBottom="60dp"
+                android:backgroundTint="@color/transparente"
                 android:elevation="@dimen/m_15dp"
                 app:cardCornerRadius="@dimen/m_10dp"
                 app:cardElevation="@dimen/m_5dp"
                 app:layout_constraintBottom_toTopOf="@+id/carouselRecyclerview"
                 app:layout_constraintEnd_toStartOf="@+id/idcarddeporte"
+                app:layout_constraintHorizontal_bias="0.04"
                 app:layout_constraintStart_toEndOf="@+id/idcardbares">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/vinonew"
+                    android:background="@drawable/cardiconosmain"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -204,7 +271,42 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="90dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/str_imagenesdescription"
+                        android:src="@drawable/restaurantes" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/idcarddeorte"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginBottom="60dp"
+                android:backgroundTint="@color/transparente"
+                android:elevation="@dimen/m_15dp"
+                app:cardCornerRadius="@dimen/m_10dp"
+                app:cardElevation="@dimen/m_5dp"
+                app:layout_constraintBottom_toTopOf="@+id/carouselRecyclerview"
+                app:layout_constraintEnd_toStartOf="@+id/idcarddeporte"
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintStart_toEndOf="@+id/idcardbares">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cardiconosmain"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
                         android:src="@drawable/restaurantes" />
@@ -215,12 +317,13 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/idcarddeporte"
-                android:layout_width="105dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="60dp"
                 android:elevation="@dimen/m_15dp"
                 app:cardCornerRadius="@dimen/m_10dp"
+                android:backgroundTint="@color/transparente"
                 app:cardElevation="@dimen/m_5dp"
                 app:layout_constraintBottom_toTopOf="@+id/carouselRecyclerview"
                 app:layout_constraintEnd_toEndOf="parent">
@@ -228,7 +331,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/vinonew"
+                    android:background="@drawable/cardiconosmain"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -236,7 +339,7 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="90dp"
+                        android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
                         android:src="@drawable/deportes" />
@@ -257,18 +360,17 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:visibility="gone"
                 android:id="@+id/imageView5"
                 android:layout_width="92dp"
-                android:layout_height="61dp"
+                android:layout_height="51dp"
                 android:layout_gravity="left"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="36dp"
                 android:contentDescription="@string/str_imagenesdescription"
-                android:src="@drawable/perfil"
+                android:src="@drawable/perfilfoto"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.937"
+                app:layout_constraintHorizontal_bias="0.913"
                 app:layout_constraintStart_toEndOf="@+id/txtnombre"
                 app:layout_constraintTop_toTopOf="parent" />
 

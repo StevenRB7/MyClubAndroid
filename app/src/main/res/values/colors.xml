@@ -29,6 +29,11 @@
     <color name="negronew">#333333</color>
     <color name="newoscuronew">#1a1a1a</color>
 
+    // COLORES RONDA FINAL MY CLUB AZUL
+    <color name="azulcielo">#29a9e0</color>
+    <color name="azulrey">#3F76ff</color>
+    <color name="azuloscuro">#09007f</color>
+    <color name="morado">#662d8f</color>
 
 
     //COLORES PARA MODIFICAR QR

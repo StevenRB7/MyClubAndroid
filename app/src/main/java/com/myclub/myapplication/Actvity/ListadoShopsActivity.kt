@@ -88,7 +88,7 @@ class ListadoShopsActivity : AppCompatActivity() {
             buyRequestDto = ConsultarBuyRequestDto()
             buyRequestDto!!.IdPerson = recoverIdPersonShared().toDouble()
             buyRequestDto!!.IdPlan = intent.extras?.get("IdCoupon").toString().toDouble()
-            buyRequestDto!!.IdProject = Constantes.ID_PROYECTO
+            buyRequestDto!!.IdProject = Constantes.ID_PROYECTO.toDouble()
             buyRequestDto!!.IdStatus = 1.0
 
             val apiService: ApiService = ApiClient.RetrofitHelper(Constantes.BASE_MY_CLUB)

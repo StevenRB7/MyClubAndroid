@@ -1,12 +1,12 @@
 package com.myclub.myapplication.utils;
 
 public class Constantes {
-    public static final double ID_PROYECTO = 6;
+    public static final Integer ID_PROYECTO = 6;
 
-    public static final double ID_ESTADO_ACTIVO = 1;
+    public static final String ID_ESTADO_ACTIVO = "";
 
-    public static final double ID_ROL_PERSONA_NATURAL = 1;
-    public static final String BASE_URL_PERSONAS = "http://52.175.225.67:8082/";
+    public static final String ID_ROL_PERSONA_NATURAL = "1";
+    public static final String BASE_URL_PERSONAS = "https://apiamingenieria.app/";
     public static final String BASE_MY_CLUB = "http://52.175.225.67:63202/";
 
     public static final String PREF_NAME = "StoreMyPrefs";

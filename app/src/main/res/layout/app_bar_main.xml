@@ -19,21 +19,21 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/fondobtn"
+            android:background="@color/azulcielo"
             app:titleTextColor="@color/transparente">
 
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:src="@drawable/logoregistro" />
+                android:src="@drawable/logowhite" />
 
             <ImageView
                 android:id="@+id/idperfilmenu"
                 android:layout_width="70dp"
                 android:layout_height="30dp"
                 android:layout_gravity="right"
-                android:src="@drawable/notificacion" />
+                android:src="@drawable/notiwhite" />
 
 
         </androidx.appcompat.widget.Toolbar>

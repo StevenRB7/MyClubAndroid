@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.myclub.myapplication.Actvity.AlertLoading
@@ -12,6 +13,7 @@ import com.myclub.myapplication.R
 import com.myclub.myapplication.adapter.CuponAdapter
 import com.myclub.myapplication.dataDto.request.ConsultaCuponRequestDto
 import com.myclub.myapplication.dataDto.response.ConsultarCuponResponseDto
+import com.myclub.myapplication.databinding.AlertLoadingBinding
 
 import com.myclub.myapplication.databinding.FragmentMembresiasBinding
 import com.myclub.myapplication.network.ApiClient.Companion.RetrofitHelper
@@ -28,6 +30,7 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
     private lateinit var listacupones: MutableList<ConsultarCuponResponseDto>
     private lateinit var myAdapter: CuponAdapter
     private lateinit var consultaCuponDto: ConsultaCuponRequestDto
+    private lateinit var alertLoadingNew: AlertDialog
 
 
 
@@ -38,12 +41,14 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMembresiasBinding.bind(view)
         callListService()
-
+        alertLoadingShow()
     }
 
     private fun callListService() {
 
         try {
+            //alertLoadingNew.show()
+
             consultaCuponDto = ConsultaCuponRequestDto()
             consultaCuponDto.IdQuery = 1.0
             val apiService: ApiService =
@@ -55,10 +60,14 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
                         call: Call<List<ConsultarCuponResponseDto?>?>,
                         response: Response<List<ConsultarCuponResponseDto?>?>
                     ) {
+                        //alertLoadingNew.dismiss()
+
                         if (response.body() != null && response.body()?.size!! > 0) {
                             listacupones =
                                 response.body() as MutableList<ConsultarCuponResponseDto>
                             initRecyclerView(listacupones)
+
+                            //alertLoadingNew.dismiss()
 
                         } else {
                             Toast.makeText(requireContext(), "Sin Conexion a internet", Toast.LENGTH_SHORT).show()
@@ -66,15 +75,16 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
                     }
 
                     override fun onFailure(
-                        call: Call<List<ConsultarCuponResponseDto?>?>,
-                        t: Throwable
-                    ) {
+                        call: Call<List<ConsultarCuponResponseDto?>?>, t: Throwable) {
+                        //alertLoadingNew.dismiss()
+
                     }
 
 
                 })
         } catch (e: Exception) {
-            //
+            //alertLoadingNew.dismiss()
+
 
         }
     }
@@ -97,7 +107,19 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
         super.onDestroy()
         binding = null
     }
-
+    private fun alertLoadingShow() {
+        try {
+            val viewAlert = AlertLoadingBinding.inflate(layoutInflater)
+            alertLoadingNew = AlertDialog.Builder(requireContext()).apply {
+                setView(viewAlert.root)
+                setCancelable(false)
+            }.create()
+            viewAlert.idTxtxMessage.text = "Validando datos por favor espere"
+            alertLoadingNew.window?.setBackgroundDrawableResource(R.color.transparente)
+        } catch (e: Exception) {
+            //
+        }
+    }
 
 }
 

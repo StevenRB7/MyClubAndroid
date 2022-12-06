@@ -67,7 +67,7 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
         try {
             canjearRequest = RedimirCuponUsuarioDto()
             canjearRequest.IdPersonTrade = IdPersonShop
-            canjearRequest.IdProject = Constantes.ID_PROYECTO
+            canjearRequest.IdProject = Constantes.ID_PROYECTO.toDouble()
             canjearRequest.IdCoupon = IdCoupon
             canjearRequest.IdTrade = IdTrade
             canjearRequest.IdUserAssociated = IdUserAssociated

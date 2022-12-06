@@ -75,7 +75,7 @@
                 android:layout_marginStart="@dimen/m_32dp"
                 android:layout_marginEnd="@dimen/m_32dp"
                 android:textColor="@color/white"
-                android:background="@drawable/botones_fondo"
+                android:background="@drawable/color_btninicio"
                 android:text="@string/btnconfirmar" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -86,7 +86,7 @@
                 android:layout_marginStart="@dimen/m_32dp"
                 android:layout_marginEnd="@dimen/m_32dp"
                 android:textColor="@color/white"
-                android:background="@drawable/botones_fondo"
+                android:background="@drawable/color_btninicio"
                 android:text="@string/cancelar" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

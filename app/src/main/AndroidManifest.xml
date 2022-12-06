@@ -14,9 +14,9 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:hardwareAccelerated="true"
-        android:icon="@drawable/logosquare"
+        android:icon="@drawable/logosplashsquare"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logosquare"
+        android:roundIcon="@drawable/logosplashsquare"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyClub.NoActionBar"
         android:usesCleartextTraffic="true"
@@ -44,13 +44,6 @@
         </activity>
         <activity
             android:name=".Actvity.ListadoComerciosPlanActivity"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Actvity.GeneradorQRActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"

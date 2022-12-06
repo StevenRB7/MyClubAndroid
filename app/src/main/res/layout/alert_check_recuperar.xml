@@ -31,14 +31,13 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:layout_width="390dp"
-                android:layout_height="190dp"
+                android:layout_height="192dp"
                 android:background="@color/transparente"
                 android:backgroundTint="@color/transparente"
-                app:lottie_autoPlay="true"
-                app:lottie_rawRes="@raw/password"
                 android:backgroundTintMode="src_atop"
+                app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                />
+                app:lottie_rawRes="@raw/password" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -63,7 +62,7 @@
                 android:backgroundTint="@color/transparente"
                 android:text="@string/informacionrecuperar"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="22sp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -74,7 +73,7 @@
                 android:layout_marginEnd="@dimen/m_32dp"
                 android:textColor="@color/white"
                 android:layout_marginBottom="@dimen/m_22dp"
-                android:background="@drawable/botones_fondo"
+                android:background="@drawable/color_btninicio"
                 android:text="@string/ok" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

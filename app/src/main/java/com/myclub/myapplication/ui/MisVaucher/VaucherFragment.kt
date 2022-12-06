@@ -43,7 +43,7 @@ class VaucherFragment : Fragment(R.layout.fragment_vaucher) {
         try {
             consultaMisPlanes = ConsultaMisPlanesRequestDto()
             consultaMisPlanes.IdPerson = recoverIdPersonShared().toString().toDouble()
-            consultaMisPlanes.IdProject = Constantes.ID_PROYECTO
+            consultaMisPlanes.IdProject = Constantes.ID_PROYECTO.toDouble()
             consultaMisPlanes.IdCoupon = 0.0
 
             val apiService: ApiService =

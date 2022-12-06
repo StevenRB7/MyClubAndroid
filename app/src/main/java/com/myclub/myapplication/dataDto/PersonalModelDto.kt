@@ -1,20 +1,21 @@
 package com.myclub.myapplication.dataDto
 
-class PersonalModelDto {
-    var PrimerNombre: String? = null
-    var SegundoNombre: String? = null
-    var PrimerApellidos: String? = null
-    var SegundoApellido: String? = null
-    var Sexo: String? = null
-    var FechaNacimiento: String? = null
-    var TipoDocumento: Double? = null
-    var Documento: String? = null
-    var EstadoCivil: String? = null
-    var Telefono: String? = null
-    var Celular: String? = null
-    var Direccion: String? = null
-    var Correo: String? = null
-    var IdProyecto: Double? = null
-    var IdRol: Double? = null
+data class PersonalModelDto (
+    var FirstName: String? = null,
+    var SecondName: String? = null,
+    var FirstSurname: String? = null,
+    var SecondSurname: String? = null,
+    var Sex: String? = null,
+    var DateOfBirth: String? = null,
+    var DocumentType: String? = null,
+    var Document: String? = null,
+    var MaritalStatus: String? = null,
+    var Phone: String? = null,
+    var CellPhone: String? = null,
+    var Direction: String? = null,
+    var Email: String? = null,
+    var IdProject: String? = null,
+    var Passworrd: String? = null,
+    var IdRole  : String? = null
 
-}
+)

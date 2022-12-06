@@ -3,11 +3,10 @@ package com.myclub.myapplication.Actvity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
-import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
 import com.myclub.myapplication.R
 
-import com.myclub.myapplication.dataDto.request.ConsultarCuentaRequestDto
 import com.myclub.myapplication.dataDto.request.VerifyCoeRequestDto
+import com.myclub.myapplication.dataDto.response.ResponseDto
 import com.myclub.myapplication.databinding.ActivityVerifyCodeBinding
 import com.myclub.myapplication.databinding.AlertLoadingBinding
 import com.myclub.myapplication.network.ApiClient
@@ -26,9 +25,10 @@ class VerifyCodeActivity : AppCompatActivity() {
     private var idUserRetrieved: Double = 0.0
     private var userPerson: String = ""
     private var emailUser: String = ""
-    private lateinit var query: ConsultarCuentaRequestDto
     private lateinit var verifyCoeRequestDto: VerifyCoeRequestDto
-    //private lateinit var alertLoadingNew: AlertDialog
+    private lateinit var responseDto: ResponseDto
+    private lateinit var alertLoadingNew: AlertDialog
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +36,7 @@ class VerifyCodeActivity : AppCompatActivity() {
         binding = ActivityVerifyCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        alertLoadingShow()
         getDataIntentExtras()
 
         binding.idBtnVerifyCode.setOnClickListener {
@@ -52,35 +52,53 @@ class VerifyCodeActivity : AppCompatActivity() {
 
 
     private fun callCodeVerifyService(codeVerify: String, login: String) {
+
         try {
+            //alertLoadingNew.show()
+
             verifyCoeRequestDto = VerifyCoeRequestDto()
-            verifyCoeRequestDto.idPersona = idUserRetrieved
-            verifyCoeRequestDto.IdProyecto = ID_PROYECTO
-            verifyCoeRequestDto.CodigoVerificacion = codeVerify
+            verifyCoeRequestDto.IdPerson = idUserRetrieved
+            verifyCoeRequestDto.IdProject = ID_PROYECTO.toDouble()
+            verifyCoeRequestDto.CodeVerification = codeVerify
             verifyCoeRequestDto.Login = login
 
             val apiService: ApiService =
                 ApiClient.RetrofitHelper(Constantes.BASE_URL_PERSONAS)
                     .create(ApiService::class.java)
             apiService.verifyCode(verifyCoeRequestDto)
-                ?.enqueue(object : Callback<Boolean?> {
-                override fun onResponse(
-                    call: Call<Boolean?>, response: Response<Boolean?>) {
-                    if (response.body() == true) {
-                        AlertCheckEmail().alertCheckEmail(this@VerifyCodeActivity, "iniciar")
-                    } else {
-                        AlertErrorResponse().alertErrorResponseDialog(
-                            this@VerifyCodeActivity,
-                            Constantes.M_E_VERIFY_CODE)
+                ?.enqueue(object : Callback<ResponseDto?>{
+                    override fun onResponse(
+                        call: Call<ResponseDto?>,
+                        response: Response<ResponseDto?>
+                    ) {
+                        if (response.body() != null) {
+                            if (responseDto.CodeResponse == 200) {
+
+
+                                AlertCheckEmail().alertCheckEmail(
+                                    this@VerifyCodeActivity,
+                                    "iniciar"
+                                )
+                                //alertLoadingNew.dismiss()
+                            } else {
+
+                                AlertErrorResponse().alertErrorResponseDialog(
+                                    this@VerifyCodeActivity,
+                                    "${responseDto.MessageResponse}")
+
+                                //alertLoadingNew.dismiss()
+                            }
+                        }
                     }
-                }
 
-                override fun onFailure(call: Call<Boolean?>, t: Throwable) {
+                    override fun onFailure(call: Call<ResponseDto?>, t: Throwable) {
+                       // alertLoadingNew.dismiss()
 
-                }
+                    }
 
-            })
+                })
         } catch (e: Exception) {
+            //alertLoadingNew.dismiss()
         }
     }
 
@@ -126,6 +144,19 @@ class VerifyCodeActivity : AppCompatActivity() {
             idUserRetrieved = intent.extras?.get("IdPersona") as Double
             userPerson = intent.extras?.get("PhonePerson").toString()
             emailUser = intent.extras?.get("EmailUser").toString()
+        } catch (e: Exception) {
+            //
+        }
+    }
+    private fun alertLoadingShow() {
+        try {
+            val viewAlert = AlertLoadingBinding.inflate(layoutInflater)
+            alertLoadingNew = AlertDialog.Builder(this).apply {
+                setView(viewAlert.root)
+                setCancelable(false)
+            }.create()
+            viewAlert.idTxtxMessage.text = "Validando Datos"
+            alertLoadingNew.window?.setBackgroundDrawableResource(R.color.transparente)
         } catch (e: Exception) {
             //
         }

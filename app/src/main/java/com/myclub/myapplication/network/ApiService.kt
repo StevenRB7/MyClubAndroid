@@ -14,6 +14,7 @@ interface ApiService {
     @POST("/apiamingenieria.app/api/Usuario/CambiarContraseniaUsuario")
     fun CambiarContra(@Body cambiarDto: CambiarContraRequestDto?): Call<ResponseDto?>
 
+
     @POST("/api/Persona/BuscarPersonaPorIdPersona")
     fun queryPersonByIdRequestDto(@Body queryPersonById: QueryPersonByIdRequestDto?): Call<QueryPersonByIdResponseDto?>?
 
@@ -32,6 +33,7 @@ interface ApiService {
     @POST("/api/CuponesUsuario/BuyMembershipPlan")
     fun BuyPlan(@Body consultaBuyPlanDto: ConsultarBuyRequestDto?): Call<ConsultarBuyResponseDto?>
 
+
     // LISTA DE MIS MEMBRESIAS
     @POST("/api/CuponesUsuario/GetListMyPlans")
     fun GetMyPlans(@Body consulta: ConsultaMisPlanesRequestDto?): Call<List<MisPlanesResponseDto>?>
@@ -41,10 +43,10 @@ interface ApiService {
     @POST("/api/CuponesUsuario/GetListMyCoupons")
     fun ConsultarVaucher(@Body consultaVaucherDto: ConsultarVaucherRequestDto?): Call<List<ConsultarVaucherResponseDto?>>
 
+
     //LISTADO DE MIS COMERCIOS ASOCIADOS POR PLAN COMPRADO
     @POST("/api/CuponesUsuario/GetListMyCouponsOrTrades")
     fun consultarMisComerciosAsociados(@Body consultar: ConsultarVaucherRequestDto?): Call<CuponComercioResponseDto?>
-
 
 
     // LISTA DE CUPONES PARA ACTIVAR MEMBRESIA
@@ -58,19 +60,18 @@ interface ApiService {
 
 
     // REGISTRO PERSONAS
-    @POST("/api/persona/CrearPersona")
+    @POST("/api/User/RegisterNewUser")
     fun registerNewUser(@Body personaRequest: PersonalModelDto?): Call<ResponseDto?>?
 
 
     // INICIAR SESION
-    @POST("/api/persona/IniciarSesion")
-    fun signInUser(@Body signInRequestDto: SignInRequestDto?): Call<IniciarSesionResponseDto?>?
+    @POST("/api/User/SignIn")
+    fun signInUser(@Body signInRequestDto: SignInRequestDto?): Call<ResponseDto?>?
 
-    @POST("/api/Persona/BuscarPersonaPorIdPersona")
-    fun ConsultarCuenta(@Body queryPersonById: ConsultarCuentaRequestDto?): Call<ConsultarCuentaResponseDto?>?
 
     // VERIFICAR CODIGO DE REGISTRO
-    @POST("/api/persona/VerificarCodigo")
-    fun verifyCode(@Body verifyCoeRequestDto: VerifyCoeRequestDto?): Call<Boolean?>?
+    @POST("/api/User/VerifyCode")
+    fun verifyCode(@Body verifyCoeRequestDto: VerifyCoeRequestDto?): Call<ResponseDto?>?
+
 
 }

@@ -25,7 +25,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/border_alert"
+            android:background="@drawable/border_degradado"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -79,7 +79,7 @@
                 android:layout_marginEnd="@dimen/m_32dp"
                 android:layout_marginBottom="@dimen/m_22dp"
                 android:textColor="@color/white"
-                android:background="@drawable/botones_fondo"
+                android:background="@drawable/color_btninicio"
                 android:text="intenta otra vez"
                 app:cornerRadius="@dimen/m_10dp" />
         </LinearLayout>

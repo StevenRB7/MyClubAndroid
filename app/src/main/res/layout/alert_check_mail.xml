@@ -62,7 +62,7 @@
                 android:backgroundTint="@color/transparente"
                 android:text="@string/informacion"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="22sp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -71,8 +71,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/m_32dp"
                 android:layout_marginEnd="@dimen/m_32dp"
+                android:layout_marginTop="15dp"
                 android:textColor="@color/white"
-                android:background="@drawable/botones_fondo"
+                android:layout_marginBottom="35dp"
+                android:background="@drawable/color_btninicio"
                 android:text="@string/ok" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
