@@ -38,7 +38,7 @@
 
             <TextView
                 android:id="@+id/txtnombre"
-                android:layout_width="241dp"
+                android:layout_width="wrap_content"
                 android:layout_height="39dp"
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"
@@ -64,16 +64,58 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtnombre">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/background"
+                    android:background="@drawable/newbackgroundmyclub"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
 
 
-                </LinearLayout>
+                    <ImageView
+                        android:layout_width="92dp"
+                        android:layout_height="61dp"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:contentDescription="@string/str_imagenesdescription"
+                        android:src="@drawable/membresias"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="92dp"
+                        android:layout_height="61dp"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="47dp"
+                        android:layout_marginBottom="8dp"
+                        android:contentDescription="@string/str_imagenesdescription"
+                        android:src="@drawable/puntos3d"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtnombre3"
+                        android:layout_width="22dp"
+                        android:layout_height="69dp"
+                        android:layout_marginEnd="13dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        android:text="|"
+                        android:textColor="@color/white"
+                        android:textSize="60sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
 
@@ -92,7 +134,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cardiconosmain"
+                    android:background="@drawable/deporte"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -102,8 +144,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
+                        android:background="@drawable/deporte"
                         android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/veterinaria" />
+                        />
 
 
                 </LinearLayout>
@@ -126,7 +169,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cardiconosmain"
+                    android:background="@drawable/veterinario"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -136,8 +179,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
+                        android:background="@drawable/veterinario"
                         android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/belleza" />
+                         />
 
 
                 </LinearLayout>
@@ -160,7 +204,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cardiconosmain"
+                    android:background="@drawable/adultos"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -171,7 +215,7 @@
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/veterinaria" />
+                        android:src="@drawable/adultos" />
 
 
                 </LinearLayout>
@@ -194,7 +238,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cardiconosmain"
+                    android:background="@drawable/belleza"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -228,7 +272,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cardiconosmain"
+                    android:background="@drawable/joyas"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -239,7 +283,7 @@
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/barespubs" />
+                        android:src="@drawable/joyas" />
 
 
                 </LinearLayout>
@@ -263,7 +307,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cardiconosmain"
+                    android:background="@drawable/licores"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -274,7 +318,7 @@
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/restaurantes" />
+                        android:src="@drawable/licores" />
 
 
                 </LinearLayout>
@@ -298,7 +342,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cardiconosmain"
+                    android:background="@drawable/restaurantes_2"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -309,7 +353,7 @@
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/restaurantes" />
+                        android:src="@drawable/restaurantes_2" />
 
 
                 </LinearLayout>
@@ -331,7 +375,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cardiconosmain"
+                    android:background="@drawable/hotelesyresorts"
                     android:gravity="center"
                     android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables">
@@ -342,7 +386,7 @@
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/deportes" />
+                        android:src="@drawable/hotelesyresorts" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -362,9 +406,9 @@
             <ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="92dp"
-                android:layout_height="51dp"
+                android:layout_height="61dp"
                 android:layout_gravity="left"
-                android:layout_marginStart="35dp"
+                android:layout_marginStart="75dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="36dp"
                 android:contentDescription="@string/str_imagenesdescription"

@@ -1,9 +1,9 @@
 package com.myclub.myapplication.dataDto.request
 
 data class CambiarContraRequestDto(
-    var IdPersona: Double? = null,
-    var IdProyecto: Double? = null,
+    var IdPerson: String? = null,
     var Login: String? = null,
-    var ContraseniaNueva: Double? = null,
+    var IdProject: String? = null,
+    var Password: String? = null,
 
     )

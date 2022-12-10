@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/azuloscuro</item>
         <item name="colorPrimaryVariant">@color/black</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/newoscuronew</item>
 
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -26,11 +26,16 @@
     </style>
 
 
-
-    <style name="Theme.MyClub.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-
+    //CAMBIAR COLOR DE NAV BAR , MENU HAMBURGUESA , TRES LINEAS DE DRAWER
+    <style name="Theme.MyClub.AppBarOverlay"
+    parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlNormal">@color/azulrey</item>
 </style>
 
 
-    <style name="Theme.MyClub.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-</resources>
+    <style name="Theme.MyClub.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorControlNormal">@color/azulrey</item>
+
+</style>
+
+    </resources>

@@ -4,9 +4,7 @@ package com.myclub.myapplication.uiNav.perfil
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.myclub.myapplication.Actvity.AlertLoading
 import com.myclub.myapplication.Actvity.CambiarContrasenaActivity
 import com.myclub.myapplication.Actvity.IniciarSesion
 import com.myclub.myapplication.R
@@ -84,29 +82,6 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
 
                     }
                 })
-        } catch (e: Exception) {
-            //
-        }
-    }
-
-    private fun setData() {
-        try {
-            personaRequest = PersonalModelDto()
-            personaRequest.FirstName = binding?.txtnombreperfil?.text.toString()
-            personaRequest.SecondName = ""
-            personaRequest.FirstSurname = ""
-            personaRequest.SecondSurname = ""
-            personaRequest.Sex = ""
-            personaRequest.DateOfBirth = ""
-            personaRequest.DocumentType = ""
-            personaRequest.Document = binding?.txtcedula?.text.toString()
-            personaRequest.MaritalStatus = ""
-            personaRequest.Phone = ""
-            personaRequest.CellPhone = binding?.txtcelular?.text.toString()
-            personaRequest.Direction = ""
-            personaRequest.Email = binding?.txtcorreoelectronico?.text.toString()
-            personaRequest.IdProject = Constantes.ID_PROYECTO.toString()
-            personaRequest.IdRole = Constantes.ID_ROL_PERSONA_NATURAL.toString()
         } catch (e: Exception) {
             //
         }

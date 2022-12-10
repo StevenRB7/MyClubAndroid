@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:herramientas="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -34,6 +33,12 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+        </activity>   <activity
+            android:name=".Actvity.VerifyCodeRecuperarContraActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
         <activity
             android:name=".MainActivityBusiness"
@@ -57,7 +62,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Actvity.RecuperarContra"
+            android:name=".Actvity.RecuperarContraActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"

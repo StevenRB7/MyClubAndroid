@@ -9,21 +9,15 @@
     tools:context=".ui.membresias.MembresiasFragment"
     >
 
-        <ScrollView
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/idRecyclerViewCupon"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:paddingBottom="@dimen/m_62dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/idRecyclerViewCupon"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="90dp"
-
-                    />
-        </ScrollView>
+            app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

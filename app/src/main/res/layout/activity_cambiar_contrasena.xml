@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/newbackgroundmyclub"
     tools:context=".Actvity.CambiarContrasenaActivity">
 
 
@@ -101,6 +101,7 @@
 
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/nomPasw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -119,6 +120,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:hint="@string/nuevacontrasena"
                 android:textColorHint="@color/gris"
@@ -146,7 +148,7 @@
                 android:id="@+id/btnCambiarContrasena"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="82dp"
+                android:layout_marginTop="52dp"
                 android:background="@drawable/color_btninicio"
                 android:text="@string/confirmarvtn"
                 android:textColor="@color/white"

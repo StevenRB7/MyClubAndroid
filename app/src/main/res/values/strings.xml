@@ -77,7 +77,7 @@
     <string name="identificacion">Identificación</string>
     <string name="cargando">Cargando</string>
     <string name="verify">Verificar</string>
-    <string name="verificado">Usuario creado correctamente</string>
+    <string name="verificado">¡Usuario creado correctamente!</string>
     <string name="alerterror">Usuario no encontrado</string>
     <string name="alerterrorBuy">Compra No realizada</string>
     <string name="Inicio">Inicio</string>
@@ -101,7 +101,7 @@
     <string name="cambiarcontra">CAMBIAR CONTRASEÑA</string>
     <string name="mensajecontra2">Después de cambiar su contraseña, debe iniciar sesión nuevamente</string>
     <string name="confirmarvtn">CONFIRMAR</string>
-    <string name="verificadorecuperar">Nueva contraseña enviada</string>
+    <string name="verificadorecuperar">¡Nueva contraseña enviada!</string>
     <string name="informacionrecuperar">Te hemos enviado tu nueva contraseña por mensaje de texto y al correo electronico para poder iniciar sesión</string>
     <string name="recuperarinfo">Usuario o correo invalido</string>
     <string name="cancelar">CANCELAR</string>

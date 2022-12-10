@@ -8,13 +8,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.myclub.myapplication.Actvity.AlertLoading
 import com.myclub.myapplication.R
 import com.myclub.myapplication.adapter.CuponAdapter
 import com.myclub.myapplication.dataDto.request.ConsultaCuponRequestDto
 import com.myclub.myapplication.dataDto.response.ConsultarCuponResponseDto
 import com.myclub.myapplication.databinding.AlertLoadingBinding
-
 import com.myclub.myapplication.databinding.FragmentMembresiasBinding
 import com.myclub.myapplication.network.ApiClient.Companion.RetrofitHelper
 import com.myclub.myapplication.network.ApiService

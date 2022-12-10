@@ -11,7 +11,6 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
         android:theme="@style/Theme.MyClub.AppBarOverlay"
         >
 
@@ -19,21 +18,23 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/azulcielo"
+            app:itemRippleColor="@color/azulcielo"
+            android:background="@color/white"
+
             app:titleTextColor="@color/transparente">
 
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:src="@drawable/logowhite" />
+                android:src="@drawable/logosplashsquare" />
 
             <ImageView
                 android:id="@+id/idperfilmenu"
                 android:layout_width="70dp"
                 android:layout_height="30dp"
                 android:layout_gravity="right"
-                android:src="@drawable/notiwhite" />
+                android:src="@drawable/notification" />
 
 
         </androidx.appcompat.widget.Toolbar>
@@ -42,6 +43,7 @@
     <include
         android:id="@+id/include"
         layout="@layout/content_main"
+
         />
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,7 +1,7 @@
 package com.myclub.myapplication.utils;
 
 public class Constantes {
-    public static final Integer ID_PROYECTO = 6;
+    public static final String ID_PROYECTO = "6";
 
     public static final String ID_ESTADO_ACTIVO = "";
 
@@ -33,5 +33,34 @@ public class Constantes {
     public static final int CODIGO_EXITOSO = 200;
     public static String ID_PERSONA = "0";
     public static final int CODIGO_ERROR = 500;
+
+
+
+    /**
+     * CODIGOS DE RESPUESTA UTILES
+     */
+
+    public static final int CodeSuccess = 200;
+    public static final int CodeInvalidArgument = 400;
+    public static final int CodeNoFoundElement = 404;
+    public static final int CodeVerificationCodeInvalid = 405;
+    public static final int CodeUnauthorizedAccess = 401;
+    public static final int CodePasswordInvalid = 402;
+    public static final int CodeAccessProhibited = 403;
+    public static final int CodeElementAlreadyExists = 409;
+    public static final int CodeServer = 500;
+
+
+    /**
+     * MENSAJES DE RESPUESTA
+     */
+    public static final String MessageItemNotFound = "Unregistered user, please register";
+    public static final String MessageUnauthorizedAccess = "Unverified user, please verify";
+    public static final String MessageElementAlreadyExists = "El usuario ingresado ya está registrado";
+    public static final String MessageInvalidRequest = "Argumento invalido o petición incorrecta";
+    public static final String MessagePasswordInvalid = "Contraseña incorrecta";
+    public static final String MessageVerifyCodeInvalid = "Codigo de verificacion incorrecto";
+    public static final String MessageErrorServer = "Error Interno";
+
 
 }

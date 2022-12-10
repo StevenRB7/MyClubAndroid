@@ -1,10 +1,9 @@
 package com.myclub.myapplication.dataDto.request
 
-data class ConsultarRecuperarRequestDto(
+data class SendCodeRequestDto(
 
     var IdProject: String? = null,
     var Phone: String? = null,
-    var Email: String? = null,
-    var Password: String? = null,
+    var MessageSMS: String? = null,
 
 )

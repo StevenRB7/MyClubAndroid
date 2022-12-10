@@ -4,29 +4,29 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import com.myclub.myapplication.R
-import com.myclub.myapplication.dataDto.request.VerifyCoeRequestDto
+import com.myclub.myapplication.dataDto.request.VerificarcodigoRequestDto
 import com.myclub.myapplication.dataDto.response.ResponseDto
 import com.myclub.myapplication.dataDto.utilsData.DataUtils
 import com.myclub.myapplication.databinding.ActivityVerifyCodeBinding
 import com.myclub.myapplication.databinding.AlertLoadingBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
-import com.myclub.myapplication.utils.Constantes
 import com.myclub.myapplication.utils.Constantes.*
-import com.myclub.myapplication.utils.alerts.AlertCheckEmail
+import com.myclub.myapplication.utils.alerts.AlertCheckRecuperar
 import com.myclub.myapplication.utils.alerts.AlertErrorResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class VerifyCodeActivity : AppCompatActivity() {
+class VerifyCodeRecuperarContraActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityVerifyCodeBinding
     private var idPerson: String = ""
     private var login: String = ""
     private var email: String = ""
-
-    private  var verifyCoeRequestDto: VerifyCoeRequestDto? = null
+    private var recuperarcontra: Boolean = false
+    private var isRecover: String = ""
+    private lateinit var verifyCoeRequestDto: VerificarcodigoRequestDto
     private lateinit var responseDto: ResponseDto
     private lateinit var alertLoadingNew: AlertDialog
     private var dataUtils: DataUtils = DataUtils()
@@ -38,7 +38,6 @@ class VerifyCodeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityVerifyCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        dataUtils = DataUtils()
 
         alertLoadingShow()
         getDataIntentExtras()
@@ -60,19 +59,19 @@ class VerifyCodeActivity : AppCompatActivity() {
         try {
             alertLoadingNew.show()
 
-            verifyCoeRequestDto = VerifyCoeRequestDto()
-            verifyCoeRequestDto!!.IdPerson = idPerson
-            verifyCoeRequestDto!!.Login = login
-            verifyCoeRequestDto!!.Email = email
-            verifyCoeRequestDto!!.IdProject = ID_PROYECTO
-            verifyCoeRequestDto!!.CodeVerification = codeVerify
-            verifyCoeRequestDto!!.IsRecoverPassword = false
+            verifyCoeRequestDto = VerificarcodigoRequestDto()
+            verifyCoeRequestDto.IdPerson = idPerson
+            verifyCoeRequestDto.Login = login
+            verifyCoeRequestDto.Email = email
+            verifyCoeRequestDto.IdProject = ID_PROYECTO
+            verifyCoeRequestDto.CodeVerification = codeVerify
+            verifyCoeRequestDto.IsRecoverPassword = recuperarcontra
 
 
             val apiService: ApiService =
-                ApiClient.RetrofitHelper(Constantes.BASE_URL_PERSONAS)
+                ApiClient.RetrofitHelper(BASE_URL_PERSONAS)
                     .create(ApiService::class.java)
-            apiService.verifyCode(verifyCoeRequestDto)
+            apiService.CambiarContraCode(verifyCoeRequestDto)
                 ?.enqueue(object : Callback<ResponseDto?>{
                     override fun onResponse(
                         call: Call<ResponseDto?>,
@@ -104,9 +103,10 @@ class VerifyCodeActivity : AppCompatActivity() {
         dataUtils = DataUtils()
         when (responseDto!!.CodeResponse) {
             CodeSuccess -> {
-                AlertCheckEmail().alertCheckEmail(
-                    this@VerifyCodeActivity,
-                    "iniciar"
+
+                AlertCheckRecuperar().alertCheckRecuperar(
+                    this@VerifyCodeRecuperarContraActivity,
+                    "verificarRecuperar"
                 )
             }
 
@@ -130,28 +130,28 @@ class VerifyCodeActivity : AppCompatActivity() {
     private fun validateTextFieldForm(): Boolean {
         var isValidForm = true
         try {
-            if (binding.idTxtUno.text.toString().isEmpty()) {
+            if (binding.idTxtUno.text.toString().isNullOrEmpty()) {
                 binding.idTxtUno.error = ERROR_FORMULARIO_VACIO
                 isValidForm = false
             } else {
                 binding.idTxtUno.error = null
                 isValidForm = true
             }
-            if (binding.idTxtDos.text.toString().isEmpty()) {
+            if (binding.idTxtDos.text.toString().isNullOrEmpty()) {
                 binding.idTxtDos.error = ERROR_FORMULARIO_VACIO
                 isValidForm = false
             } else {
                 binding.idTxtDos.error = null
                 isValidForm = true
             }
-            if (binding.idTxtTres.text.toString().isEmpty()) {
+            if (binding.idTxtTres.text.toString().isNullOrEmpty()) {
                 binding.idTxtTres.error = ERROR_FORMULARIO_VACIO
                 isValidForm = false
             } else {
                 binding.idTxtTres.error = null
                 isValidForm = true
             }
-            if (binding.idTxtCuatro.text.toString().isEmpty()) {
+            if (binding.idTxtCuatro.text.toString().isNullOrEmpty()) {
                 binding.idTxtCuatro.error = ERROR_FORMULARIO_VACIO
                 isValidForm = false
             } else {
@@ -179,12 +179,18 @@ class VerifyCodeActivity : AppCompatActivity() {
         }
     }
 
-    //Acciones de putextra que recibe desde registro
+    //Acciones de putextra que recibe desde Recuperar contraseña
     private fun getDataIntentExtras() {
         try {
-            idPerson = intent.extras?.get("IdPerson").toString()
             login = intent.extras?.get("Login").toString()
             email = intent.extras?.get("Email").toString()
+            idPerson = intent.extras?.get("IdPerson").toString()
+            isRecover = intent.extras?.get("recuperar").toString()
+
+
+            if (isRecover == "YesIsRecover") {
+                recuperarcontra = true
+            }
         } catch (e: Exception) {
             //
         }

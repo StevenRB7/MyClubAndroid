@@ -7,8 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.myclub.myapplication.Actvity.AlertLoading
-import com.myclub.myapplication.Actvity.AlertLoading.Companion.alertDialogLoading
 import com.myclub.myapplication.Actvity.ListadoShopsActivity
 import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.response.ConsultarCuponResponseDto

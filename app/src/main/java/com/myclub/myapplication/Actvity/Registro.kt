@@ -3,15 +3,14 @@ package com.myclub.myapplication.Actvity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.PersonalModelDto
 import com.myclub.myapplication.dataDto.response.ResponseDto
+import com.myclub.myapplication.dataDto.utilsData.DataUtils
 import com.myclub.myapplication.databinding.ActivityRegistroBinding
 import com.myclub.myapplication.databinding.AlertLoadingBinding
 import com.myclub.myapplication.network.ApiClient
@@ -19,6 +18,7 @@ import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes.*
 import com.myclub.myapplication.utils.alerts.AlertErrorResponse
 import com.myclub.myapplication.utils.alerts.AlertErrorResponse.Companion.alertDialogErrorResponse
+import com.myclub.myapplication.utils.alerts.AlertLoading
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,6 +30,7 @@ class Registro : AppCompatActivity() {
     private lateinit var personaRequest: PersonalModelDto
     private lateinit var responseDto: ResponseDto
     private lateinit var alertDialogLoading: AlertDialog
+    private var dataUtils: DataUtils = DataUtils()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,7 +63,7 @@ class Registro : AppCompatActivity() {
             personaRequest.CellPhone = binding.idTxtTelefono.text.toString()
             personaRequest.Direction = ""
             personaRequest.Email = binding.idTxtCorreo.text.toString()
-            personaRequest.IdProject = ID_PROYECTO.toString()
+            personaRequest.IdProject = ID_PROYECTO
             personaRequest.Passworrd = ""
             personaRequest.IdRole = ID_ROL_PERSONA_NATURAL
 
@@ -78,28 +79,8 @@ class Registro : AppCompatActivity() {
                     ) {
                         if (response.body() != null) {
                             responseDto = response.body()!!
-                            Log.e(
-                                "MessageResponse",
-                                "${responseDto.CodeResponse}" + "Message" + "${responseDto.MessageResponse}"
-                            )
-                            if (responseDto.CodeResponse == 200) {
+                            accionesDeRespuesta(responseDto)
 
-                                val i = Intent(this@Registro, VerifyCodeActivity::class.java)
-                                i.putExtra("IdPersona", responseDto.Data!!.IdPerson.toString())
-                                i.putExtra("PhonePerson", binding.idTxtTelefono.text.toString())
-                                i.putExtra("EmailUser", binding.idTxtCorreo.text.toString())
-                                startActivity(i)
-                                alertDialogLoading.dismiss()
-
-                            } else {
-                                AlertErrorResponse().alertErrorResponseDialog(
-                                    this@Registro,
-                                    responseDto.MessageResponse.toString() + " ${personaRequest.CellPhone}"
-                                )
-                                alertDialogErrorResponse.show()
-                                alertDialogLoading.dismiss()
-
-                            }
 
                         }
 
@@ -111,6 +92,38 @@ class Registro : AppCompatActivity() {
                 })
         } catch (e: Exception) {
             alertDialogLoading.dismiss()
+        }
+    }
+
+    private fun accionesDeRespuesta(codeResponse: ResponseDto?) {
+
+        when (codeResponse!!.CodeResponse) {
+            CodeSuccess -> {
+                val i =
+                    Intent(this@Registro, VerifyCodeRecuperarContraActivity::class.java)
+                i.putExtra("IdPerson", responseDto.Data!!.IdPerson.toString())
+                i.putExtra("Login", binding.idTxtTelefono.text.toString())
+                i.putExtra("Email", binding.idTxtCorreo.text.toString())
+                startActivity(i)
+            }
+            CodeInvalidArgument -> {
+                AlertErrorResponse().alertErrorResponseDialog(
+                    this@Registro, MessageInvalidRequest, dataUtils
+                )
+                alertDialogErrorResponse.show()
+            }
+            CodeElementAlreadyExists -> {
+                AlertErrorResponse().alertErrorResponseDialog(
+                    this@Registro, MessageElementAlreadyExists, dataUtils
+                )
+                alertDialogErrorResponse.show()
+            }
+            CodeServer -> {
+                AlertErrorResponse().alertErrorResponseDialog(
+                    this@Registro, MessageErrorServer, dataUtils
+                )
+                alertDialogErrorResponse.show()
+            }
         }
     }
 

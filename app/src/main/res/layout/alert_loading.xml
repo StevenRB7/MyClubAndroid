@@ -34,7 +34,7 @@
                 android:backgroundTint="@color/transparente"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                app:lottie_rawRes="@raw/cargandomyq" />
+                app:lottie_rawRes="@raw/cargandomyqnlanco" />
 
             <TextView
                 android:id="@+id/idTxtxMessage"

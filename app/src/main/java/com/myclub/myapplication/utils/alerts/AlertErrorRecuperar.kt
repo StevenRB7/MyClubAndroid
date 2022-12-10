@@ -1,4 +1,4 @@
-package com.myclub.myapplication.Actvity
+package com.myclub.myapplication.utils.alerts
 
 import android.content.Context
 import android.view.LayoutInflater

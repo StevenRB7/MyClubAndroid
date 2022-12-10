@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".Actvity.RecuperarContra">
+    android:background="@drawable/newbackgroundmyclub"
+    tools:context=".Actvity.RecuperarContraActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -136,6 +136,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+
                     android:id="@+id/idtxtregistrarse"
                     android:layout_width="114dp"
                     android:layout_height="31dp"

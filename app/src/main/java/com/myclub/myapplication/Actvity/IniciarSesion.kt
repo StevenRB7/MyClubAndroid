@@ -3,14 +3,13 @@ package com.myclub.myapplication.Actvity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import com.myclub.myapplication.MainActivity
 import com.myclub.myapplication.MainActivityBusiness
 import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.request.SignInRequestDto
-import com.myclub.myapplication.dataDto.response.DataExtraResponseDto
 import com.myclub.myapplication.dataDto.response.ResponseDto
+import com.myclub.myapplication.dataDto.utilsData.DataUtils
 import com.myclub.myapplication.databinding.ActivityIniciarSesionBinding
 import com.myclub.myapplication.databinding.AlertLoadingBinding
 import com.myclub.myapplication.network.ApiClient
@@ -19,6 +18,8 @@ import com.myclub.myapplication.utils.Constantes
 import com.myclub.myapplication.utils.Constantes.*
 import com.myclub.myapplication.utils.alerts.AlertErrorResponse
 import com.myclub.myapplication.utils.alerts.AlertErrorResponse.Companion.alertDialogErrorResponse
+import com.myclub.myapplication.utils.alerts.AlertLoading
+import com.myclub.myapplication.utils.alerts.AlertLoading.Companion.alertDialogLoading
 import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 import retrofit2.Call
 import retrofit2.Callback
@@ -31,6 +32,7 @@ class IniciarSesion : Activity() {
     private var queryPersonByIdResponseDto: ResponseDto? = null
     private lateinit var sharedPreferences: MySharedPreferences
     private lateinit var alertLoadingNew: AlertDialog
+    private lateinit var dataUtils: DataUtils
 
 
 
@@ -39,10 +41,13 @@ class IniciarSesion : Activity() {
         super.onCreate(savedInstanceState)
         binding = ActivityIniciarSesionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        dataUtils = DataUtils()
 
         alertLoadingShow()
         queryPersonByIdResponseDto = ResponseDto()
-        //AlertLoading().alertLoadingDialog(this, "Validando")
+
+        AlertLoading().alertLoadingDialog(this, M_VALIDATE_DATA)
+        AlertErrorResponse().alertErrorResponseDialog(this, M_ERROR_VALIDATE_DATA, dataUtils)
 
         botones()
 
@@ -59,7 +64,7 @@ class IniciarSesion : Activity() {
             startActivity(i)
         }
         binding.idrecuperarContrasena.setOnClickListener {
-            val inte = Intent(this, RecuperarContra::class.java)
+            val inte = Intent(this, RecuperarContraActivity::class.java)
             startActivity(inte)
         }
 
@@ -108,27 +113,15 @@ class IniciarSesion : Activity() {
                     call: Call<ResponseDto?>,
                     response: Response<ResponseDto?>
                 ) {
-                    sharedPreferences = MySharedPreferences(this@IniciarSesion)
+                    alertLoadingNew.dismiss()
+                    if (response.body() != null) {
+                        queryPersonByIdResponseDto = response.body()
+                        sharedPreferences = MySharedPreferences(this@IniciarSesion)
 
-                    queryPersonByIdResponseDto = response.body()!!
-
-                    if (queryPersonByIdResponseDto?.CodeResponse == CODIGO_EXITOSO) {
-
-                        jumpToViewDesition(queryPersonByIdResponseDto?.Data?.IdRoleUser.toString())
-
-                        alertLoadingNew.dismiss()
-
-                    } else {
-
-                        AlertErrorResponse().alertErrorResponseDialog(
-                            this@IniciarSesion,
-                            "${queryPersonByIdResponseDto?.MessageResponse}"
-                        )
-                        alertDialogErrorResponse.show()
-                        alertLoadingNew.dismiss()
-
+                        accionesDeRespuesta(queryPersonByIdResponseDto)
 
                     }
+
                 }
 
                 override fun onFailure(call: Call<ResponseDto?>, t: Throwable) {
@@ -137,6 +130,52 @@ class IniciarSesion : Activity() {
 
             })
     }
+    private fun accionesDeRespuesta(responseDto: ResponseDto?) {
+
+        when (responseDto!!.CodeResponse) {
+            CodeSuccess -> {
+                sharedPreferences.storeIdUser(queryPersonByIdResponseDto!!.Data!!.IdPerson.toString())
+                sharedPreferences.storeActiveSessionUser("ActiveSession")
+                alertDialogLoading.dismiss()
+                jumpToViewDesition(queryPersonByIdResponseDto?.Data?.IdRoleUser.toString())
+
+            }
+            CodeNoFoundElement -> {
+                val i = Intent(this, Registro::class.java)
+                startActivity(i)
+            }
+            CodeUnauthorizedAccess -> {
+                dataUtils = DataUtils()
+                dataUtils.isVerify = "veriricar"
+                dataUtils.IdPerson = responseDto.Data!!.IdPerson
+                dataUtils.Phone = responseDto.Data!!.Phone
+                AlertErrorResponse().alertErrorResponseDialog(
+                    this, MessageUnauthorizedAccess, dataUtils
+                )
+                alertDialogErrorResponse.show()
+            }
+
+            CodeInvalidArgument -> {
+                AlertErrorResponse().alertErrorResponseDialog(
+                    this, MessageInvalidRequest, dataUtils
+                )
+                alertDialogErrorResponse.show()
+            }
+            CodePasswordInvalid -> {
+                AlertErrorResponse().alertErrorResponseDialog(
+                    this, MessagePasswordInvalid, dataUtils
+                )
+                alertDialogErrorResponse.show()
+            }
+            CodeServer -> {
+                AlertErrorResponse().alertErrorResponseDialog(
+                    this, MessageErrorServer, dataUtils
+                )
+                alertDialogErrorResponse.show()
+            }
+        }
+    }
+
 
     private fun jumpToViewDesition(DireccionDeRoles: String) {
         try {

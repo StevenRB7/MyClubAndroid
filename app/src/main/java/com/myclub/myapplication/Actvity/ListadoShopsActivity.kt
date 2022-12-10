@@ -1,11 +1,8 @@
 package com.myclub.myapplication.Actvity
 
 
-import android.R.attr.button
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +21,7 @@ import com.myclub.myapplication.databinding.AlertLoadingBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
+import com.myclub.myapplication.utils.alerts.AlertLoading
 import com.myclub.myapplication.utils.dataStore.MyClub.Companion.sharedPreferences
 import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 import retrofit2.Call

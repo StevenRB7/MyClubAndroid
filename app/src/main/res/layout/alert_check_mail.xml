@@ -23,21 +23,21 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="500dp"
             android:gravity="center"
-            android:background="@drawable/border_cuadrado"
+            android:background="@drawable/background"
             android:orientation="vertical">
 
 
-            <ImageView
+            <com.airbnb.lottie.LottieAnimationView
                 android:layout_width="350dp"
-                android:layout_height="150dp"
+                android:layout_height="200dp"
                 android:background="@color/transparente"
                 android:backgroundTint="@color/transparente"
                 android:src="@drawable/gmail"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="false"
-                app:lottie_rawRes="@raw/error" />
+                app:lottie_rawRes="@raw/email" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                 android:backgroundTint="@color/transparente"
                 android:text="@string/verificado"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -63,7 +63,7 @@
                 android:text="@string/informacion"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="22sp" />
+                android:textSize="18sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/idBtnOkAlertEmail"

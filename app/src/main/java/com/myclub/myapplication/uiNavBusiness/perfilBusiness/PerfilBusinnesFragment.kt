@@ -10,23 +10,21 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 import com.google.zxing.integration.android.IntentIntegrator
-import com.myclub.myapplication.Actvity.AlertLoading
 import com.myclub.myapplication.Actvity.IniciarSesion
 import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.request.RedimirCuponUsuarioDto
 import com.myclub.myapplication.dataDto.response.CanjearQRResponseDto
 import com.myclub.myapplication.databinding.AlertConfirmarCompraBinding
-import com.myclub.myapplication.databinding.AlertLoadingBinding
 import com.myclub.myapplication.databinding.FragmentPerfilBusinnesBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
 import com.myclub.myapplication.utils.alerts.AlertConfirmarCompra
+import com.myclub.myapplication.utils.alerts.AlertLoading
 import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.nio.file.attribute.AclEntry.Builder
 
 class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
 

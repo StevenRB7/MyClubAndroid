@@ -1,9 +1,9 @@
 package com.myclub.myapplication.dataDto.response
 
 data class ResponseDto(
-    var CodeResponse: Int? = 0,
+    var CodeResponse: Int? = null,
     var MessageResponse: String? = null,
-    val Data: DataExtraResponseDto? = null,
+    val Data: DataExtraResponseDto? = null
 )
 
 data class DataExtraResponseDto(
@@ -23,4 +23,5 @@ data class DataExtraResponseDto(
     var Password: String? = null,
     var IdRoleUser: String? = null,
     var CodeVerification: String? = null,
-)
+
+    )

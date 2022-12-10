@@ -11,8 +11,17 @@ import retrofit2.http.POST
 interface ApiService {
 
     //  PARA CAMBIAR CONTRASEÑA
-    @POST("/apiamingenieria.app/api/Usuario/CambiarContraseniaUsuario")
+    @POST("/api/User/ChangeYourPassword")
     fun CambiarContra(@Body cambiarDto: CambiarContraRequestDto?): Call<ResponseDto?>
+
+ //  PARA CAMBIAR CONTRASEÑA VERIFICAR CODE
+    @POST("/api/User/VerifyCode")
+    fun CambiarContraCode(@Body cambiarveriDto: VerificarcodigoRequestDto?): Call<ResponseDto?>?
+
+
+//  ENVIAR CODIGO PA VERIFICAR CAMBIO DE CONTRA
+   @POST("/api/User/SendCodeVerification")
+    fun ContraVeriCode(@Body veriDto: SendCodeRequestDto?): Call<ResponseDto?>?
 
 
     @POST("/api/Persona/BuscarPersonaPorIdPersona")
@@ -22,11 +31,6 @@ interface ApiService {
     //  PARA CANJEAR QR
     @POST("/api/Comercios/RedeemUserCoupon")
     fun CanjearQR(@Body requestRedimirDto: RedimirCuponUsuarioDto?): Call<CanjearQRResponseDto?>
-
-
-    //  PARA RECUPERAR CONRASEÑA
-    @POST("/api/Usuario/GenerarNuevaContraseniaUsuarioOlvidado")
-    fun RecuperarContrasena(@Body consultaRecuperarDto: ConsultarRecuperarRequestDto?): Call<ConsultarRecuperarResponseDto?>
 
 
     // LISTA DE CUPONES PARA ACTIVAR MEMBRESIA AL DAR CLIC
