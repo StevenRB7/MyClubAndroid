@@ -182,10 +182,10 @@ class VerifyCodeRecuperarContraActivity : AppCompatActivity() {
     //Acciones de putextra que recibe desde Recuperar contraseña
     private fun getDataIntentExtras() {
         try {
+            idPerson = intent.extras?.get("IdPerson").toString()
             login = intent.extras?.get("Login").toString()
             email = intent.extras?.get("Email").toString()
-            idPerson = intent.extras?.get("IdPerson").toString()
-            isRecover = intent.extras?.get("recuperar").toString()
+            isRecover = intent.extras?.get("isRecover").toString()
 
 
             if (isRecover == "YesIsRecover") {

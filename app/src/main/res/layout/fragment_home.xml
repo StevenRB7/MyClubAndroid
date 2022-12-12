@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".uiBusiness.home.HomeBusinessFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -14,55 +14,62 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="212dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/bienvenida"
+        android:textColor="#8F8E8E"
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="212dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="40dp"
-                android:text="@string/bienvenida"
-                android:textColor="#8F8E8E"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.155"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/txtnombre"
                 android:layout_width="wrap_content"
-                android:layout_height="39dp"
-                android:layout_marginTop="8dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="290dp"
+                android:layout_marginTop="44dp"
                 android:layout_weight="1"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="22sp"
+                android:textSize="10sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.176"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="74dp"
+                android:layout_height="37dp"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="26dp"
+                android:contentDescription="@string/str_imagenesdescription"
+                android:src="@drawable/perfilfoto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardlarga"
-                android:layout_width="343dp"
-                android:layout_height="79dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="30dp"
-                app:cardCornerRadius="@dimen/m_10dp"
-                app:cardElevation="@dimen/m_5dp"
+                android:layout_width="330dp"
+                android:layout_height="73dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="45dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtnombre">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -77,12 +84,10 @@
                         android:layout_width="92dp"
                         android:layout_height="61dp"
                         android:layout_gravity="left"
-                        android:layout_marginStart="44dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="33dp"
+                        android:layout_marginTop="6dp"
                         android:contentDescription="@string/str_imagenesdescription"
                         android:src="@drawable/membresias"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -91,12 +96,10 @@
                         android:layout_width="92dp"
                         android:layout_height="61dp"
                         android:layout_gravity="left"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="47dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="33dp"
                         android:contentDescription="@string/str_imagenesdescription"
                         android:src="@drawable/puntos3d"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,322 +107,453 @@
                         android:id="@+id/txtnombre3"
                         android:layout_width="22dp"
                         android:layout_height="69dp"
-                        android:layout_marginEnd="13dp"
-                        android:layout_marginBottom="1dp"
+                        android:layout_marginBottom="16dp"
                         android:layout_weight="1"
                         android:text="|"
                         android:textColor="@color/white"
                         android:textSize="60sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imageView7"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/idcardveterinaria"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginBottom="10dp"
-                app:cardCornerRadius="@dimen/m_10dp"
-                app:cardElevation="@dimen/m_5dp"
-                android:backgroundTint="@color/transparente"
-                app:layout_constraintBottom_toTopOf="@+id/idcardbares"
-                app:layout_constraintStart_toStartOf="parent">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView5"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="22dp"
+        android:backgroundTint="@color/transparente"
+        android:elevation="@dimen/m_15dp"
+        android:src="@drawable/deporte"
+        app:cardCornerRadius="@dimen/m_10dp"
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/deporte"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    tools:ignore="UseCompoundDrawables">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8">
 
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/deporte"
-                        android:contentDescription="@string/str_imagenesdescription"
-                        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
 
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/idcardbelleza"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="13dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/transparente"
-                app:cardCornerRadius="@dimen/m_10dp"
-                app:cardElevation="@dimen/m_5dp"
-                app:layout_constraintBottom_toTopOf="@+id/idcardrestaurente"
-                app:layout_constraintEnd_toStartOf="@+id/idcardhoteles"
-                app:layout_constraintHorizontal_bias="0.04"
-                app:layout_constraintStart_toEndOf="@+id/idcardveterinaria">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/veterinario"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    tools:ignore="UseCompoundDrawables">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:contentDescription="@string/str_imagenesdescription"
+                android:src="@drawable/deporte" />
 
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/veterinario"
-                        android:contentDescription="@string/str_imagenesdescription"
-                         />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/idcarddeporte"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="@color/transparente"
+        android:elevation="@dimen/m_15dp"
+        app:cardCornerRadius="@dimen/m_10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardlarga">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/idcardbellezaa"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="3dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/transparente"
-                app:cardCornerRadius="@dimen/m_10dp"
-                app:cardElevation="@dimen/m_5dp"
-                app:layout_constraintBottom_toTopOf="@+id/idcardrestaurente"
-                app:layout_constraintEnd_toStartOf="@+id/idcardhoteles"
-                app:layout_constraintHorizontal_bias="0.9"
-                app:layout_constraintStart_toEndOf="@+id/idcardveterinaria">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/adultos"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    tools:ignore="UseCompoundDrawables">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:src="@drawable/deporte"
+            tools:ignore="UseCompoundDrawables">
 
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/adultos" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@drawable/deporte"
+                android:contentDescription="@string/str_imagenesdescription"
+                />
 
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="95dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="34dp"
+        android:text="Deporte"
+        android:textAlignment="center"
+        android:textColor="#151414"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idcarddeporte" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="25dp"
+        android:backgroundTint="@color/transparente"
+        android:elevation="@dimen/m_15dp"
+        android:src="@drawable/deporte"
+        app:cardCornerRadius="@dimen/m_10dp"
+
+        app:layout_constraintEnd_toStartOf="@+id/cardView7"
+        app:layout_constraintStart_toEndOf="@+id/cardView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:contentDescription="@string/str_imagenesdescription"
+                android:src="@drawable/licores" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:layout_width="95dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="1dp"
+        android:text="Licores"
+        android:textAlignment="center"
+        android:textColor="#151414"
+        android:textSize="15sp"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView6" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="96dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="44dp"
+        android:text="Veterinaria"
+        android:textAlignment="center"
+        android:textColor="#151414"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView7" />
+
+    <TextView
+        android:layout_width="95dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="1dp"
+        android:text="Deporte"
+        android:textAlignment="center"
+        android:textColor="#151414"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView5" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="25dp"
+        app:cardCornerRadius="@dimen/m_10dp"
+
+        android:backgroundTint="@color/transparente"
+        android:elevation="@dimen/m_15dp"
+        android:src="@drawable/adultos"
+        app:layout_constraintEnd_toStartOf="@+id/cardView"
+        app:layout_constraintStart_toEndOf="@+id/idcarddeporte"
+        app:layout_constraintTop_toBottomOf="@+id/cardlarga">
 
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/idcardhoteles"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="10dp"
-                app:cardCornerRadius="@dimen/m_10dp"
-                app:cardElevation="@dimen/m_5dp"
-                android:backgroundTint="@color/transparente"
-                app:layout_constraintBottom_toTopOf="@+id/idcarddeporte"
-                app:layout_constraintEnd_toEndOf="parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/belleza"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    tools:ignore="UseCompoundDrawables">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@drawable/adultos" />
 
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/belleza" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="95dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="22dp"
+        android:text="Adultos"
+        android:textAlignment="center"
+        android:textColor="#151414"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textView10"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView4"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="49dp"
+        android:backgroundTint="@color/transparente"
+        android:elevation="@dimen/m_15dp"
+        android:src="@drawable/deporte"
+        app:cardCornerRadius="@dimen/m_10dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
 
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:contentDescription="@string/str_imagenesdescription"
+                android:src="@drawable/joyas" />
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/idcardbares"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginBottom="60dp"
-                android:elevation="@dimen/m_15dp"
-                app:cardCornerRadius="@dimen/m_10dp"
-                android:backgroundTint="@color/transparente"
-                app:cardElevation="@dimen/m_5dp"
-                app:layout_constraintBottom_toTopOf="@+id/carouselRecyclerview"
-                app:layout_constraintStart_toStartOf="parent">
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/joyas"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    tools:ignore="UseCompoundDrawables">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView8"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="25dp"
+        android:backgroundTint="@color/transparente"
+        android:elevation="@dimen/m_15dp"
+        android:src="@drawable/deporte"
+        app:cardCornerRadius="@dimen/m_10dp"
 
+        app:layout_constraintEnd_toStartOf="@+id/cardView4"
+        app:layout_constraintStart_toEndOf="@+id/cardView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView11">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/joyas" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
 
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/idcardrestaurente"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="13dp"
-                android:layout_marginBottom="60dp"
-                android:backgroundTint="@color/transparente"
-                android:elevation="@dimen/m_15dp"
-                app:cardCornerRadius="@dimen/m_10dp"
-                app:cardElevation="@dimen/m_5dp"
-                app:layout_constraintBottom_toTopOf="@+id/carouselRecyclerview"
-                app:layout_constraintEnd_toStartOf="@+id/idcarddeporte"
-                app:layout_constraintHorizontal_bias="0.04"
-                app:layout_constraintStart_toEndOf="@+id/idcardbares">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/licores"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    tools:ignore="UseCompoundDrawables">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:contentDescription="@string/str_imagenesdescription"
+                android:src="@drawable/hotelesyresorts" />
 
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/licores" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="22dp"
+        android:backgroundTint="@color/transparente"
+        android:elevation="@dimen/m_15dp"
+        app:cardCornerRadius="@dimen/m_10dp"
+
+        android:src="@drawable/restaurantes_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
 
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/idcarddeorte"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="3dp"
-                android:layout_marginBottom="60dp"
-                android:backgroundTint="@color/transparente"
-                android:elevation="@dimen/m_15dp"
-                app:cardCornerRadius="@dimen/m_10dp"
-                app:cardElevation="@dimen/m_5dp"
-                app:layout_constraintBottom_toTopOf="@+id/carouselRecyclerview"
-                app:layout_constraintEnd_toStartOf="@+id/idcarddeporte"
-                app:layout_constraintHorizontal_bias="0.9"
-                app:layout_constraintStart_toEndOf="@+id/idcardbares">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/restaurantes_2"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    tools:ignore="UseCompoundDrawables">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="98dp"
+                android:layout_gravity="center"
+                android:src="@drawable/restaurantes_2"
+                android:contentDescription="@string/str_imagenesdescription"
+                />
 
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/restaurantes_2" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="95dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="44dp"
+        android:text="Belleza"
+        android:textAlignment="center"
+        android:textColor="#151414"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="44dp"
+        android:text="Joyas  Accesorios"
+        android:textAlignment="center"
+        android:textColor="#151414"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView4" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="95dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="1dp"
+        android:text="Hoteles"
+        android:textAlignment="center"
+        android:textColor="#151414"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView8" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="1dp"
+        android:text="Restaurantes"
+        android:textAlignment="center"
+        android:textColor="#151414"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="49dp"
+        android:backgroundTint="@color/transparente"
+        android:elevation="@dimen/m_15dp"
+        app:cardCornerRadius="@dimen/m_10dp"
+
+        android:src="@drawable/belleza"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardlarga">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
 
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/idcarddeporte"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="60dp"
-                android:elevation="@dimen/m_15dp"
-                app:cardCornerRadius="@dimen/m_10dp"
-                android:backgroundTint="@color/transparente"
-                app:cardElevation="@dimen/m_5dp"
-                app:layout_constraintBottom_toTopOf="@+id/carouselRecyclerview"
-                app:layout_constraintEnd_toEndOf="parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/hotelesyresorts"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    tools:ignore="UseCompoundDrawables">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="98dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/str_imagenesdescription"
+                android:src="@drawable/belleza" />
 
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/str_imagenesdescription"
-                        android:src="@drawable/hotelesyresorts" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView7"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="49dp"
+        android:backgroundTint="@color/transparente"
+        android:elevation="@dimen/m_15dp"
+        android:src="@drawable/deporte"
+        app:cardCornerRadius="@dimen/m_10dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:contentDescription="@string/str_imagenesdescription"
+                android:src="@drawable/veterinario" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
             <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
                 android:id="@+id/carouselRecyclerview"
-                android:layout_width="340dp"
-                android:layout_height="191dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="450dp"
-                android:layout_marginEnd="20dp"
+                android:layout_width="325dp"
+                android:layout_height="160dp"
+                android:layout_marginStart="34dp"
+                android:layout_marginTop="200dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginBottom="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="92dp"
-                android:layout_height="61dp"
-                android:layout_gravity="left"
-                android:layout_marginStart="75dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="36dp"
-                android:contentDescription="@string/str_imagenesdescription"
-                android:src="@drawable/perfilfoto"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.913"
-                app:layout_constraintStart_toEndOf="@+id/txtnombre"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/cardView3"
+                app:layout_constraintVertical_bias="1.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

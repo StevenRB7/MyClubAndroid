@@ -17,7 +17,7 @@ class SplashScreen : AppCompatActivity() {
     private lateinit var sharedPreferences: MySharedPreferences
     private lateinit var activeSessionUser: String
     private var idRoleRestore = ""
-    private val timeSplash: Long = 5700
+    private val timeSplash: Long = 2700
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

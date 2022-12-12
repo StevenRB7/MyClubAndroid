@@ -5,7 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import com.myclub.myapplication.Actvity.RecuperarContraActivity
-import com.myclub.myapplication.Actvity.VerifyCodeActivity
+import com.myclub.myapplication.Actvity.VerifyCodeRecuperarContraActivity
 import com.myclub.myapplication.R
 import com.myclub.myapplication.dataDto.utilsData.DataUtils
 import com.myclub.myapplication.databinding.AlertErrorResponseBinding
@@ -30,7 +30,7 @@ class AlertErrorResponse {
         if (dataExtra.isVerify == "veriricar") {
             viewAlert.idBtnTryAgain.text = "Usuario verificado"
             viewAlert.idBtnTryAgain.setOnClickListener {
-                val i = Intent(context, VerifyCodeActivity::class.java)
+                val i = Intent(context, VerifyCodeRecuperarContraActivity::class.java)
                 i.putExtra("IdPerson", dataExtra.IdPerson.toString())
                 i.putExtra("Login", dataExtra.Phone.toString())
                 i.putExtra("Email", dataExtra.Phone.toString())

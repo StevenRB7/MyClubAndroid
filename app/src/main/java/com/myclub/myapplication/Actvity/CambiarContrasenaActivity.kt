@@ -16,6 +16,7 @@ import com.myclub.myapplication.databinding.AlertLoadingBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
+import com.myclub.myapplication.utils.Constantes.ID_PROYECTO
 import com.myclub.myapplication.utils.alerts.AlertErrorResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -58,7 +59,7 @@ class CambiarContrasenaActivity : AppCompatActivity() {
         try {
             alertLoadingNew.show()
             cambiarRequestDto = CambiarContraRequestDto()
-            cambiarRequestDto!!.IdProject = Constantes.ID_PROYECTO
+            cambiarRequestDto!!.IdProject = ID_PROYECTO
             cambiarRequestDto!!.IdPerson = ""
             cambiarRequestDto!!.Login =  ""
             cambiarRequestDto!!.Password = binding.idnuevacontra.text.toString()

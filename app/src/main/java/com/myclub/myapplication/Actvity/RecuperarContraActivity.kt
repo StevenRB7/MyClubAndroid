@@ -3,12 +3,9 @@ package com.myclub.myapplication.Actvity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.util.Patterns
-import android.widget.Toast
+
 import androidx.appcompat.app.AlertDialog
 import com.myclub.myapplication.R
-import com.myclub.myapplication.dataDto.request.ConsultarRecuperarRequestDto
 import com.myclub.myapplication.dataDto.request.SendCodeRequestDto
 import com.myclub.myapplication.dataDto.response.ResponseDto
 import com.myclub.myapplication.dataDto.utilsData.DataUtils
@@ -16,20 +13,17 @@ import com.myclub.myapplication.databinding.ActivityRecuperarContraBinding
 import com.myclub.myapplication.databinding.AlertLoadingBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
-import com.myclub.myapplication.utils.Constantes
 import com.myclub.myapplication.utils.Constantes.*
 import com.myclub.myapplication.utils.alerts.AlertErrorResponse
-import com.myclub.myapplication.utils.alerts.AlertLoading
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.regex.Pattern
 
 class RecuperarContraActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRecuperarContraBinding
     private lateinit var sendcodeRequestDto: SendCodeRequestDto
-    private var recuperarResponseDto: ResponseDto? = null
+    private lateinit var recuperarResponseDto: ResponseDto
     private lateinit var alertLoadingNew: AlertDialog
     private var dataUtils: DataUtils = DataUtils()
 
@@ -125,11 +119,11 @@ class RecuperarContraActivity : AppCompatActivity() {
         when (codeResponse!!.CodeResponse) {
             CodeSuccess -> {
                 val i =
-                    Intent(this, VerifyCodeActivity::class.java)
-                i.putExtra("IdPerson", recuperarResponseDto?.Data!!.IdPerson.toString())
+                    Intent(this, VerifyCodeRecuperarContraActivity::class.java)
+                i.putExtra("IdPerson", recuperarResponseDto.Data!!.IdPerson.toString())
                 i.putExtra("Login", binding.idTxtUserName.text.toString())
                 i.putExtra("Email", binding.idTxtUserEmail.text.toString())
-                i.putExtra("recuperar", "YesIsRecover")
+                i.putExtra("isRecover", "YesIsRecover")
                 startActivity(i)
             }
             CodeInvalidArgument -> {
@@ -153,11 +147,6 @@ class RecuperarContraActivity : AppCompatActivity() {
         }
     }
 
-    private fun validateEmail(email: String): Boolean {
-        val pattern: Pattern = Patterns.EMAIL_ADDRESS
-        pattern.matcher(email).matches()
-        return pattern.matcher(email).matches()
-    }
     //ALERTA GLOBAL CARGANDO
     private fun alertLoadingShow() {
         try {

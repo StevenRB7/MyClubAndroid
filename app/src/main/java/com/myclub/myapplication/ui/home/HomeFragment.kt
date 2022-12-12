@@ -36,11 +36,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         idPersonRecovered = recoverIdPersonShared()
 
         val idCoupon = 1.0
-        binding?.idcardbares?.setOnClickListener {
-            val i = Intent(requireContext(), ListadoComerciosPlanActivity::class.java)
-            i.putExtra("IdCoupon", idCoupon.toString())
+        //binding?.idcardbares?.setOnClickListener {
+            ///val i = Intent(requireContext(), ListadoComerciosPlanActivity::class.java)
+            //i.putExtra("IdCoupon", idCoupon.toString())
             //startActivity(i)
-        }
+        //}
 
         val carrusel = ArrayList<Carrusel>()
         carrusel.add(Carrusel(R.drawable.cardbannercinco))

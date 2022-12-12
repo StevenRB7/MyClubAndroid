@@ -51,20 +51,12 @@ class Registro : AppCompatActivity() {
 
             personaRequest = PersonalModelDto()
             personaRequest.FirstName = binding.idTxtNombre.text.toString()
-            personaRequest.SecondName = ""
-            personaRequest.FirstSurname = ""
-            personaRequest.SecondSurname = ""
-            personaRequest.Sex = ""
-            personaRequest.DateOfBirth = ""
-            personaRequest.DocumentType = "1"
             personaRequest.Document = binding.idTxtNumberIdentification.text.toString()
-            personaRequest.MaritalStatus = ""
+            personaRequest.DocumentType = "1"
             personaRequest.Phone = binding.idTxtTelefono.text.toString()
             personaRequest.CellPhone = binding.idTxtTelefono.text.toString()
-            personaRequest.Direction = ""
             personaRequest.Email = binding.idTxtCorreo.text.toString()
             personaRequest.IdProject = ID_PROYECTO
-            personaRequest.Passworrd = ""
             personaRequest.IdRole = ID_ROL_PERSONA_NATURAL
 
 
@@ -77,6 +69,7 @@ class Registro : AppCompatActivity() {
                         call: Call<ResponseDto?>,
                         response: Response<ResponseDto?>
                     ) {
+                        alertDialogLoading.dismiss()
                         if (response.body() != null) {
                             responseDto = response.body()!!
                             accionesDeRespuesta(responseDto)
@@ -205,7 +198,6 @@ class Registro : AppCompatActivity() {
         pattern.matcher(email).matches()
         return pattern.matcher(email).matches()
     }
-
 
     private fun alertLoadingShow() {
         try {

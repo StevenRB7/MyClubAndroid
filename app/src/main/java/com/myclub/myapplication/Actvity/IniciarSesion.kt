@@ -102,7 +102,7 @@ class IniciarSesion : Activity() {
         signInRequestdDto = SignInRequestDto()
         signInRequestdDto!!.UserName = User
         signInRequestdDto!!.Password = password
-        signInRequestdDto!!.IdProject = ID_PROYECTO.toString()
+        signInRequestdDto!!.IdProject = ID_PROYECTO
 
 
         val apiService: ApiService =
