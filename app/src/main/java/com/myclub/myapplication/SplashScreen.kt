@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import com.myclub.myapplication.Actvity.IniciarSesion
 import com.myclub.myapplication.databinding.ActivitySplashScreenBinding
+import com.myclub.myapplication.utils.Constantes
 import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 
 @SuppressLint("CustomSplashScreen")
@@ -24,6 +25,7 @@ class SplashScreen : AppCompatActivity() {
         supportActionBar?.hide()
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        sharedPreferences= MySharedPreferences(this)
 
         activeSessionUser = recoverInternalDataPreferences()
 
@@ -33,16 +35,16 @@ class SplashScreen : AppCompatActivity() {
     private fun splashScreen() {
 
         Handler().postDelayed(Runnable {
-            if (activeSessionUser == "ActiveSession") {
+            if (activeSessionUser == Constantes.PREF_ACTIVE_SESSION) {
                 idRoleRestore = sharedPreferences.restoreIdRoleUserPref()
                 val intentDecitionRole: Intent
                 when (idRoleRestore) {
-                    "1.0" -> {
+                    "1" -> {
                         intentDecitionRole = Intent(this, MainActivity::class.java)
                         startActivity(intentDecitionRole)
                         finish()
                     }
-                    "2.0" -> {
+                    "2" -> {
                         intentDecitionRole = Intent(this, MainActivityBusiness::class.java)
                         startActivity(intentDecitionRole)
                         finish()

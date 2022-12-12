@@ -135,7 +135,7 @@ class IniciarSesion : Activity() {
         when (responseDto!!.CodeResponse) {
             CodeSuccess -> {
                 sharedPreferences.storeIdUser(queryPersonByIdResponseDto!!.Data!!.IdPerson.toString())
-                sharedPreferences.storeActiveSessionUser("ActiveSession")
+                sharedPreferences.storeActiveSessionUser(PREF_ACTIVE_SESSION)
                 alertDialogLoading.dismiss()
                 jumpToViewDesition(queryPersonByIdResponseDto?.Data?.IdRoleUser.toString())
 
@@ -148,7 +148,7 @@ class IniciarSesion : Activity() {
                 dataUtils = DataUtils()
                 dataUtils.isVerify = "veriricar"
                 dataUtils.IdPerson = responseDto.Data!!.IdPerson
-                dataUtils.Phone = responseDto.Data!!.Phone
+                dataUtils.Phone = responseDto.Data.Phone
                 AlertErrorResponse().alertErrorResponseDialog(
                     this, MessageUnauthorizedAccess, dataUtils
                 )
@@ -184,7 +184,7 @@ class IniciarSesion : Activity() {
                 "1" -> {
                     i = Intent(this@IniciarSesion, MainActivity::class.java)
                     sharedPreferences.storeIdUser(queryPersonByIdResponseDto?.Data?.IdPerson.toString())
-                    sharedPreferences.storeActiveSessionUser("ActiveSession")
+                    sharedPreferences.storeActiveSessionUser(PREF_ACTIVE_SESSION)
                     sharedPreferences.storeIdRol(queryPersonByIdResponseDto?.Data?.IdRoleUser.toString())
                     startActivity(i)
                     finish()
@@ -192,7 +192,7 @@ class IniciarSesion : Activity() {
                 "2" -> {
                     i = Intent(this@IniciarSesion, MainActivityBusiness::class.java)
                     sharedPreferences.storeIdRol(queryPersonByIdResponseDto?.Data?.IdRoleUser.toString())
-                    sharedPreferences.storeActiveSessionUser("ActiveSession")
+                    sharedPreferences.storeActiveSessionUser(PREF_ACTIVE_SESSION)
                     startActivity(i)
                     finish()
                 }
