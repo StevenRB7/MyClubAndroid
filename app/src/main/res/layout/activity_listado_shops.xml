@@ -11,7 +11,7 @@
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/azulcielo"
+        android:background="@color/azulrey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,7 +26,7 @@
             <ImageView
                 android:id="@+id/idbtnregresarshop"
                 android:layout_width="42dp"
-                android:layout_height="42dp"
+                android:layout_height="40dp"
                 android:padding="@dimen/m_5dp"
                 android:src="@drawable/atras_blanca"
                 app:tint="@color/white" />

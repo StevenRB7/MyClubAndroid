@@ -12,14 +12,15 @@ import com.google.gson.Gson
 import com.google.zxing.integration.android.IntentIntegrator
 import com.myclub.myapplication.Actvity.IniciarSesion
 import com.myclub.myapplication.R
+import com.myclub.myapplication.dataDto.PersonalModelDto
 import com.myclub.myapplication.dataDto.request.RedimirCuponUsuarioDto
 import com.myclub.myapplication.dataDto.response.CanjearQRResponseDto
+import com.myclub.myapplication.dataDto.response.ResponseDto
 import com.myclub.myapplication.databinding.AlertConfirmarCompraBinding
 import com.myclub.myapplication.databinding.FragmentPerfilBusinnesBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
-import com.myclub.myapplication.utils.alerts.AlertConfirmarCompra
 import com.myclub.myapplication.utils.alerts.AlertLoading
 import com.myclub.myapplication.utils.dataStore.MySharedPreferences
 import retrofit2.Call
@@ -33,14 +34,15 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
     private lateinit var canjearResponse: CanjearQRResponseDto
     private lateinit var canjearRequest: RedimirCuponUsuarioDto
     private lateinit var myAlertDialogOpcion: AlertDialog
-
+    private lateinit var responseDto: ResponseDto
+    private lateinit var personaRequest: PersonalModelDto
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPerfilBusinnesBinding.bind(view)
         AlertLoading().alertLoadingDialog(requireContext(), "Validando")
 
-
+        callUserRegistrationService()
         botones()
         binding?.BtnEscanearQR?.setOnClickListener { initScanner() }
 
@@ -52,6 +54,48 @@ class PerfilBusinnesFragment : Fragment(R.layout.fragment_perfil_businnes) {
             MySharedPreferences(requireContext()).deleteMySharedPreferences()
             val i = Intent(requireContext(), IniciarSesion::class.java)
             startActivity(i)
+        }
+    }
+    private fun callUserRegistrationService() {
+        try {
+
+            personaRequest = PersonalModelDto()
+            personaRequest.FirstName = binding?.txtnombreperfil?.text.toString()
+            personaRequest.Document = binding?.txtcedula?.text.toString()
+            personaRequest.DocumentType = "1"
+            personaRequest.Phone = binding?.txtcelular?.text.toString()
+            personaRequest.CellPhone = binding?.txtcelular?.text.toString()
+            personaRequest.Email = binding?.txtcorreoelectronico?.text.toString()
+            personaRequest.IdProject = Constantes.ID_PROYECTO
+            personaRequest.IdRole = Constantes.ID_ROL_PERSONA_NATURAL
+
+
+            val apiService: ApiService =
+                ApiClient.RetrofitHelper(Constantes.BASE_URL_PERSONAS)
+                    .create(ApiService::class.java)
+            apiService.registerNewUser(personaRequest)
+                ?.enqueue(object : Callback<ResponseDto?> {
+                    override fun onResponse(
+                        call: Call<ResponseDto?>,
+                        response: Response<ResponseDto?>
+                    ) {
+                        if (response.body() != null) {
+                            responseDto = response.body()!!
+                            binding?.txtnombreperfil?.text = responseDto.Data?.Names.toString()
+                            binding?.txtcelular?.text = responseDto.Data?.Phone.toString()
+                            binding?.txtcedula?.text = responseDto.Data?.Document.toString()
+                            binding?.txtcorreoelectronico?.text = responseDto.Data?.Email.toString()
+
+
+                        }
+
+                    }
+
+                    override fun onFailure(call: Call<ResponseDto?>, t: Throwable) {
+                    }
+                })
+        } catch (e: Exception) {
+            //
         }
     }
 

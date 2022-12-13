@@ -24,10 +24,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="450dp"
             android:gravity="center"
-
-            android:background="@drawable/border_cuadrado"
+            android:background="@drawable/newbackgroundmyclub"
             android:orientation="vertical">
 
 
@@ -44,8 +43,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/m_10dp"
                 android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/m_10dp"
                 android:background="@color/transparente"
                 android:backgroundTint="@color/transparente"
                 android:text="@string/confirmar"
@@ -59,12 +58,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32sp"
                 android:layout_marginEnd="32sp"
-                android:layout_marginBottom="@dimen/m_10dp"
+                android:layout_marginBottom="15dp"
                 android:background="@color/transparente"
                 android:backgroundTint="@color/transparente"
                 android:text="@string/informacioncompra"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="22sp" />
 
             <androidx.appcompat.widget.AppCompatButton

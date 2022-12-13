@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/newbackgroundmyclub"
+    tools:context=".Actvity.IniciarSesion">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/mr_62dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="300dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/str_imagenesdescription"
+                android:src="@drawable/logowhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.455"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/iniciar_sesion"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/idLayoutUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m_32dp"
+                android:layout_marginTop="@dimen/m_42dp"
+                android:layout_marginEnd="@dimen/m_32dp"
+                android:hint="@string/usuario"
+                app:boxBackgroundMode="filled"
+                app:endIconTint="@color/gris"
+                app:errorIconTint="@color/gris"
+                app:startIconTint="@color/gris"
+                android:textColorHint="@color/gris"
+                app:boxCornerRadiusBottomEnd="@dimen/m_8dp"
+                app:boxCornerRadiusBottomStart="@dimen/m_8dp"
+                app:boxCornerRadiusTopEnd="@dimen/m_8dp"
+                app:boxCornerRadiusTopStart="@dimen/m_8dp"
+                app:endIconMode="clear_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/idusuario"
+                    android:textColor="@color/gris"
+                    android:background="@drawable/border_redondo_login"
+                    android:layout_width="match_parent"
+                    android:textColorLink="@color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m_32dp"
+                android:layout_marginTop="@dimen/m_42dp"
+                android:layout_marginEnd="@dimen/m_32dp"
+                android:hint="@string/contrasenia"
+                app:boxBackgroundMode="filled"
+                android:textColorHint="@color/gris"
+                app:boxCornerRadiusBottomEnd="@dimen/m_8dp"
+                app:boxCornerRadiusBottomStart="@dimen/m_8dp"
+                app:boxCornerRadiusTopEnd="@dimen/m_8dp"
+                app:endIconTint="@color/gris"
+                app:boxCornerRadiusTopStart="@dimen/m_8dp"
+                app:endIconMode="password_toggle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idLayoutUsuario">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/idpwd"
+                    android:textColor="@color/gris"
+                    android:background="@drawable/border_redondo_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m_32dp"
+                android:layout_marginTop="52dp"
+                android:layout_marginEnd="@dimen/m_32dp"
+                android:gravity="end|center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+                tools:ignore="UseCompoundDrawables">
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/idBtnIngresar"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="136dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="135dp"
+                android:layout_marginBottom="62dp"
+                android:background="@drawable/color_btninicio"
+                android:text="@string/iniciar_sesion"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cornerRadius="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idrecuperarContrasena"
+                app:layout_constraintVertical_bias="0.32">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/idBtnRegistro"
+                android:layout_width="248dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="125dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="125dp"
+                android:layout_marginBottom="62dp"
+                android:background="@drawable/color_btninicio"
+                android:text="@string/crear_usuario"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cornerRadius="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idBtnIngresar"
+                app:layout_constraintVertical_bias="0.01999998">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="23dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="19dp"
+                android:contentDescription="@string/str_imagenesdescription"
+                android:src="@drawable/candado"
+                app:layout_constraintBottom_toTopOf="@+id/idBtnIngresar"
+                app:layout_constraintEnd_toStartOf="@+id/idrecuperarContrasena"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/idrecuperarContrasena"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/m_22dp"
+                android:text="@string/recuperar_contrasenia"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

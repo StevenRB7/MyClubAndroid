@@ -10,14 +10,14 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
         android:id="@+id/IdbtnCoupon"
         android:layout_width="match_parent"
-        android:layout_height="201dp"
+        android:layout_height="211dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
         android:clickable="true"
         android:focusable="true"
-        app:cardCornerRadius="@dimen/m_15dp"
+        app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,10 +25,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/CardBackground"
-            android:layout_width="370dp"
-            android:layout_marginTop="@dimen/m_15dp"
+            android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_gravity="center"
+            android:layout_marginTop="@dimen/m_15dp"
             android:background="@drawable/membresiablue"
             android:orientation="horizontal">
 
@@ -75,13 +75,13 @@
                 android:layout_height="37dp"
                 android:layout_marginStart="136dp"
                 android:layout_marginTop="17dp"
-                android:textSize="10dp"
-                android:backgroundTint="#FFFFFF"
-                app:cornerRadius="@dimen/m_62dp"
-                android:text="VER CUPONES"
-                android:textColor="@color/black"
                 android:layout_marginEnd="135dp"
                 android:layout_marginBottom="16dp"
+                android:backgroundTint="#FFFFFF"
+                android:text="VER CUPONES"
+                android:textColor="@color/black"
+                android:textSize="10dp"
+                app:cornerRadius="@dimen/m_62dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

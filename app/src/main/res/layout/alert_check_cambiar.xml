@@ -2,8 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -25,63 +24,57 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="450dp"
-            android:background="@drawable/newbackgroundmyclub"
             android:gravity="center"
+            android:background="@drawable/newbackgroundmyclub"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/t_32sp"
-                android:layout_marginTop="@dimen/m_15dp"
-                android:layout_marginEnd="@dimen/t_32sp"
-                android:layout_marginBottom="@dimen/m_10dp"
-                android:background="@color/transparente"
-                android:backgroundTint="@color/transparente"
-                android:text="@string/alerterrorBuy"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="22sp"
-                android:textStyle="bold" />
 
             <com.airbnb.lottie.LottieAnimationView
-                android:tint="@color/vino"
-                app:tint="@color/vino"
-                android:layout_width="350dp"
-                android:layout_height="250dp"
+                android:layout_width="390dp"
+                android:layout_height="192dp"
                 android:background="@color/transparente"
                 android:backgroundTint="@color/transparente"
+                android:backgroundTintMode="src_atop"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                app:lottie_rawRes="@raw/errorrr"
-                />
+                app:lottie_rawRes="@raw/cambiarcontra" />
 
             <TextView
-                android:id="@+id/idTxtxMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/t_32sp"
-                android:layout_marginEnd="@dimen/t_32sp"
+                android:layout_marginBottom="@dimen/m_10dp"
+                android:layout_gravity="center"
+                android:background="@color/transparente"
+                android:backgroundTint="@color/transparente"
+                android:text="@string/verificadorcambiar"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32sp"
+                android:layout_marginEnd="32sp"
                 android:layout_marginBottom="@dimen/m_10dp"
                 android:background="@color/transparente"
                 android:backgroundTint="@color/transparente"
-                android:text="@string/ok"
+                android:text="@string/informacionrcambiar"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="22sp"
-                 />
+                android:textSize="22sp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/idBtnTryAgain"
+                android:id="@+id/idBtncambiarcontra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/m_32dp"
                 android:layout_marginEnd="@dimen/m_32dp"
                 android:textColor="@color/white"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="@dimen/m_22dp"
                 android:background="@drawable/color_btninicio"
-                android:text="intenta otra vez"
-                app:cornerRadius="@dimen/m_10dp" />
+                android:text="@string/iniciar_sesion" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

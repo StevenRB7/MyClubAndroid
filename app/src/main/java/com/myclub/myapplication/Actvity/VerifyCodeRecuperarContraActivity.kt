@@ -21,8 +21,8 @@ import retrofit2.Response
 class VerifyCodeRecuperarContraActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityVerifyCodeBinding
-    private var idPerson: String = ""
     private var login: String = ""
+    private var idPerson: String = ""
     private var email: String = ""
     private var recuperarcontra: Boolean = false
     private var isRecover: String = ""

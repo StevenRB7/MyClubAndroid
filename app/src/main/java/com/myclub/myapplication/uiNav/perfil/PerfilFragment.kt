@@ -55,6 +55,7 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
 
     }
 
+
     private fun callQueryPersonByIdService() {
         try {
 
@@ -70,6 +71,7 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
                         response: Response<QueryPersonByIdResponseDto?>
                     ) {
                         if (response.body() != null) {
+                            queryPersonByIdResponseDto = response.body()!!
                             queryPersonByIdResponseDto = response.body()!!
                             binding?.txtnombreperfil?.text = queryPersonByIdResponseDto.PRIMER_NOMBRE
                             binding?.txtcelular?.text = queryPersonByIdResponseDto.CELULAR

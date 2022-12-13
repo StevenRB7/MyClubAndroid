@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="450dp"
             android:gravity="center"
-            android:background="@drawable/background"
+            android:background="@drawable/newbackgroundmyclub"
             android:orientation="vertical">
 
 
@@ -37,7 +37,7 @@
                 android:backgroundTintMode="src_atop"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                app:lottie_rawRes="@raw/password" />
+                app:lottie_rawRes="@raw/recuperarcontra" />
 
             <TextView
                 android:layout_width="match_parent"

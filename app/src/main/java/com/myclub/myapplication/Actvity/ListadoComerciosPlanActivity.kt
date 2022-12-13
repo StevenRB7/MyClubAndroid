@@ -109,7 +109,7 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
 
     private fun callConsultarMisComerciosAsociadosService() {
         try {
-            //alertLoadingNew.show()
+            alertLoadingNew.show()
 
             consultaMisPlanes = ConsultarVaucherRequestDto()
             consultaMisPlanes.IdPerson = intent.extras?.getString("IdPerson")?.toDouble()
@@ -124,8 +124,7 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
                         call: Call<CuponComercioResponseDto?>,
                         response: Response<CuponComercioResponseDto?>
                     ) {
-                       // alertLoadingNew.dismiss()
-
+                       alertLoadingNew.dismiss()
                         if (response.body() != null) {
                             respuestMisComercioAsociados = response.body()!!
                             iinitDos(respuestMisComercioAsociados.Categories?.get(0)?.Trade as MutableList<ComercioCategoriasResponseDto>)
@@ -134,12 +133,12 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
                     }
 
                     override fun onFailure(call: Call<CuponComercioResponseDto?>, t: Throwable) {
-                        //alertLoadingNew.dismiss()
+                        alertLoadingNew.dismiss()
                     }
 
                 })
         } catch (e: Exception) {
-            //alertLoadingNew.dismiss()
+            alertLoadingNew.dismiss()
         }
     }
 
@@ -180,7 +179,7 @@ class ListadoComerciosPlanActivity : AppCompatActivity() {
                 setCancelable(false)
             }.create()
             viewAlert.idTxtxMessage.text = "Cargando membresias"
-            alertLoadingNew.window?.setBackgroundDrawableResource(R.color.transparent)
+            alertLoadingNew.window?.setBackgroundDrawableResource(R.color.transparente)
         } catch (e: Exception) {
             //
         }

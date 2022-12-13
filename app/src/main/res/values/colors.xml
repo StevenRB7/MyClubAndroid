@@ -11,6 +11,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gris">#716F6F</color>
+    <color name="grisclaro">#AAA8A8</color>
     <color name="transparente">#00FFFFFF</color>
     <color name="color_hint">#9CFFFFFF</color>
 
@@ -32,6 +33,7 @@
     // COLORES RONDA FINAL MY CLUB AZUL
     <color name="azulcielo">#29a9e0</color>
     <color name="azulrey">#3F76ff</color>
+    <color name="azulnew">#2196f3</color>
     <color name="azuloscuro">#09007f</color>
     <color name="morado">#662d8f</color>
 

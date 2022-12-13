@@ -2,8 +2,6 @@ package com.myclub.myapplication.Actvity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.myclub.myapplication.R
-import com.myclub.myapplication.databinding.ActivityIniciarSesionBinding
 import com.myclub.myapplication.databinding.ActivityNotificacionesBinding
 
 class Notificaciones : AppCompatActivity() {

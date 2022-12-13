@@ -27,7 +27,7 @@
                 android:id="@+id/btnregresarlistado"
                 android:layout_width="48dp"
                 android:layout_height="47dp"
-                android:padding="@dimen/m_5dp"
+                android:padding="10dp"
                 android:src="@drawable/atras_blanca"
                 app:tint="@color/white" />
 

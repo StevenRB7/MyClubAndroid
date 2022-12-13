@@ -29,7 +29,7 @@
         <item
             android:id="@+id/nav_VauchersBusiness"
             android:icon="@drawable/vaucher"
-            android:title="@string/Vauchers" />
+            android:title="@string/MisMembresias" />
         <item
             android:id="@+id/nav_RedimirBusiness"
             android:icon="@drawable/redimir"

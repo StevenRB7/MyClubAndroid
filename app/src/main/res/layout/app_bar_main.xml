@@ -20,14 +20,14 @@
             android:layout_height="match_parent"
             app:itemRippleColor="@color/azulcielo"
             android:background="@color/white"
-
             app:titleTextColor="@color/transparente">
 
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="60dp"
+                android:layout_marginEnd="10dp"
                 android:layout_gravity="center"
-                android:src="@drawable/logosplashsquare" />
+                android:src="@drawable/logosquare" />
 
             <ImageView
                 android:id="@+id/idperfilmenu"

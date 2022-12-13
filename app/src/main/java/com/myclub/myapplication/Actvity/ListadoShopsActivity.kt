@@ -64,7 +64,6 @@ class ListadoShopsActivity : AppCompatActivity() {
         alertLoadingShow()
 
 
-        AlertLoading().alertLoadingDialog(this, "Cargando")
 
     }
 

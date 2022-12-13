@@ -63,23 +63,26 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="Mi Perfil"
+        android:typeface="serif"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/imgperfil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01999998" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txtnombreperfil3"
-        android:layout_width="379dp"
+        android:layout_width="380dp"
         android:layout_height="25dp"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="40dp"
         android:layout_marginBottom="30dp"
         android:layout_weight="1"
         android:gravity="left"
         android:text="Información básica"
+        android:typeface="serif"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/txtapellidoperfil5"
@@ -87,16 +90,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtnombreperfil" />
 
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/azulrey"
+        android:backgroundTint="@color/azulrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtnombreperfil3">
+
+    </androidx.viewpager.widget.ViewPager>
+
     <TextView
         android:id="@+id/txtnombreperfil4"
-        android:layout_width="411dp"
+        android:layout_width="380dp"
         android:layout_height="match_parent"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="6dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="21dp"
         android:layout_weight="1"
         android:gravity="left"
         android:text="Información de contacto"
+        android:typeface="serif"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/txtapellidoperfil6"
@@ -104,21 +120,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtcedula" />
 
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/azulrey"
+        android:backgroundTint="@color/azulrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtnombreperfil4">
+
+    </androidx.viewpager.widget.ViewPager>
+
     <TextView
-        android:visibility="invisible"
+        android:visibility="visible"
         android:id="@+id/txtcorreoelectronico"
         android:layout_width="162dp"
         android:layout_height="21dp"
-        android:layout_marginStart="34dp"
+        android:layout_marginStart="50dp"
         android:layout_marginEnd="216dp"
         android:layout_marginBottom="12dp"
-        android:layout_weight="1"
         android:text=""
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txtapellidoperfil4"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtapellidoperfil5"
         />
@@ -127,34 +153,55 @@
         android:id="@+id/txtcedula"
         android:layout_width="162dp"
         android:layout_height="21dp"
-        android:layout_marginStart="34dp"
+        android:layout_marginStart="50dp"
         android:layout_marginEnd="216dp"
         android:layout_marginBottom="71dp"
-        android:layout_weight="1"
         android:text=""
-        android:textColor="@android:color/black"
+        android:gravity="left"
+        android:textColor="@color/grisclaro"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txtnombreperfil4"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtapellidoperfil4" />
 
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/cedula"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.528">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/cel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.77">
+
+    </ImageView>
+
     <TextView
         android:id="@+id/txtapellidoperfil4"
-        android:layout_width="162dp"
+        android:layout_width="wrap_content"
         android:layout_height="21dp"
-        android:layout_marginStart="34dp"
+        android:layout_marginStart="50dp"
         android:layout_marginEnd="216dp"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="1"
-
-        android:text="Cedula"
+        android:text="Cédula de Ciudadanía"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txtcedula"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtcorreoelectronico" />
 
@@ -162,16 +209,13 @@
         android:id="@+id/txtapellidoperfil6"
         android:layout_width="162dp"
         android:layout_height="21dp"
-        android:layout_marginStart="34dp"
+        android:layout_marginStart="50dp"
         android:layout_marginEnd="228dp"
-        android:layout_weight="1"
         android:text="Celular"
-
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txtcelular"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtnombreperfil4" />
 
@@ -180,16 +224,14 @@
         android:id="@+id/txtapellidoperfil5"
         android:layout_width="162dp"
         android:layout_height="21dp"
-        android:layout_marginStart="34dp"
+        android:layout_marginStart="50dp"
         android:layout_marginEnd="216dp"
         android:layout_marginBottom="1dp"
-        android:layout_weight="1"
         android:text="Correo Electronico"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txtcorreoelectronico"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtnombreperfil3" />
 
@@ -197,17 +239,15 @@
         android:id="@+id/txtcelular"
         android:layout_width="162dp"
         android:layout_height="21dp"
-        android:layout_marginStart="34dp"
+        android:layout_marginStart="50dp"
         android:layout_marginEnd="228dp"
         android:layout_marginBottom="38dp"
         android:layout_weight="1"
         android:text=""
-
-        android:textColor="@android:color/black"
+        android:textColor="@color/grisclaro"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnCambiarContrasena"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtapellidoperfil6" />
 
@@ -217,7 +257,8 @@
         android:layout_height="32dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="235dp"
-        android:layout_marginBottom="51dp"
+        android:layout_marginTop="@dimen/m_15dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/color_btninicio"
         android:text="Cambiar Contraseña"
         android:textColor="@color/white"
@@ -239,9 +280,10 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btnCambiarContrasena"
         app:layout_constraintTop_toBottomOf="@+id/txtcelular"
-        app:layout_constraintVertical_bias="0.426" />
+        app:layout_constraintVertical_bias="0.469" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

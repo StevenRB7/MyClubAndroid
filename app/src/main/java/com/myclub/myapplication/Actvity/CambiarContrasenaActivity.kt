@@ -1,10 +1,8 @@
 package com.myclub.myapplication.Actvity
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.myclub.myapplication.R
@@ -16,12 +14,13 @@ import com.myclub.myapplication.databinding.AlertLoadingBinding
 import com.myclub.myapplication.network.ApiClient
 import com.myclub.myapplication.network.ApiService
 import com.myclub.myapplication.utils.Constantes
-import com.myclub.myapplication.utils.Constantes.ID_PROYECTO
+import com.myclub.myapplication.utils.Constantes.*
+import com.myclub.myapplication.utils.alerts.AlertCheckCambiar
 import com.myclub.myapplication.utils.alerts.AlertErrorResponse
+import com.myclub.myapplication.utils.dataStore.MyClub.Companion.sharedPreferences
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.regex.Pattern
 
 class CambiarContrasenaActivity : AppCompatActivity() {
 
@@ -31,7 +30,8 @@ class CambiarContrasenaActivity : AppCompatActivity() {
     private var cambiarResponseDto: ResponseDto? = null
     private lateinit var alertLoadingNew: AlertDialog
     private var dataUtils: DataUtils = DataUtils()
-
+    private var login: String = ""
+    private var idPerson: String = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,40 +39,40 @@ class CambiarContrasenaActivity : AppCompatActivity() {
         binding = ActivityCambiarContrasenaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+botones()
         cambiarResponseDto = ResponseDto()
-        botones()
         alertLoadingShow()
 
     }
 
     private fun botones() {
         binding.btnCambiarContrasena.setOnClickListener {
+            Toast.makeText(this, "En proceso Servicio en Mantenimiento",Toast.LENGTH_SHORT).show()
             if (ValidacionesCambiarContra()) {
-                binding.idnuevacontra.text.toString()
-                    callService()
+                callService()
+
             }
         }
     }
+
 
     private fun callService() {
         try {
             alertLoadingNew.show()
             cambiarRequestDto = CambiarContraRequestDto()
             cambiarRequestDto!!.IdProject = ID_PROYECTO
-            cambiarRequestDto!!.IdPerson = ""
-            cambiarRequestDto!!.Login =  ""
+            cambiarRequestDto!!.IdPerson = idPerson
+            cambiarRequestDto!!.Login =  login
             cambiarRequestDto!!.Password = binding.idnuevacontra.text.toString()
 
             val apiService: ApiService =
-                ApiClient.RetrofitHelper(Constantes.BASE_URL_PERSONAS).create(ApiService::class.java)
+                ApiClient.RetrofitHelper(BASE_URL_PERSONAS).create(ApiService::class.java)
             apiService.CambiarContra(cambiarRequestDto)
                 .enqueue(object : Callback<ResponseDto?> {
                     override fun onResponse(
                         call: Call<ResponseDto?>,
                         response: Response<ResponseDto?>
                     ) {
-                        Log.e("hhh",response.body()!!.CodeResponse.toString() )
                         alertLoadingNew.dismiss()
 
                         if (response.body() != null) {
@@ -95,29 +95,27 @@ class CambiarContrasenaActivity : AppCompatActivity() {
     }
 
     private fun accionesDeRespuesta(codeResponse: ResponseDto?) {
-        Toast.makeText(this, "${codeResponse!!.MessageResponse}", Toast.LENGTH_SHORT).show()
-        when (codeResponse.CodeResponse) {
-            Constantes.CodeSuccess -> {
-                val i =
-                    Intent(this@CambiarContrasenaActivity, IniciarSesion::class.java)
+        //Toast.makeText(this, "${codeResponse!!}", Toast.LENGTH_SHORT).show()
+        dataUtils = DataUtils()
+        when (codeResponse!!.CodeResponse) {
+            CodeSuccess -> {
+                sharedPreferences.storeIdUser(cambiarResponseDto!!.Data!!.IdPerson.toString())
+                sharedPreferences.storeActiveSessionUser(PREF_ACTIVE_SESSION)
+                AlertCheckCambiar().alertCheckCambiar(
+                    this@CambiarContrasenaActivity,
+                    "iniciarSesion"
+                )
 
-                startActivity(i)
             }
-            Constantes.CodeInvalidArgument -> {
+            CodeInvalidArgument -> {
                 AlertErrorResponse().alertErrorResponseDialog(
-                    this@CambiarContrasenaActivity, Constantes.MessageInvalidRequest, dataUtils
+                    this@CambiarContrasenaActivity, MessageInvalidRequest, dataUtils
                 )
                 AlertErrorResponse.alertDialogErrorResponse.show()
             }
-            Constantes.CodeElementAlreadyExists -> {
+            CodeServer -> {
                 AlertErrorResponse().alertErrorResponseDialog(
-                    this@CambiarContrasenaActivity, Constantes.MessageElementAlreadyExists, dataUtils
-                )
-                AlertErrorResponse.alertDialogErrorResponse.show()
-            }
-            Constantes.CodeServer -> {
-                AlertErrorResponse().alertErrorResponseDialog(
-                    this@CambiarContrasenaActivity, Constantes.MessageErrorServer, dataUtils
+                    this@CambiarContrasenaActivity, MessageErrorServer, dataUtils
                 )
                 AlertErrorResponse.alertDialogErrorResponse.show()
             }
@@ -132,16 +130,9 @@ class CambiarContrasenaActivity : AppCompatActivity() {
                 binding.idnuevacontra.error = null
             } else {
                 isValidForm = false
-                binding.idnuevacontra.error = Constantes.ERROR_FORMULARIO_VACIO
+                binding.idnuevacontra.error = ERROR_FORMULARIO_VACIO
             }
 
-            if (binding.idconfirmarcontra.text.toString().isNotEmpty()) {
-                isValidForm = true
-                binding.idconfirmarcontra.error = null
-            } else {
-                isValidForm = false
-                binding.idconfirmarcontra.error = Constantes.ERROR_FORMULARIO_VACIO
-            }
         } catch (e: Exception) {
             //
         }
@@ -155,7 +146,7 @@ class CambiarContrasenaActivity : AppCompatActivity() {
                 setView(viewAlert.root)
                 setCancelable(false)
             }.create()
-            viewAlert.idTxtxMessage.text = "Validando Datos"
+            viewAlert.idTxtxMessage.text = "Cargando Datos"
             alertLoadingNew.window?.setBackgroundDrawableResource(R.color.transparente)
         } catch (e: Exception) {
             //

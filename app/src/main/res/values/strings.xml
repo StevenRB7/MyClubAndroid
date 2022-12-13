@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Club</string>
+    <string name="app_name">My Qlub</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -58,7 +58,7 @@
     <string name="Promociones">Promociones</string>
     <string name="Membresias">Membresias</string>
     <string name="Metodos">Metodos de pago</string>
-    <string name="Vauchers"> Mis Vauchers</string>
+    <string name="MisMembresias"> Mis Membresias</string>
     <string name="Redimir">Redimir puntos</string>
     <string name="Codigo">Codigo de referidos</string>
     <string name="Soporte">Soporte</string>
@@ -66,7 +66,7 @@
     <string name="Restaurante"><![CDATA[Restaurantes & Bar]]></string>
     <string name="Hoteles"><![CDATA[Hoteles & Resorts]]></string>
     <string name="superpromo">Super Promos</string>
-    <string name="belleza"><![CDATA[Belleza & Deporte]]></string>
+    <string name="belleza"><![CDATA[Belleza & Cuidado]]></string>
     <string name="veterinaria">Veterinaria</string>
     <string name="mispuntos">Mis Puntos</string>
     <string name="ahorros">$500.000</string>
@@ -89,10 +89,11 @@
     <string name="msjRecuperar">Te enviaremos una contraseña temporal a tu correo electrónico, recuerda cambiarla</string>
     <string name="enviarbtnrecuperar">ENVIAR</string>
     <string name="registro">Registro</string>
+    <string name="Membresia"> MEMBRESIAS DISPONIBLES</string>
     <string name="msjQR">Al Scanear el código se quitará esta promoción de tu bandeja de Vaucher`s</string>
     <string name="Regresar">Regresar</string>
     <string name="confirmar">¿Confirmar su compra?</string>
-    <string name="informacioncompra">Al darle confirmar se redimira el cupon</string>
+    <string name="informacioncompra">Al darle confirmar se redimira el cupon.</string>
     <string name="btnconfirmar">CONFIRMAR</string>
     <string name="cambiarmsj">Estas a punto de cambiar tu contraseña</string>
     <string name="nuevacontra">Nueva contraseña</string>
@@ -102,7 +103,9 @@
     <string name="mensajecontra2">Después de cambiar su contraseña, debe iniciar sesión nuevamente</string>
     <string name="confirmarvtn">CONFIRMAR</string>
     <string name="verificadorecuperar">¡Nueva contraseña enviada!</string>
+    <string name="verificadorcambiar">¡Contraseña cambiada correctamente!</string>
     <string name="informacionrecuperar">Te hemos enviado tu nueva contraseña por mensaje de texto y al correo electronico para poder iniciar sesión</string>
+    <string name="informacionrcambiar"> Por tu seguridad vuelve a iniciar sesión</string>
     <string name="recuperarinfo">Usuario o correo invalido</string>
     <string name="cancelar">CANCELAR</string>
 

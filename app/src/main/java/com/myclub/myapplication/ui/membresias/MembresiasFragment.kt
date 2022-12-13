@@ -1,6 +1,5 @@
 package com.myclub.myapplication.ui.membresias
 
-import android.content.ClipData.Item
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -45,7 +44,6 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
     private fun callListService() {
 
         try {
-            //alertLoadingNew.show()
 
             consultaCuponDto = ConsultaCuponRequestDto()
             consultaCuponDto.IdQuery = 1.0
@@ -58,14 +56,12 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
                         call: Call<List<ConsultarCuponResponseDto?>?>,
                         response: Response<List<ConsultarCuponResponseDto?>?>
                     ) {
-                        //alertLoadingNew.dismiss()
 
                         if (response.body() != null && response.body()?.size!! > 0) {
                             listacupones =
                                 response.body() as MutableList<ConsultarCuponResponseDto>
                             initRecyclerView(listacupones)
 
-                            //alertLoadingNew.dismiss()
 
                         } else {
                             Toast.makeText(requireContext(), "Sin Conexion a internet", Toast.LENGTH_SHORT).show()
@@ -74,16 +70,12 @@ class MembresiasFragment : Fragment(R.layout.fragment_membresias) {
 
                     override fun onFailure(
                         call: Call<List<ConsultarCuponResponseDto?>?>, t: Throwable) {
-                        //alertLoadingNew.dismiss()
 
                     }
 
 
                 })
         } catch (e: Exception) {
-            //alertLoadingNew.dismiss()
-
-
         }
     }
 

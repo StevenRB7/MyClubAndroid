@@ -67,15 +67,14 @@ interface ApiService {
     @POST("/api/User/RegisterNewUser")
     fun registerNewUser(@Body personaRequest: PersonalModelDto?): Call<ResponseDto?>?
 
+ // REGISTRO PERSONAS
+ @POST("/api/User/RegisterNewUser")
+ fun registerNewUserr(@Body personaRequest: PersonalModelDto?): Call<PersonalModelDto?>?
 
     // INICIAR SESION
     @POST("/api/User/SignIn")
     fun signInUser(@Body signInRequestDto: SignInRequestDto?): Call<ResponseDto?>?
 
-
-    // VERIFICAR CODIGO DE REGISTRO
-    @POST("/api/User/VerifyCode")
-    fun verifyCode(@Body verifyCoeRequestDto: VerifyCoeRequestDto?): Call<ResponseDto?>?
 
 
 }
